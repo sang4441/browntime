@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BrownTime</string>
+    <string name="one">home</string>
+    <string name="two">menu</string>
+    <string name="action_settings">Settings</string>
+    
+    
+    <string name="americano">americano</string>
+    <string name="caffe_latte">caffe late</string>
+    <string name="korean_roll">rice roll</string>
+    
+    <string name="menu_name">Menu Name</string>
+    <string name="menu_detail">Menu Detail</string>
+    
+    <string name="menu_details_label">Menu detail</string>
+    <string name="menu_title_label">Menu Name</string>
+
+</resources>
