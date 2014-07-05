@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 
-public class BrownActivity extends FragmentActivity {
+public class BrownMenuActivity extends FragmentActivity {
 
 	protected Fragment createFragment() {
 		return new BrownMenuFragment();
@@ -23,11 +23,11 @@ public class BrownActivity extends FragmentActivity {
 		setContentView(R.layout.activity_brown);
 
 		FragmentManager fm = getSupportFragmentManager();
-		Fragment fragment = fm.findFragmentById(R.id.fragmentContainer);
+		Fragment fragment = fm.findFragmentById(R.id.fragmentContent);
 //		
 		if (fragment == null) {
 			fragment = new BrownMenuFragment();
-			fm.beginTransaction().add(R.id.fragmentContainer, fragment).commit();
+			fm.beginTransaction().add(R.id.fragmentContent, fragment).commit();
 		}
 	}
 

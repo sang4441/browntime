@@ -9,26 +9,38 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class BrownListFragment extends ListFragment {
+public class BrownMenuListFragment extends ListFragment {
 
 	private static final String TAG = "CrimeListFragment";	
 	private ArrayList<BrownMenu> mMenus;
 	
-	
+	private EditText mMenuQuantity;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 //		getActivity().setTitle(R.string.me);
-		mMenus = MenuLab.get(getActivity()).getMenus();
+		if (savedInstanceState == null) {
+			mMenus = MenuLab.get(getActivity()).getMenus(1);
+		} else {
+			mMenus = MenuLab.get(getActivity()).getMenus(2);
+		}
 		
 //		ArrayAdapter<BrownMenu> adapter = new ArrayAdapter<BrownMenu>(getActivity(), android.R.layout.simple_list_item_1, mMenus);
 		
 		BrownMenuAdapter adapter = new BrownMenuAdapter(mMenus);
+		setListAdapter(adapter);
+	}
+	
+	public void listFetch(int type) {
+		ArrayList<BrownMenu> mMenuTmp = MenuLab.get(getActivity()).getMenus(type);;
+    	BrownMenuAdapter adapter = new BrownMenuAdapter(mMenuTmp);
 		setListAdapter(adapter);
 	}
 
@@ -52,17 +64,18 @@ public class BrownListFragment extends ListFragment {
 		public View getView(int position, View convertView, ViewGroup parent) {
 			if (convertView == null) {
 				convertView = getActivity().getLayoutInflater()
-						.inflate(R.layout.list_item_menu, null);
+						.inflate(R.layout.list_item_menu, parent, false);
 			}
 			
 			BrownMenu c = getItem(position);
 			
+			ImageView imageView = (ImageView) convertView.findViewById(R.id.menu_list_item_imageView);
+			imageView.setImageResource(R.drawable.americano);
 			TextView nameTextView = (TextView)convertView.findViewById(R.id.menu_list_item_nameTextView);
 			nameTextView.setText(c.getName());
 			TextView priceTextView = (TextView)convertView.findViewById(R.id.menu_list_item_priceTextView);
 			priceTextView.setText(String.valueOf(c.getPrice()));
-//			CheckBox solvedCheckBox = (CheckBox)convertView.findViewById(R.id.menu_list_item_CheckBox);
-//			solvedCheckBox.setChecked(c.get);
+
 			
 			return convertView;
 		}

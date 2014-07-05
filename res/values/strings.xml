@@ -9,12 +9,31 @@
     
     <string name="americano">americano</string>
     <string name="caffe_latte">caffe late</string>
+    <string name="capucino">cappucino</string>
+    <string name="iced_americano">iced americano</string>
+    <string name="iced_latte">iced latte</string>
+    <string name="iced_cappucino">iced cappucino</string>
+    
+    <string name="latte_1">green tea latte</string>
+    <string name="latte_2">multigrain latte</string>
+    <string name="latte_3">vanila latte</string>
+    <string name="latte_4">latte four</string>
+    <string name="latte_5">latte five</string>
+    <string name="latte_6">latte six</string>
+    
     <string name="korean_roll">rice roll</string>
+    <string name="korean_roll_2">hwatong roll</string>
+    <string name="sandwich_1">BLT</string>
+    <string name="sandwich_2">Club sandwich</string>
+    <string name="pizza_1">pizza one</string>
+    <string name="pizza_2">pizza two</string>
     
     <string name="menu_name">Menu Name</string>
     <string name="menu_detail">Menu Detail</string>
     
     <string name="menu_details_label">Menu detail</string>
     <string name="menu_title_label">Menu Name</string>
+    
+    <string name="menu_quantity_hint">0</string>
 
 </resources>

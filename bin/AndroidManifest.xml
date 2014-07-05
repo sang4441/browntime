@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="12"
         android:targetSdkVersion="19" />
 
     <application
@@ -13,7 +13,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-         <activity android:name=".BrownListActivity">
+         <activity android:name=".CollectionDemoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -21,7 +21,7 @@
         </activity>
         
         <activity
-            android:name=".BrownPagerActivity"
+            android:name=".DemoCollectionPagerActivity"
             android:label="@string/app_name" >
             <!-- <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

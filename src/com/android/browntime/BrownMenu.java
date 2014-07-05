@@ -8,15 +8,20 @@ public class BrownMenu {
 	private int mName;
 	private int mPrice;
 	private int mQuantity;
-	
+	private int mType;
+
+
 	public BrownMenu() {
 		mId = UUID.randomUUID();
+		mQuantity = 0;
 	}
 	
-	public BrownMenu(int name, int price) {
+	public BrownMenu(int name, int price, int type) {
 		mId = UUID.randomUUID();
 		mName = name;
 		mPrice = price;
+		mQuantity = 0;
+		mType = type;
 	}
 	
 	public UUID getId() {
@@ -38,6 +43,18 @@ public class BrownMenu {
 		mPrice = price;
 	}
 	
+	public int getQuantity() {
+		return mQuantity;
+	}
+
+	public void setQuantity(int quantity) {
+		mQuantity = quantity;
+	}	
+	
+	public int getType() {
+		return mType;
+	}
+
 //	@Override
 //	public String toString() {
 //		return mName;
