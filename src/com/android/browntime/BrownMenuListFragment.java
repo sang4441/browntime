@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 public class BrownMenuListFragment extends ListFragment {
 
+	public static final String MENU_TYPE = "object";
 	private static final String TAG = "CrimeListFragment";	
 	private ArrayList<BrownMenu> mMenus;
 	
@@ -26,13 +27,15 @@ public class BrownMenuListFragment extends ListFragment {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 //		getActivity().setTitle(R.string.me);
-		if (savedInstanceState == null) {
-			mMenus = MenuLab.get(getActivity()).getMenus(1);
-		} else {
-			mMenus = MenuLab.get(getActivity()).getMenus(2);
-		}
+//		if (savedInstanceState == null) {
+//			mMenus = MenuLab.get(getActivity()).getMenus(1);
+//		} else {
+//			mMenus = MenuLab.get(getActivity()).getMenus(2);
+//		}
 		
 //		ArrayAdapter<BrownMenu> adapter = new ArrayAdapter<BrownMenu>(getActivity(), android.R.layout.simple_list_item_1, mMenus);
+		Bundle args = getArguments();
+		mMenus = MenuLab.get(getActivity()).getMenus(args.getInt(MENU_TYPE));
 		
 		BrownMenuAdapter adapter = new BrownMenuAdapter(mMenus);
 		setListAdapter(adapter);

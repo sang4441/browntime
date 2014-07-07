@@ -20,7 +20,7 @@ public class DemoObjectFragment extends Fragment {
      // The last two arguments ensure LayoutParams are inflated
      // properly.
      View rootView = inflater.inflate(
-             R.layout.fragment_demo, container, false);
+             R.layout.list_item_menu, container, false);
      Bundle args = getArguments();
      ((TextView) rootView.findViewById(R.id.text_1)).setText(
              Integer.toString(args.getInt(ARG_OBJECT)));
