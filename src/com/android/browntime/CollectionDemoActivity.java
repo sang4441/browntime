@@ -5,12 +5,14 @@ import android.app.ActionBar.Tab;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.widget.TextView;
 
 public class CollectionDemoActivity extends FragmentActivity {
     // When requested, this adapter returns a DemoObjectFragment,
     // representing an object in the collection.
     DemoCollectionPagerAdapter mDemoCollectionPagerAdapter;
     ViewPager mViewPager;
+    TextView mView1;
 
     public void onCreate(Bundle savedInstanceState) {
     	final ActionBar actionBar = getActionBar();
@@ -18,6 +20,9 @@ public class CollectionDemoActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collection_demo);
 
+		
+		mView1 = (TextView)findViewById(R.id.menu_cart);
+		mView1.setText("Go to cart");
         // ViewPager and its adapters use support library
         // fragments, so use getSupportFragmentManager.
         mDemoCollectionPagerAdapter =

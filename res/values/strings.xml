@@ -33,6 +33,7 @@
     
     <string name="menu_details_label">Menu detail</string>
     <string name="menu_button_add_to_cart">Add to cart</string>
+    <string name="menu_button_checkout">Checkout</string>
     <string name="menu_title_label">Menu Name</string>
     <string name="menu_price_label">Price</string>
     <string name="menu_price_total_label">Total price</string>

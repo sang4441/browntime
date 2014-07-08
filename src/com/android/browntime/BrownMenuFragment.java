@@ -101,7 +101,7 @@ public class BrownMenuFragment extends Fragment {
 				} else {
 					quantity = Integer.parseInt(mMenuQuantity.getText().toString());					
 				}
-				if (quantity < 1) {
+				if (quantity < 2) {
 					
 				} else {
 					mMenuQuantity.setText(String.valueOf((quantity)-1));

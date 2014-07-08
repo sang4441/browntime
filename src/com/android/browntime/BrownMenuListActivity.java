@@ -39,13 +39,14 @@ public class BrownMenuListActivity extends SingleFragmentActivity {
 //		gridView.setAdapter(adapter);
 //	}
 
-//	@Override
-//	public void onCreate(Bundle savedInstanceState) {
-//		super.onCreate(savedInstanceState);
-//
-//		setContentView(R.layout.activity_brown);
-//		
-//		mView1 = (TextView)findViewById(R.id.menu_coffee);
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		setContentView(R.layout.activity_brown);
+		
+		mView1 = (TextView)findViewById(R.id.menu_cart);
+		mView1.setText("Go to cart");
 //		mView1.setOnClickListener(new View.OnClickListener() {
 //			@Override
 //			public void onClick(View v) {
@@ -60,17 +61,17 @@ public class BrownMenuListActivity extends SingleFragmentActivity {
 ////				startActivity(i);
 //			}
 //		});
+		
+//		mView2.findViewById(R.id.menu_non_coffee);
+//		mView2.setOnClickListener(new View.OnClickListener() {
+//			@Override
+//			public void onClick(View v) {
+//				new BrownListFragment().listFetch(2);
+//			}
+//		});
 //		
-////		mView2.findViewById(R.id.menu_non_coffee);
-////		mView2.setOnClickListener(new View.OnClickListener() {
-////			@Override
-////			public void onClick(View v) {
-////				new BrownListFragment().listFetch(2);
-////			}
-////		});
-////		
-////		
-////		mView3.findViewById(R.id.menu_side);
 //		
-//	}
+//		mView3.findViewById(R.id.menu_side);
+		
+	}
 }

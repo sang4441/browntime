@@ -14,44 +14,12 @@
 		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
 		    android:orientation="vertical" >
-		<TableRow 
-		    android:layout_width="match_parent"
-		    android:layout_height="wrap_content"
-		    android:gravity="center"
-		    android:background="#a2342e"
-		    android:weightSum="10">
-		    <TextView
-		        android:id="@+id/menu_coffee"
-		        android:layout_width="wrap_content"
+			
+		    <TextView android:id="@+id/menu_cart"
+		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
-		        android:layout_alignParentTop="true"
-		        android:layout_alignParentLeft="true"
-		        android:textSize="20sp"
-		        android:text="Coffe"
-		        android:layout_weight="2.5" />
-		
-		    <TextView
-		        android:id="@+id/menu_non_coffee"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:textSize="20sp" 
-		        android:text="non-coffee"
-		        android:layout_weight="2.5"/>
-		    <TextView
-		        android:id="@+id/menu_side"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:textSize="20sp" 
-		        android:text="side"
-		        android:layout_weight="2.5"/>
-		    <TextView
-		        android:id="@+id/textView2"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:textSize="20sp" 
-		        android:text="bingsu"
-		        android:layout_weight="2.5"/>
-		</TableRow>
+		        style="?android:listSeparatorTextViewStyle"
+		        />
 		
 		</LinearLayout>
 		
