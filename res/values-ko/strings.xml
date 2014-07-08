@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="espresso">에스프레소 (hot)</string>
+    <string name="americano">아메리카노 (hot)</string>
+    <string name="latte_cafe">카페라떼 (hot)</string>
+    <string name="latte_cube">큐라라떼 (hot)</string>
+    <string name="capucino">카푸치노 (hot)</string>
+    <string name="caffe_moka">카페모카 (hot)</string>
+    <string name="latte_caramel">카라멜라떼 (hot)</string>
+    <string name="latte_vanilla">바닐라라떼 (hot)</string>
+    <string name="con_panna">꼰파냐 (hot)</string>
+    <string name="vienna">비엔나 (hot)</string>
+    
+    <string name="shakerato">사케라또</string>
+    <string name="iced_americano">아메리카노 (ice)</string>
+    <string name="iced_latte_cafe">카페라떼 (ice)</string>
+    <string name="iced_cappucino">카푸치노 (ice)</string>
+    <string name="iced_caffe_moka">카페모카 (ice)</string>
+    <string name="iced_latte_caramel">카라멜라떼 (ice)</string>
+    <string name="iced_latte_vanilla">바닐라라떼 (ice)</string>
+    <string name="dutch_coffe">더치커피</string>
+    <string name="dutch_latte">더치라떼</string>
+    <string name="affogato">아포가토</string>
+    
+    <string name="latte_chocolate">초코 (hot)</string>
+    <string name="latte_yam">고구마라떼 (hot)</string>
+    <string name="latte_greentea">그린티라떼 (hot)</string>
+    <string name="latte_grain">오곡라떼 (hot)</string>
+    <string name="latte_chai">짜이라떼 (hot)</string>
+    <string name="tea_milk">밀크티 (hot)</string>
+    
+    <string name="iced_latte_chocolate">초코 (ice)</string>
+    <string name="iced_latte_yam">고구마라떼 (ice)</string>
+    <string name="iced_latte_greentea">그린티라떼 (ice)</string>
+    <string name="iced_latte_grain">오곡라떼 (ice)</string>
+    <string name="iced_latte_chai">짜이라떼 (ice)</string>
+    <string name="iced_tea_milk">밀크티 (ice)</string>
+    
+   <!--  <string name=""></string>
+    <string name=""></string>
+    <string name=""></string>
+    <string name=""></string>
+    
+    <string name=""></string>
+    <string name=""></string>
+     -->
+    <string name="korean_roll">rice roll</string>
+    <string name="korean_roll_2">hwatong roll</string>
+    <string name="sandwich_1">BLT</string>
+    <string name="sandwich_2">Club sandwich</string>
+    <string name="pizza_1">pizza one</string>
+    <string name="pizza_2">pizza two</string>
+</resources>
