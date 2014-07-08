@@ -9,7 +9,7 @@ public class BrownMenu {
 	private int mPrice;
 	private int mQuantity;
 	private int mType;
-
+	private String mDescription;
 
 	public BrownMenu() {
 		mId = UUID.randomUUID();
@@ -22,6 +22,15 @@ public class BrownMenu {
 		mPrice = price;
 		mQuantity = 0;
 		mType = type;
+	}
+	
+	public BrownMenu(int name, int price, int type, String description) {
+		mId = UUID.randomUUID();
+		mName = name;
+		mPrice = price;
+		mQuantity = 0;
+		mType = type;
+		mDescription = description;
 	}
 	
 	public UUID getId() {
@@ -54,6 +63,15 @@ public class BrownMenu {
 	public int getType() {
 		return mType;
 	}
+
+	public String getDescription() {
+		return mDescription;
+	}
+
+	public void setDescription(String description) {
+		mDescription = description;
+	}
+
 
 //	@Override
 //	public String toString() {

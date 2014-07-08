@@ -12,14 +12,14 @@
 	        style="?android:listSeparatorTextViewStyle"
 	        />
 	    
-	    <LinearLayout android:layout_width="wrap_content"
+	    <LinearLayout android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:orientation="horizontal"
 	    style="?android:listSeparatorTextViewStyle">
 		        <ImageView
 		        android:id="@+id/menu_image"
-		        android:layout_width="50dp"
-		        android:layout_height="50dp" />
+		        android:layout_width="150dp"
+		        android:layout_height="100dp" />
 		        
 		         <TextView android:id="@+id/menu_description"
 		        android:layout_width="match_parent"
@@ -27,57 +27,93 @@
 		        />
 	    </LinearLayout>
 	    
-	   
-	
-	    <TextView android:id="@+id/menu_price"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:text="@string/menu_price_label"
-	        style="?android:listSeparatorTextViewStyle"
-	        />
-	  
-	    
-	    <LinearLayout android:layout_width="wrap_content"
+	   <LinearLayout android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
 	    android:orientation="horizontal"
 	    style="?android:listSeparatorTextViewStyle">
-		    
-		    
+	        <TextView 
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"		        
+		        android:text="@string/menu_price_label"
+		        android:gravity="left"
+		        />
+	         <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            /> 
+        
+        	<TextView android:id="@+id/menu_price"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="right"
+	        />
+        </LinearLayout>
+	
+	    
+	  
+	    
+	    <LinearLayout android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    style="?android:listSeparatorTextViewStyle">
+			<TextView 
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"		        
+		        android:text="@string/menu_quantity_label"
+		        android:gravity="left"
+		        />
+	        
+	         <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            /> 
+        
+	         
 		     <ImageButton
 		    android:id="@+id/menu_quantity_minus"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		
-		    android:layout_alignParentBottom="true"
-		    android:layout_alignParentRight="true"
-		
+		    android:layout_width="20dp"
+		    android:layout_height="20dp"		
 		    android:src="@drawable/ic_minus" />
 		    
 		    <TextView android:id="@+id/menu_quantity"
-	        android:layout_width="match_parent"
+	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="@string/menu_quantity_label"
+	        android:text="1"
 	        />
 		    
 		    <ImageButton
 		    android:id="@+id/menu_quantity_plus"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		
-		    android:layout_alignParentBottom="true"
-		    android:layout_alignParentRight="true"
-		
+		    android:layout_width="20dp"
+		    android:layout_height="20dp"		
 		    android:src="@drawable/ic_plus" />
 		    
         </LinearLayout>
 	     
+	     
+	     <LinearLayout android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    style="?android:listSeparatorTextViewStyle">
 	      
-	    <TextView android:id="@+id/menu_price_total"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:text="@string/menu_price_total_label"
-	        style="?android:listSeparatorTextViewStyle"
-	        />
+   		    <TextView 
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"	        
+		        android:text="@string/menu_price_total_label"
+		        />
+   		    
+   		      <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            /> 
+		    
+		    <TextView android:id="@+id/menu_price_total"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        />
+	    </LinearLayout>
 	    
 	    <Button android:id="@+id/menu_add_to_cart"
 	        android:layout_width="match_parent"

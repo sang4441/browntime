@@ -22,8 +22,8 @@ public class BrownMenuFragment extends Fragment {
 	private ArrayList<BrownMenu> mMenus;
 	
 	private BrownMenu mMenu;
-	private TextView mMenuName, mMenuPrice, menuQuantity, menuPriceTotal;
-	private ImageView mMenuImage, mMenuQuantityPlus, mMenuQuantityMinus;
+	private TextView mMenuName, mMenuPrice, mMenuQuantity, mMenuPriceTotal, mMenuDescription;
+	private ImageView mMenuImage, mmMenuQuantityPlus, mmMenuQuantityMinus;
 	private Button mMenuAddToCart;
 	
 	
@@ -40,8 +40,8 @@ public class BrownMenuFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.fragment_menu,  parent, false);
 	
-		menuPriceTotal = (TextView)v.findViewById(R.id.menu_price_total);
-		menuPriceTotal.setText(String.valueOf(mMenu.getPrice()));
+		mMenuPriceTotal = (TextView)v.findViewById(R.id.menu_price_total);
+		mMenuPriceTotal.setText(String.valueOf(mMenu.getPrice()));
 		
 		mMenuName = (TextView)v.findViewById(R.id.menu_name);
 		mMenuName.setText(mMenu.getName());
@@ -52,11 +52,14 @@ public class BrownMenuFragment extends Fragment {
 		mMenuImage = (ImageView)v.findViewById(R.id.menu_image);
 		mMenuImage.setImageResource(R.drawable.americano);
 		
-		menuQuantity = (TextView)v.findViewById(R.id.menu_quantity);
-		menuQuantity.addTextChangedListener(new TextWatcher() {
+		mMenuDescription = (TextView)v.findViewById(R.id.menu_description);
+		mMenuDescription.setText(mMenu.getDescription());
+		
+		mMenuQuantity = (TextView)v.findViewById(R.id.menu_quantity);
+		mMenuQuantity.addTextChangedListener(new TextWatcher() {
 			public void onTextChanged(CharSequence c, int start, int before, int count) {
 				mMenu.setQuantity(Integer.parseInt(c.toString()));
-				menuPriceTotal.setText(String.valueOf(mMenu.getPrice()*mMenu.getQuantity()));
+				mMenuPriceTotal.setText(String.valueOf(mMenu.getPrice()*mMenu.getQuantity()));
 			}
 			
 			public void beforeTextChanged(CharSequence c, int start, int count, int after) {
@@ -68,18 +71,18 @@ public class BrownMenuFragment extends Fragment {
 		});
 		
 		
-		mMenuQuantityPlus = (ImageView)v.findViewById(R.id.menu_quantity_plus);
-		mMenuQuantityPlus.setOnClickListener(new View.OnClickListener() {
+		mmMenuQuantityPlus = (ImageView)v.findViewById(R.id.menu_quantity_plus);
+		mmMenuQuantityPlus.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				String quantity;
-				if (menuQuantity.getText().equals(null)) {
+				if (mMenuQuantity.getText().equals(null)) {
 					quantity = "1";
 				} else {
-					quantity = menuQuantity.getText().toString();
+					quantity = mMenuQuantity.getText().toString();
 				}
-				menuQuantity.setText(String.valueOf((Integer.parseInt(quantity)+1)));
+				mMenuQuantity.setText(String.valueOf((Integer.parseInt(quantity)+1)));
 				
 
 			}
@@ -87,21 +90,21 @@ public class BrownMenuFragment extends Fragment {
 			
 		});
 		
-		mMenuQuantityMinus = (ImageView)v.findViewById(R.id.menu_quantity_minus);
-		mMenuQuantityMinus.setOnClickListener(new View.OnClickListener() {
+		mmMenuQuantityMinus = (ImageView)v.findViewById(R.id.menu_quantity_minus);
+		mmMenuQuantityMinus.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				int quantity;
-				if (menuQuantity.getText().equals(null)) {
+				if (mMenuQuantity.getText().equals(null)) {
 					quantity = 1;
 				} else {
-					quantity = Integer.parseInt(menuQuantity.getText().toString());					
+					quantity = Integer.parseInt(mMenuQuantity.getText().toString());					
 				}
 				if (quantity < 1) {
 					
 				} else {
-					menuQuantity.setText(String.valueOf((quantity)-1));
+					mMenuQuantity.setText(String.valueOf((quantity)-1));
 				}
 
 			}
@@ -114,7 +117,7 @@ public class BrownMenuFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				BrownCart newItem = new BrownCart(mMenu.getName(), mMenu.getPrice(), mMenu.getType());
-				newItem.setQuantity(Integer.parseInt(menuQuantity.getText().toString()));
+				newItem.setQuantity(Integer.parseInt(mMenuQuantity.getText().toString()));
 				CartLab.get(getActivity()).addMenu(newItem);
 				
 //				menuPriceTotal.setText(String.valueOf(CartLab.get(getActivity()).getPriceTotal()));

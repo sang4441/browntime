@@ -2,15 +2,17 @@ package com.android.browntime;
 
 import java.util.ArrayList;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -34,10 +36,19 @@ public class BrownMenuListFragment extends ListFragment {
 //		}
 		
 //		ArrayAdapter<BrownMenu> adapter = new ArrayAdapter<BrownMenu>(getActivity(), android.R.layout.simple_list_item_1, mMenus);
+		
+		LayoutInflater gridInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View v = gridInflater.inflate(R.layout.main, null);
+//
+	    GridView gridview = (GridView)v.findViewById(R.id.gridview);
+	    
 		Bundle args = getArguments();
 		mMenus = MenuLab.get(getActivity()).getMenus(args.getInt(MENU_TYPE));
 		
 		BrownMenuAdapter adapter = new BrownMenuAdapter(mMenus);
+		
+		
+//		gridview.setAdapter(adapter);
 		setListAdapter(adapter);
 	}
 	
@@ -59,16 +70,28 @@ public class BrownMenuListFragment extends ListFragment {
 	}
 	
 	private class BrownMenuAdapter extends ArrayAdapter<BrownMenu> {
+		private Context mContext;
+		 
 		public BrownMenuAdapter(ArrayList<BrownMenu> menus) {
 			super(getActivity(), 0, menus);
 		}
 		
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
+			View v;
+			
 			if (convertView == null) {
+//				v = getActivity().getLayoutInflater().inflate(R.layout.main, null);
+//			    v.setLayoutParams(new GridView.LayoutParams(200,200));
 				convertView = getActivity().getLayoutInflater()
 						.inflate(R.layout.list_item_menu, parent, false);
+			} else {
+				v = convertView;
 			}
+			
+//			GridView gridview = (GridView)v.findViewById(R.id.gridview);
+//			
+//			return gridview;
 			
 			BrownMenu c = getItem(position);
 			
@@ -78,7 +101,6 @@ public class BrownMenuListFragment extends ListFragment {
 			nameTextView.setText(c.getName());
 			TextView priceTextView = (TextView)convertView.findViewById(R.id.menu_list_item_priceTextView);
 			priceTextView.setText(String.valueOf(c.getPrice()));
-
 			
 			return convertView;
 		}
@@ -87,7 +109,7 @@ public class BrownMenuListFragment extends ListFragment {
 	@Override
 	public void onResume() {
 		super.onResume();
-		((BrownMenuAdapter)getListAdapter()).notifyDataSetChanged();
+//		((BrownMenuAdapter)getAdapter).notifyDataSetChanged();
 	}
 	
 }
