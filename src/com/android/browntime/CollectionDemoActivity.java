@@ -91,8 +91,20 @@ public class CollectionDemoActivity extends FragmentActivity {
                 .setText("non-coffee")
                 .setTabListener(tabListener));
         actionBar.addTab(actionBar.newTab()
-                .setText("side")
+        		.setText("beverage")
+        		.setTabListener(tabListener));
+        actionBar.addTab(actionBar.newTab()
+                .setText("tea")
                 .setTabListener(tabListener));
+        actionBar.addTab(actionBar.newTab()
+                .setText("dessert")
+                .setTabListener(tabListener));
+        actionBar.addTab(actionBar.newTab()
+                .setText("brunch")
+                .setTabListener(tabListener));
+        actionBar.addTab(actionBar.newTab()
+                .setText("snack")
+            	.setTabListener(tabListener));
        
     }
 }
