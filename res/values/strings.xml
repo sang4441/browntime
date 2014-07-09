@@ -39,5 +39,6 @@
     <string name="menu_price_total_label">Total price</string>
     <string name="menu_quantity_label">Quantity</string>
     
+    
     <string name="menu_quantity_hint">0</string>
 </resources>

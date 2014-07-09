@@ -2,9 +2,12 @@ package com.android.browntime;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class CollectionDemoActivity extends FragmentActivity {
@@ -12,7 +15,7 @@ public class CollectionDemoActivity extends FragmentActivity {
     // representing an object in the collection.
     DemoCollectionPagerAdapter mDemoCollectionPagerAdapter;
     ViewPager mViewPager;
-    TextView mView1;
+    TextView mGoToCart;
 
     public void onCreate(Bundle savedInstanceState) {
     	final ActionBar actionBar = getActionBar();
@@ -21,8 +24,20 @@ public class CollectionDemoActivity extends FragmentActivity {
         setContentView(R.layout.activity_collection_demo);
 
 		
-		mView1 = (TextView)findViewById(R.id.menu_cart);
-		mView1.setText("Go to cart");
+        mGoToCart = (TextView)findViewById(R.id.menu_cart);
+        mGoToCart.setText("Go to cart");
+		mGoToCart.setOnClickListener(new View.OnClickListener() {
+		
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(CollectionDemoActivity.this, BrownCartListActivity.class);
+//			    EditText editText = (EditText) findViewById(R.id.edit_message);
+//			    String message = editText.getText().toString();
+//			    intent.putExtra(EXTRA_MESSAGE, message);
+			    startActivity(intent);
+			}
+	});
+		
         // ViewPager and its adapters use support library
         // fragments, so use getSupportFragmentManager.
         mDemoCollectionPagerAdapter =
@@ -69,13 +84,6 @@ public class CollectionDemoActivity extends FragmentActivity {
 			}
         };
 
-        // Add 3 tabs, specifying the tab's text and TabListener
-//        for (int i = 0; i < 3; i++) {
-//            actionBar.addTab(
-//                    actionBar.newTab()
-//                            .setText("Tab " + (i + 1))
-//                            .setTabListener(tabListener));
-//        }
         actionBar.addTab(actionBar.newTab()
                         .setText("coffee")
                         .setTabListener(tabListener));

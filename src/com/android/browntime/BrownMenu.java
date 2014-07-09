@@ -13,14 +13,14 @@ public class BrownMenu {
 
 	public BrownMenu() {
 		mId = UUID.randomUUID();
-		mQuantity = 0;
+		mQuantity = 1;
 	}
 	
 	public BrownMenu(int name, int price, int type) {
 		mId = UUID.randomUUID();
 		mName = name;
 		mPrice = price;
-		mQuantity = 0;
+		mQuantity = 1;
 		mType = type;
 	}
 	
@@ -28,7 +28,7 @@ public class BrownMenu {
 		mId = UUID.randomUUID();
 		mName = name;
 		mPrice = price;
-		mQuantity = 0;
+		mQuantity = 1;
 		mType = type;
 		mDescription = description;
 	}
