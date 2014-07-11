@@ -2,7 +2,6 @@ package com.android.browntime;
 
 import java.util.ArrayList;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -29,30 +28,8 @@ public class BrownMenuListFragment extends Fragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-//		getActivity().setTitle(R.string.me);
-//		if (savedInstanceState == null) {
-//			mMenus = MenuLab.get(getActivity()).getMenus(1);
-//		} else {
-//			mMenus = MenuLab.get(getActivity()).getMenus(2);
-//		}
-		
-//		ArrayAdapter<BrownMenu> adapter = new ArrayAdapter<BrownMenu>(getActivity(), android.R.layout.simple_list_item_1, mMenus);
-		
-		LayoutInflater gridInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View v = gridInflater.inflate(R.layout.main, null);
-//
-        
-//	    GridView gridview = (GridView)v.findViewById(R.id.gridview);
-	    
 		Bundle args = getArguments();
 		mMenus = MenuLab.get(getActivity()).getMenus(args.getInt(MENU_TYPE));
-		
-		BrownMenuAdapter adapter = new BrownMenuAdapter(mMenus);
-//		
-//		
-//		gridview.setAdapter(adapter);
-//		setListAdapter(adapter);
-	
 	}
 	
 	
@@ -76,9 +53,7 @@ public class BrownMenuListFragment extends Fragment {
 		return v;
 	}
 	
-	private class BrownMenuAdapter extends ArrayAdapter<BrownMenu> {
-		private Context mContext;
-		 
+	private class BrownMenuAdapter extends ArrayAdapter<BrownMenu> {		 
 		public BrownMenuAdapter(ArrayList<BrownMenu> menus) {
 			super(getActivity(), 0, menus);
 		}
@@ -103,13 +78,6 @@ public class BrownMenuListFragment extends Fragment {
 			return convertView;
 		}
 		
-	}
-	
-	
-	@Override
-	public void onResume() {
-		super.onResume();
-//		((BrownMenuAdapter)getAdapter).notifyDataSetChanged();
 	}
 	
 }
