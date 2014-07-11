@@ -23,10 +23,10 @@
             android:name=".BrownPagerActivity"
             android:label="@string/app_name" >
         </activity>
-        <activity
+       <!--  <activity
             android:name=".DemoCollectionPagerActivity"
             android:label="@string/app_name" >
-        </activity>
+        </activity> -->
         <activity
             android:name=".BrownMenuActivity"
             android:label="@string/app_name" >

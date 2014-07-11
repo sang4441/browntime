@@ -5,19 +5,20 @@ import java.util.ArrayList;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.ListFragment;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
-public class BrownMenuListFragment extends ListFragment {
+public class BrownMenuListFragment extends Fragment {
 
 	public static final String MENU_TYPE = "object";
 	private static final String TAG = "CrimeListFragment";	
@@ -40,33 +41,39 @@ public class BrownMenuListFragment extends ListFragment {
 		LayoutInflater gridInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View v = gridInflater.inflate(R.layout.main, null);
 //
-	    GridView gridview = (GridView)v.findViewById(R.id.gridview);
+        
+//	    GridView gridview = (GridView)v.findViewById(R.id.gridview);
 	    
 		Bundle args = getArguments();
 		mMenus = MenuLab.get(getActivity()).getMenus(args.getInt(MENU_TYPE));
 		
 		BrownMenuAdapter adapter = new BrownMenuAdapter(mMenus);
-		
-		
+//		
+//		
 //		gridview.setAdapter(adapter);
-		setListAdapter(adapter);
+//		setListAdapter(adapter);
+	
 	}
 	
-	public void listFetch(int type) {
-		ArrayList<BrownMenu> mMenuTmp = MenuLab.get(getActivity()).getMenus(type);;
-    	BrownMenuAdapter adapter = new BrownMenuAdapter(mMenuTmp);
-		setListAdapter(adapter);
-	}
-
+	
 	@Override
-	public void onListItemClick(ListView l, View v, int position, long id) {		
-		BrownMenu c = ((BrownMenuAdapter)getListAdapter()).getItem(position);
-		
-//		Intent i = new Intent(getActivity(), CrimeActivity.class);
-		Intent i = new Intent(getActivity(), BrownPagerActivity.class);
-		i.putExtra(BrownMenuFragment.EXTRA_MENU_ID, c.getId());
-		startActivity(i);
-		Log.d(TAG,  "was clicked");
+	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
+		View v = inflater.inflate(R.layout.main,  parent, false);
+		GridView gridview = (GridView)v.findViewById(R.id.gridview);
+		BrownMenuAdapter adapter = new BrownMenuAdapter(mMenus);
+	    gridview.setAdapter(adapter);
+	    
+	    gridview.setOnItemClickListener(new OnItemClickListener() {
+	        public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+	    		BrownMenu c = (BrownMenu)parent.getAdapter().getItem(position);	
+	    		Intent i = new Intent(getActivity(), BrownPagerActivity.class);
+	    		i.putExtra(BrownMenuFragment.EXTRA_MENU_ID, c.getId());
+	    		startActivity(i);
+	    		Log.d(TAG,  "was clicked");
+	        }
+	    });
+	    
+		return v;
 	}
 	
 	private class BrownMenuAdapter extends ArrayAdapter<BrownMenu> {
@@ -78,20 +85,11 @@ public class BrownMenuListFragment extends ListFragment {
 		
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
-			View v;
 			
 			if (convertView == null) {
-//				v = getActivity().getLayoutInflater().inflate(R.layout.main, null);
-//			    v.setLayoutParams(new GridView.LayoutParams(200,200));
 				convertView = getActivity().getLayoutInflater()
 						.inflate(R.layout.list_item_menu, parent, false);
-			} else {
-				v = convertView;
-			}
-			
-//			GridView gridview = (GridView)v.findViewById(R.id.gridview);
-//			
-//			return gridview;
+			}			
 			
 			BrownMenu c = getItem(position);
 			
@@ -104,7 +102,9 @@ public class BrownMenuListFragment extends ListFragment {
 			
 			return convertView;
 		}
+		
 	}
+	
 	
 	@Override
 	public void onResume() {
