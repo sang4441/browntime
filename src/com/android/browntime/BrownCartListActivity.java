@@ -1,15 +1,16 @@
 package com.android.browntime;
 
-import android.app.Activity;
-import android.content.Intent;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 public class BrownCartListActivity extends SingleFragmentActivity {
@@ -83,14 +84,8 @@ public class BrownCartListActivity extends SingleFragmentActivity {
 			});
 	 }
 	 
-	 @Override
-	 public void onActivityResult(int requestCode, int resultCode, Intent data) {
-		 if (resultCode != Activity.RESULT_OK) return;
-		 if (requestCode == REQUEST_TIME) {
-			 String hour = (String)data.getSerializableExtra(TimePickerFragment.EXTRA_HOUR);
-			 String minute = (String)data.getSerializableExtra(TimePickerFragment.EXTRA_MINUTE);
-			 mCheckoutOrderTimeButton.setText(hour + ":" + minute);
-		 }
+	 public void onTimeSetValue(TimePicker view, int hourOfDay, int minute) {
+		 mCheckoutOrderTimeButton.setText("today time" + hourOfDay + ":" + minute);
 	 }
 	 
 	 public void onRadioButtonClicked(View view) {
