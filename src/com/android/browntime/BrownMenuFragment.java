@@ -3,6 +3,7 @@ package com.android.browntime;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -34,6 +35,7 @@ public class BrownMenuFragment extends Fragment {
 		mMenu = new BrownMenu();
 		UUID menuId = (UUID)getArguments().getSerializable(EXTRA_MENU_ID);
 		mMenu = MenuLab.get(getActivity()).getMenu(menuId);	
+
 	}
 	
 	@Override
@@ -119,10 +121,11 @@ public class BrownMenuFragment extends Fragment {
 				BrownCart newItem = new BrownCart(mMenu.getName(), mMenu.getPrice(), mMenu.getType());
 				newItem.setQuantity(Integer.parseInt(mMenuQuantity.getText().toString()));
 				CartLab.get(getActivity()).addMenu(newItem);
-				
-//				menuPriceTotal.setText(String.valueOf(CartLab.get(getActivity()).getPriceTotal()));
-				
-				Toast.makeText(getActivity(), "total price= "+CartLab.get(getActivity()).getPriceTotal(), Toast.LENGTH_SHORT).show();
+					//Your order "+CartLab.get(getActivity()).getPriceTotal()
+				Toast.makeText(getActivity(), R.string.cart_added_toast, Toast.LENGTH_SHORT).show();
+//				getFragmentManager().popBackStackImmediate();
+				Intent i = new Intent(getActivity(), CollectionDemoActivity.class);
+	    		startActivity(i);
 			}	
 		});		
 		

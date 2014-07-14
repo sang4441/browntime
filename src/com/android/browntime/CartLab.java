@@ -15,8 +15,8 @@ public class CartLab {
 		mMenus = new ArrayList<BrownCart>();
 		
 		mMenus.add(new BrownCart(R.string.americano, 5500, 1));
-		mMenus.add(new BrownCart(R.string.caffe_latte, 5500, 1));
-		mMenus.add(new BrownCart(R.string.capucino, 5000, 1));
+//		mMenus.add(new BrownCart(R.string.caffe_latte, 5500, 1));
+//		mMenus.add(new BrownCart(R.string.capucino, 5000, 1));
 	}
 
 	public static CartLab get(Context c) {

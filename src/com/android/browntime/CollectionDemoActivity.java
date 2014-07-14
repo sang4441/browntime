@@ -9,13 +9,15 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class CollectionDemoActivity extends FragmentActivity {
     // When requested, this adapter returns a DemoObjectFragment,
     // representing an object in the collection.
     DemoCollectionPagerAdapter mDemoCollectionPagerAdapter;
     ViewPager mViewPager;
-    TextView mGoToCart;
+    TextView mGoToCart, mGoToCartNum;
+    boolean isCartEmpty;
 
     public void onCreate(Bundle savedInstanceState) {
     	final ActionBar actionBar = getActionBar();
@@ -23,21 +25,35 @@ public class CollectionDemoActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collection_demo);
 
+        isCartEmpty = CartLab.get(this).getMenus().isEmpty();
+        mGoToCartNum = (TextView)findViewById(R.id.menu_cart_num);
+        mGoToCartNum.setText(R.string.zero);
+        
+        if (!isCartEmpty) {
+        	mGoToCartNum.setText(String.valueOf(CartLab.get(this).getMenus().size()));
+        } 
 		
+        
         mGoToCart = (TextView)findViewById(R.id.menu_cart);
-        mGoToCart.setText("Go to cart");
+        mGoToCart.setText(R.string.cart_label);
 		mGoToCart.setOnClickListener(new View.OnClickListener() {
 		
+			
+			
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(CollectionDemoActivity.this, BrownCartListActivity.class);
-//			    EditText editText = (EditText) findViewById(R.id.edit_message);
-//			    String message = editText.getText().toString();
-//			    intent.putExtra(EXTRA_MESSAGE, message);
-			    startActivity(intent);
+				if (isCartEmpty) {
+					Toast.makeText(CollectionDemoActivity.this, R.string.cart_empty_toast, Toast.LENGTH_SHORT).show();
+				} else {
+					Intent intent = new Intent(CollectionDemoActivity.this, BrownCartListActivity.class);
+				    startActivity(intent);
+				}
 			}
-	});
-		
+			
+			
+		});
+
+      
         // ViewPager and its adapters use support library
         // fragments, so use getSupportFragmentManager.
         mDemoCollectionPagerAdapter =
