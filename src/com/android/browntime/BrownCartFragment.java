@@ -1,5 +1,8 @@
 package com.android.browntime;
 
+import java.io.Serializable;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -9,9 +12,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.RadioGroup.OnCheckedChangeListener;
 
 public class BrownCartFragment extends Fragment {
 	
@@ -122,7 +125,10 @@ public class BrownCartFragment extends Fragment {
 		 mCurrentOrder.setCarts(CartLab.get(getActivity()).getMenus());
 		 mCurrentOrder.setPrice(CartLab.get(getActivity()).getPriceTotal());
 		 mCurrentOrder.setType(type);
-//		 mCurrentOrder.setCarts();
+		 
+		 Intent i = new Intent(getActivity(), BrownOrderActivity.class);
+		 i.putExtra("orderObject", ((Serializable)mCurrentOrder));
+ 		 startActivity(i);
 	 }
 	 
 	 public void setTextTime(TimePicker view, int hourOfDay, int minute) {
