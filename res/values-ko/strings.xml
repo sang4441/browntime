@@ -52,7 +52,6 @@
     <string name="pizza_2">pizza two</string>
     
     <string name="cart_label">장바구니</string>
-    <string name="cart_timer_label">버튼을 눌러 시간을 설정해 주세요</string>
     <string name="cart_added_toast">가 장바구니에 들어갔습니</string>
     <string name="cart_empty_toast">장바구니가 비어 있어</string>
     <string name="zero">0</string>
@@ -62,5 +61,8 @@
     <string name="checkout_take_out">테이크아웃이요</string>
     <string name="checkout_order_now">지금주문(다음순번)</string>
     <string name="checkout_order_in_advance">미리주문</string>
+    <string name="checkout_timer_button_label">시간설정</string>    
+    
+    <string name="order_detail">주문내역</string>
     
 </resources>

@@ -56,7 +56,7 @@ public class BrownCartListFragment extends ListFragment {
 			quantityTextView.setText(String.valueOf(c.getQuantity()));
 			
 			TextView priceTotalTextView = (TextView)convertView.findViewById(R.id.cart_menu_price_total);
-			priceTotalTextView.setText(String.valueOf(c.getPrice()));
+			priceTotalTextView.setText(String.valueOf(c.getTotalPrice()));
 			
 			return convertView;
 		}

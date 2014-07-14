@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class BrownMenuFragment extends Fragment {
 
@@ -25,7 +24,7 @@ public class BrownMenuFragment extends Fragment {
 	private BrownMenu mMenu;
 	private TextView mMenuName, mMenuPrice, mMenuQuantity, mMenuPriceTotal, mMenuDescription;
 	private ImageView mMenuImage, mmMenuQuantityPlus, mmMenuQuantityMinus;
-	private Button mMenuAddToCart;
+	private Button mMenuAddToCart, mMenuCheckout;
 	
 	
 	@Override
@@ -118,21 +117,31 @@ public class BrownMenuFragment extends Fragment {
 			
 			@Override
 			public void onClick(View v) {
-				BrownCart newItem = new BrownCart(mMenu.getName(), mMenu.getPrice(), mMenu.getType());
-				newItem.setQuantity(Integer.parseInt(mMenuQuantity.getText().toString()));
-				CartLab.get(getActivity()).addMenu(newItem);
-					//Your order "+CartLab.get(getActivity()).getPriceTotal()
-				Toast.makeText(getActivity(), R.string.cart_added_toast, Toast.LENGTH_SHORT).show();
-//				getFragmentManager().popBackStackImmediate();
+				saveMenuToCart();
 				Intent i = new Intent(getActivity(), CollectionDemoActivity.class);
 	    		startActivity(i);
 			}	
 		});		
 		
-		
+		mMenuCheckout = (Button)v.findViewById(R.id.menu_checkout);
+		mMenuCheckout.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {	
+				saveMenuToCart();
+				Intent i = new Intent(getActivity(), BrownCartListActivity.class);
+	    		startActivity(i);
+			}	
+		});		
+
 		return v;
 	}
 	
+	public void saveMenuToCart() {
+		BrownCart newItem = new BrownCart(mMenu.getName(), mMenu.getPrice(), mMenu.getType());
+		newItem.setQuantity(Integer.parseInt(mMenuQuantity.getText().toString()));
+		CartLab.get(getActivity()).addMenu(newItem);
+	}
 	public static BrownMenuFragment newInstance(UUID menuId) {
 		Bundle args = new Bundle();
 		args.putSerializable(EXTRA_MENU_ID, menuId);

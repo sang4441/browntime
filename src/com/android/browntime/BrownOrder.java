@@ -12,6 +12,10 @@ public class BrownOrder {
 	private int mType;
 	private Date mTime;
 	
+	public BrownOrder() {
+		mId = UUID.randomUUID();
+	}
+	
 	public UUID getId() {
 		return mId;
 	}
