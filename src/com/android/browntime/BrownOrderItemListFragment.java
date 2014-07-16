@@ -19,8 +19,7 @@ public class BrownOrderItemListFragment extends ListFragment {
 		super.onCreate(savedInstanceState);
 
 		
-		Bundle args = getArguments();
-		currentOrder = args.getParcelable("orderObject");
+		currentOrder = OrderLab.get(getActivity()).getLastOrder();
 		
 		mCartItems = currentOrder.getCarts();
 		BrownOrderAdapter adapter = new BrownOrderAdapter(mCartItems);

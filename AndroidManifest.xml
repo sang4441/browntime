@@ -35,6 +35,9 @@
             android:label="@string/app_name"
             android:parentActivityName=".CollectionDemoActivity" > 
         </activity>
-       
+       <activity
+            android:name=".BrownOrderActivity"
+            android:label="@string/app_name"> 
+        </activity>
     </application>
 </manifest>

@@ -63,6 +63,11 @@
     <string name="checkout_order_in_advance">미리주문</string>
     <string name="checkout_timer_button_label">시간설정</string>    
     
-    <string name="order_detail">주문내역</string>
+    <string name="order_detail">주문내역</string>  
+    <string name="order_menu_price_label">가격</string>
+    <string name="order_menu_name_label">품명</string>
+    <string name="order_menu_quantity_label">수량</string>
+    <string name="order_menu_price_total_label">총 가격</string>
+    <string name="order_complete_label">주문이 성공적으로 완료 되었습니다</string>
     
 </resources>

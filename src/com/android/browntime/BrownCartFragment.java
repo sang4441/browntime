@@ -127,7 +127,10 @@ public class BrownCartFragment extends Fragment {
 		 mCurrentOrder.setType(type);
 		 
 		 Intent i = new Intent(getActivity(), BrownOrderActivity.class);
-		 i.putExtra("orderObject", ((Serializable)mCurrentOrder));
+		 OrderLab.get(getActivity()).addOrder(mCurrentOrder);
+//		 i.putExtra("orderObject", ((Serializable)mCurrentOrder));
+//		 CartLab.get(getActivity()).clearCart();
+		 //delete cart
  		 startActivity(i);
 	 }
 	 

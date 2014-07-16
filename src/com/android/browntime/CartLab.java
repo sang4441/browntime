@@ -42,22 +42,16 @@ public class CartLab {
 		return mMenus;
 	}
 	
-//	
-//	public ArrayList<BrownCart> getMenus(int type) {
-//		ArrayList<BrownCart> menuByType = new ArrayList<BrownCart>();
-//		for (BrownCart menus : mMenus) {
-//			if (menus.getType() == type) {
-//				menuByType.add(menus);
-//			}
-//		}
-//		return menuByType;
-//	}
-//	
-//	public BrownCart getMenu(UUID id) {
-//		for (BrownCart c: mMenus) {
-//			if (c.getId().equals(id))
-//				return c;
-//		}
-//		return null;
-//	}
+	public void clearCart() {
+		mMenus.clear();
+	}
+	
+	public void deleteCart(UUID id) {		
+		for (int i = 0; i < mMenus.size(); i++) {
+			if (mMenus.get(i).getId().equals(id)) {
+				mMenus.remove(i);
+			}
+		}
+	}
+	
 }

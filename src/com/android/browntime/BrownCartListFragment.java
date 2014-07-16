@@ -2,20 +2,23 @@ package com.android.browntime;
 
 import java.util.ArrayList;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
-import android.view.LayoutInflater;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.GridView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class BrownCartListFragment extends ListFragment {
 	
 	private ArrayList<BrownCart> mCartItems;
+	private BrownCart cart;
+	TextView priceTotalTextView;
+	TextView mMenuQuantity;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -43,20 +46,89 @@ public class BrownCartListFragment extends ListFragment {
 						.inflate(R.layout.list_item_cart, parent, false);
 			} 
 			
-			BrownCart c = getItem(position);
-			
+			cart = getItem(position);
 			
 			TextView nameTextView = (TextView)convertView.findViewById(R.id.cart_menu_name);
-			nameTextView.setText(c.getName());
+			nameTextView.setText(cart.getName());
 			
 			TextView priceTextView = (TextView)convertView.findViewById(R.id.cart_menu_price);
-			priceTextView.setText(String.valueOf(c.getPrice()));
+			priceTextView.setText(String.valueOf(cart.getPrice()));
 			
 			TextView quantityTextView = (TextView)convertView.findViewById(R.id.cart_menu_quantity);
-			quantityTextView.setText(String.valueOf(c.getQuantity()));
+			quantityTextView.setText(String.valueOf(cart.getQuantity()));
 			
-			TextView priceTotalTextView = (TextView)convertView.findViewById(R.id.cart_menu_price_total);
-			priceTotalTextView.setText(String.valueOf(c.getTotalPrice()));
+			priceTotalTextView = (TextView)convertView.findViewById(R.id.cart_menu_price_total);
+			priceTotalTextView.setText(String.valueOf(cart.getTotalPrice()));
+
+			mMenuQuantity = (TextView)convertView.findViewById(R.id.cart_menu_quantity);
+			mMenuQuantity.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence c, int start, int before, int count) {
+					cart.setQuantity(Integer.parseInt(c.toString()));
+					priceTotalTextView.setText(String.valueOf(cart.getPrice()*cart.getQuantity()));
+				}
+				
+				public void beforeTextChanged(CharSequence c, int start, int count, int after) {
+					
+				}
+				public void afterTextChanged(Editable c) {
+					
+				}
+			});
+			
+			
+			Button mmMenuQuantityPlus = (Button)convertView.findViewById(R.id.cart_menu_quantity_plus);
+			mmMenuQuantityPlus.setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					String quantity;
+					if (mMenuQuantity.getText().equals(null)) {
+						quantity = "1";
+					} else {
+						quantity = mMenuQuantity.getText().toString();
+					}
+					mMenuQuantity.setText(String.valueOf((Integer.parseInt(quantity)+1)));
+					
+
+				}
+				
+				
+			});
+			
+			Button mmMenuQuantityMinus = (Button)convertView.findViewById(R.id.cart_menu_quantity_minus);
+			mmMenuQuantityMinus.setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					int quantity;
+					if (mMenuQuantity.getText().equals(null)) {
+						quantity = 1;
+					} else {
+						quantity = Integer.parseInt(mMenuQuantity.getText().toString());					
+					}
+					if (quantity < 2) {
+						
+					} else {
+						mMenuQuantity.setText(String.valueOf((quantity)-1));
+					}
+
+				}
+				
+			});
+			
+			Button deleteButton = (Button)convertView.findViewById(R.id.cart_menu_button_delete);
+			deleteButton.setTag(position);
+			deleteButton.setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					
+					CartLab.get(getActivity()).deleteCart(cart.getId());
+					getActivity().finish();
+					startActivity(getActivity().getIntent());
+//					BrownCartListFragment.refresh();
+				}
+			});
 			
 			return convertView;
 		}
