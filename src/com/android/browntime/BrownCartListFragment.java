@@ -1,7 +1,5 @@
 package com.android.browntime;
 
-import java.util.ArrayList;
-
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.text.Editable;
@@ -10,15 +8,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class BrownCartListFragment extends ListFragment {
 	
 	private ArrayList<BrownCart> mCartItems;
 	private BrownCart cart;
-	TextView priceTotalTextView;
-	TextView mMenuQuantity;
+
+	
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -54,17 +54,19 @@ public class BrownCartListFragment extends ListFragment {
 			TextView priceTextView = (TextView)convertView.findViewById(R.id.cart_menu_price);
 			priceTextView.setText(String.valueOf(cart.getPrice()));
 			
-			TextView quantityTextView = (TextView)convertView.findViewById(R.id.cart_menu_quantity);
-			quantityTextView.setText(String.valueOf(cart.getQuantity()));
+//			TextView quantityTextView = (TextView)convertView.findViewById(R.id.cart_menu_quantity);
+//			quantityTextView.setText(String.valueOf(cart.getQuantity()));
 			
-			priceTotalTextView = (TextView)convertView.findViewById(R.id.cart_menu_price_total);
+			final TextView priceTotalTextView = (TextView)convertView.findViewById(R.id.cart_menu_price_total);
 			priceTotalTextView.setText(String.valueOf(cart.getTotalPrice()));
-
-			mMenuQuantity = (TextView)convertView.findViewById(R.id.cart_menu_quantity);
+			
+			final TextView mMenuQuantity = (TextView)convertView.findViewById(R.id.cart_menu_quantity);
+//			mMenuQuantity = (TextView)convertView.findViewById(R.id.cart_menu_quantity);
 			mMenuQuantity.addTextChangedListener(new TextWatcher() {
 				public void onTextChanged(CharSequence c, int start, int before, int count) {
 					cart.setQuantity(Integer.parseInt(c.toString()));
 					priceTotalTextView.setText(String.valueOf(cart.getPrice()*cart.getQuantity()));
+					((BrownCartListActivity)getActivity()).refreshSum();
 				}
 				
 				public void beforeTextChanged(CharSequence c, int start, int count, int after) {
@@ -76,26 +78,23 @@ public class BrownCartListFragment extends ListFragment {
 			});
 			
 			
-			Button mmMenuQuantityPlus = (Button)convertView.findViewById(R.id.cart_menu_quantity_plus);
+			ImageButton mmMenuQuantityPlus = (ImageButton)convertView.findViewById(R.id.cart_menu_quantity_plus);
 			mmMenuQuantityPlus.setOnClickListener(new View.OnClickListener() {
 				
 				@Override
 				public void onClick(View v) {
 					String quantity;
+					
 					if (mMenuQuantity.getText().equals(null)) {
 						quantity = "1";
 					} else {
 						quantity = mMenuQuantity.getText().toString();
 					}
 					mMenuQuantity.setText(String.valueOf((Integer.parseInt(quantity)+1)));
-					
-
-				}
-				
-				
+				}		
 			});
 			
-			Button mmMenuQuantityMinus = (Button)convertView.findViewById(R.id.cart_menu_quantity_minus);
+			ImageButton mmMenuQuantityMinus = (ImageButton)convertView.findViewById(R.id.cart_menu_quantity_minus);
 			mmMenuQuantityMinus.setOnClickListener(new View.OnClickListener() {
 				
 				@Override

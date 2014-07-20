@@ -40,7 +40,7 @@ public class BrownOrder implements Serializable {
 	}
 	public int getType() {
 		return mType;
-	}
+	}	
 	public void setType(int type) {
 		mType = type;
 	}

@@ -36,6 +36,31 @@
     <string name="iced_latte_chai">짜이라떼 (ice)</string>
     <string name="iced_tea_milk">밀크티 (ice)</string>
     
+    <string name="ice_tea_peach">복숭아 아이스티</string>
+	<string name="ice_tea_lemon">레몬 아이스티</string>
+	<string name="aid_yellow">엘로우 에이드</string>
+	<string name="aid_red">레드 에이드</string>
+	<string name="aid_green">드린 에이드</string>
+	<string name="aid_brown">브라운 에이드</string>
+	<string name="juice_kiwi">키위 주스</string>
+	<string name="juice_tomato">토마토 주스</string>
+	<string name="juice_orange">오렌지 주스</string>
+	<string name="smoothie_yogurt">요거트 스무디</string>
+	<string name="smoothie_strawberry">딸기 스무디</string>
+	<string name="smoothie_kiwi">키위 스무디</string>
+	<string name="smoothie_mango">망고 스무디</string>
+	<string name="smoothie_vanilla">바닐라 스무디</string>
+	<string name="smoothie_mint_chocolate">민트초콜렛 스무디</string>
+	<string name="smoothie_purple_lady">퍼플레이디 스무디</string>
+	<string name="tea_earl_grey">얼그레이</string>
+	<string name="tea_assam">아쌈</string>
+	<string name="tea_english_breakfast">잉글리쉬브랙퍼스트</string>
+	<string name="tea_green">녹차</string>
+	<string name="tea_peppermint">페퍼민트</string>
+	<string name="tea_rooibos">루이보스</string>
+	<string name="tea_camomile">카모마일</string>
+	<string name="tea_chrysanthemum">국화차</string>
+	<string name="tea_tea_lemon">레몬차</string>
    <!--  <string name=""></string>
     <string name=""></string>
     <string name=""></string>
@@ -69,5 +94,11 @@
     <string name="order_menu_quantity_label">수량</string>
     <string name="order_menu_price_total_label">총 가격</string>
     <string name="order_complete_label">주문이 성공적으로 완료 되었습니다</string>
+    
+    <string name="menu_price_label">가격</string>
+    <string name="menu_quantity_label">수량</string>
+    <string name="menu_price_total_label">총 가격</string>
+    <string name="menu_button_add_to_cart">장바구니</string>
+    <string name="menu_button_checkout">바로주문</string>
     
 </resources>

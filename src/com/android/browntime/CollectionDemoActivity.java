@@ -101,8 +101,11 @@ public class CollectionDemoActivity extends FragmentActivity {
         };
 
         actionBar.addTab(actionBar.newTab()
-                        .setText("coffee")
+                        .setText("coffee (hot)")
                         .setTabListener(tabListener));
+        actionBar.addTab(actionBar.newTab()
+                .setText("coffee (ice)")
+                .setTabListener(tabListener));
         actionBar.addTab(actionBar.newTab()
                 .setText("non-coffee")
                 .setTabListener(tabListener));

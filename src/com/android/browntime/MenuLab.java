@@ -15,44 +15,45 @@ public class MenuLab {
 		mAppContext = appContext;
 		mMenus = new ArrayList<BrownMenu>();
 
-		mMenus.add(new BrownMenu(R.string.espresso, 5500, 1, "this is a description for coffee this is a description for coffee this is a description for coffee"));
-		mMenus.add(new BrownMenu(R.string.americano, 5500, 1, "this is a description for coffee this is a description for coffee this is a description for coffee"));
-		mMenus.add(new BrownMenu(R.string.latte_cafe, 5500, 1, "this is a description for coffee this is a description for coffee this is a description for coffee"));
-		mMenus.add(new BrownMenu(R.string.latte_cube, 5500, 1, "this is a description for coffee this is a description for coffee this is a description for coffee"));
-		mMenus.add(new BrownMenu(R.string.capucino, 5500, 1, "this is a description for coffee this is a description for coffee this is a description for coffee"));
-		mMenus.add(new BrownMenu(R.string.caffe_latte, 5500, 1, "this is a description for coffee this is a description for coffee this is a description for coffee"));
+		mMenus.add(new BrownMenu(R.string.espresso, 3000, 1, "this is a description for coffee this is a description for coffee this is a description for coffee"));
+		mMenus.add(new BrownMenu(R.string.americano, 3800, 1, "this is a description for coffee this is a description for coffee this is a description for coffee"));
+		mMenus.add(new BrownMenu(R.string.latte_cafe, 4300, 1, "this is a description for coffee this is a description for coffee this is a description for coffee"));
+//		mMenus.add(new BrownMenu(R.string.latte_cube, 00, 1, "this is a description for coffee this is a description for coffee this is a description for coffee"));
+		mMenus.add(new BrownMenu(R.string.capucino, 4300, 1, "this is a description for coffee this is a description for coffee this is a description for coffee"));
+//		mMenus.add(new BrownMenu(R.string.caffe_latte, 5000, 1, "this is a description for coffee this is a description for coffee this is a description for coffee"));
 		mMenus.add(new BrownMenu(R.string.caffe_moka, 5000, 1, "this is a description for coffee this is a description for coffee this is a description for coffee"));
 		mMenus.add(new BrownMenu(R.string.latte_caramel, 5500, 1, "this is a description for coffee this is a description for coffee this is a description for coffee"));
 		mMenus.add(new BrownMenu(R.string.latte_vanilla, 5000, 1, "this is a description for coffee this is a description for coffee this is a description for coffee"));
-		mMenus.add(new BrownMenu(R.string.con_panna, 6500, 1, "this is a description for coffee this is a description for coffee this is a description for coffee"));
-		mMenus.add(new BrownMenu(R.string.vienna, 6500, 1, "this is a description for coffee this is a description for coffee this is a description for coffee"));
+		mMenus.add(new BrownMenu(R.string.con_panna, 3500, 1, "this is a description for coffee this is a description for coffee this is a description for coffee"));
+		mMenus.add(new BrownMenu(R.string.vienna, 4500, 1, "this is a description for coffee this is a description for coffee this is a description for coffee"));
 
-		mMenus.add(new BrownMenu(R.string.shakerato, 5500, 1, "this is a description for coffee this is a description for coffee this is a description for coffee"));
-		mMenus.add(new BrownMenu(R.string.iced_americano, 5500, 1, "this is a description for coffee this is a description for coffee this is a description for coffee"));
-		mMenus.add(new BrownMenu(R.string.iced_latte_cafe, 5500, 1, "this is a description for coffee this is a description for coffee this is a description for coffee"));
-		mMenus.add(new BrownMenu(R.string.iced_cappucino, 5500, 1, "this is a description for coffee this is a description for coffee this is a description for coffee"));
-		mMenus.add(new BrownMenu(R.string.iced_caffe_moka, 5500, 1, "this is a description for coffee this is a description for coffee this is a description for coffee"));
-		mMenus.add(new BrownMenu(R.string.iced_latte_caramel, 5500, 1, "this is a description for coffee this is a description for coffee this is a description for coffee"));
-		mMenus.add(new BrownMenu(R.string.iced_latte_vanilla, 5000, 1, "this is a description for coffee this is a description for coffee this is a description for coffee"));
-		mMenus.add(new BrownMenu(R.string.dutch_coffe, 5500, 1, "this is a description for coffee this is a description for coffee this is a description for coffee"));
-		mMenus.add(new BrownMenu(R.string.dutch_latte, 5000, 1, "this is a description for coffee this is a description for coffee this is a description for coffee"));
-		mMenus.add(new BrownMenu(R.string.affogato, 6500, 1, "this is a description for coffee this is a description for coffee this is a description for coffee"));
+		mMenus.add(new BrownMenu(R.string.shakerato, 4000, 2, "this is a description for coffee this is a description for coffee this is a description for coffee"));
+		mMenus.add(new BrownMenu(R.string.iced_americano, 4300, 2, "this is a description for coffee this is a description for coffee this is a description for coffee"));
+		mMenus.add(new BrownMenu(R.string.iced_latte_cafe, 4800, 2, "this is a description for coffee this is a description for coffee this is a description for coffee"));
+		mMenus.add(new BrownMenu(R.string.iced_cappucino, 4800, 2, "this is a description for coffee this is a description for coffee this is a description for coffee"));
+		mMenus.add(new BrownMenu(R.string.iced_caffe_moka, 5500, 2, "this is a description for coffee this is a description for coffee this is a description for coffee"));
+		mMenus.add(new BrownMenu(R.string.iced_latte_caramel, 5500, 2, "this is a description for coffee this is a description for coffee this is a description for coffee"));
+		mMenus.add(new BrownMenu(R.string.iced_latte_vanilla, 5500, 2, "this is a description for coffee this is a description for coffee this is a description for coffee"));
+		mMenus.add(new BrownMenu(R.string.dutch_coffe, 5000, 2, "this is a description for coffee this is a description for coffee this is a description for coffee"));
+		mMenus.add(new BrownMenu(R.string.dutch_latte, 5500, 2, "this is a description for coffee this is a description for coffee this is a description for coffee"));
+		mMenus.add(new BrownMenu(R.string.affogato, 6000, 2, "this is a description for coffee this is a description for coffee this is a description for coffee"));
 				
-		mMenus.add(new BrownMenu(R.string.latte_chocolate, 6000, 2, "this is a description for coffee"));
-		mMenus.add(new BrownMenu(R.string.latte_yam, 4500, 2, "this is a description for coffee"));
-		mMenus.add(new BrownMenu(R.string.latte_greentea, 4500, 2, "this is a description for coffee"));
-		mMenus.add(new BrownMenu(R.string.latte_grain, 4500, 2, "this is a description for coffee"));
-		mMenus.add(new BrownMenu(R.string.latte_chai, 4500, 2, "this is a description for coffee"));
-		mMenus.add(new BrownMenu(R.string.tea_milk, 4500, 2, "this is a description for coffee"));
+		mMenus.add(new BrownMenu(R.string.latte_chocolate, 5000, 3, "this is a description for coffee"));
+		mMenus.add(new BrownMenu(R.string.latte_yam, 5000, 3, "this is a description for coffee"));
+		mMenus.add(new BrownMenu(R.string.latte_greentea, 5000, 3, "this is a description for coffee"));
+		mMenus.add(new BrownMenu(R.string.latte_grain, 5000, 3, "this is a description for coffee"));
+		mMenus.add(new BrownMenu(R.string.latte_chai, 5000, 3, "this is a description for coffee"));
+		mMenus.add(new BrownMenu(R.string.tea_milk, 5000, 3, "this is a description for coffee"));
 		
 		
-		mMenus.add(new BrownMenu(R.string.korean_roll, 5000, 3));
-		mMenus.add(new BrownMenu(R.string.korean_roll_2, 5500, 3));
-		mMenus.add(new BrownMenu(R.string.pizza_1, 5500, 3));
-		mMenus.add(new BrownMenu(R.string.pizza_2, 5500, 3));
-		mMenus.add(new BrownMenu(R.string.sandwich_1, 5500, 3));
-		mMenus.add(new BrownMenu(R.string.sandwich_2, 5500, 3));
 		
+//		mMenus.add(new BrownMenu(R.string.korean_roll, 5000, 5));
+//		mMenus.add(new BrownMenu(R.string.korean_roll_2, 5500, 3));
+//		mMenus.add(new BrownMenu(R.string.pizza_1, 5500, 3));
+//		mMenus.add(new BrownMenu(R.string.pizza_2, 5500, 3));
+//		mMenus.add(new BrownMenu(R.string.sandwich_1, 5500, 3));
+//		mMenus.add(new BrownMenu(R.string.sandwich_2, 5500, 3));
+//		
 
 	}
 

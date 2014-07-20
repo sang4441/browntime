@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical" >
+	
+    <LinearLayout android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal">
+	    	
+	     <TextView android:id="@+id/cart_menu_name"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/menu_title_label"
+	        android:gravity="left"/>
+	     
+	     <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            /> 
+        
+       	<Button android:id="@+id/cart_menu_button_delete"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="right"
+	        android:text="delete"
+        />
+      	</LinearLayout>
+	      
+	   <LinearLayout android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal">
+	        <TextView 
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"		        
+		        android:text="@string/menu_price_label"
+		        android:gravity="left"
+		        />
+	         <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            /> 
+        
+        	<TextView android:id="@+id/cart_menu_price"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="right"
+	        />
+        </LinearLayout>
+	
+	    
+	  
+	    
+	    <LinearLayout android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal">
+			<TextView 
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"		        
+		        android:text="@string/menu_quantity_label"
+		        android:gravity="left"
+		        />
+	        
+	         <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            /> 
+        
+	         
+		     <ImageButton
+		    android:id="@+id/cart_menu_quantity_minus"
+		    android:layout_width="40dp"
+		    android:layout_height="40dp"		
+		    android:src="@drawable/ic_action_previous_item" />
+		    
+		    <TextView android:id="@+id/cart_menu_quantity"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="1"
+	        />
+		    
+		    <ImageButton
+		    android:id="@+id/cart_menu_quantity_plus"
+		    android:layout_width="40dp"
+		    android:layout_height="40dp"		
+		    android:src="@drawable/ic_action_next_item" />
+		    
+        </LinearLayout>
+	     
+	     
+	     <LinearLayout android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal">
+	      
+   		    <TextView 
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"	        
+		        android:text="@string/menu_price_total_label"
+		        />
+   		    
+		      <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            /> 
+		    
+		    <TextView android:id="@+id/cart_menu_price_total"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        />
+	    </LinearLayout>
+	    
+</LinearLayout><!-- From: file:/Users/kimsanghwan/workspace/Android/BrownTime/res/layout/list_item_cart.xml -->

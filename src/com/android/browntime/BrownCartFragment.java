@@ -1,11 +1,11 @@
 package com.android.browntime;
 
-import java.io.Serializable;
-
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +15,8 @@ import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.client.RestTemplate;
 
 public class BrownCartFragment extends Fragment {
 	
@@ -38,7 +40,7 @@ public class BrownCartFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
 		
 		 v = inflater.inflate(R.layout.fragment_cart,  parent, false);
-		 mCartSum = (TextView)v.findViewById(R.id.cart_sum);
+		 	mCartSum = (TextView)v.findViewById(R.id.cart_sum);
 	        mCartSum.setText(String.valueOf(CartLab.get(getActivity()).getPriceTotal()));
 	        
 	        mTakeOut = (Button)v.findViewById(R.id.checkoutTakeOut);
@@ -131,10 +133,43 @@ public class BrownCartFragment extends Fragment {
 //		 i.putExtra("orderObject", ((Serializable)mCurrentOrder));
 //		 CartLab.get(getActivity()).clearCart();
 		 //delete cart
+		 
+
+		 
  		 startActivity(i);
 	 }
 	 
 	 public void setTextTime(TimePicker view, int hourOfDay, int minute) {
 		 	mCheckoutOrderTime.setText("today time" + hourOfDay + ":" + minute);
 	  }
+	 
+	 public void refreshSum() {
+		 mCartSum.setText(String.valueOf(CartLab.get(getActivity()).getPriceTotal()));
+	 }
+
+    private class HttpRequestTask extends AsyncTask<Void, Void, BrownOrder> {
+        @Override
+        protected BrownOrder doInBackground(Void... params) {
+            try {
+                final String url = "http://localhost:8080/BrownTime/json/addOrder";
+                RestTemplate restTemplate = new RestTemplate();
+                restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+                BrownOrder greeting = restTemplate.getForObject(url, BrownOrder.class);
+                return greeting;
+            } catch (Exception e) {
+                Log.e("MainActivity", e.getMessage(), e);
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(BrownOrder greeting) {
+//            TextView greetingIdText = (TextView) v.findViewById(R.id.id_value);
+//            TextView greetingContentText = (TextView) v.findViewById(R.id.content_value);
+//            greetingIdText.setText(greeting.getId());
+//            greetingContentText.setText(greeting.getContent());
+        }
+
+    }
 }

@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.android.browntime.BrownActivity" >
+
+    <item android:id="@+id/new_game"
+          android:title="@string/one"
+          android:showAsAction="ifRoom"/>
+    <item android:id="@+id/help"
+          android:title="@string/two" />
+</menu>
+<!-- From: file:/Users/kimsanghwan/workspace/Android/BrownTime/res/menu/brown.xml -->

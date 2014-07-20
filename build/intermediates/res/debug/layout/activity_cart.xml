@@ -1,0 +1,29 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+		<View android:id="@+id/dummyView"
+              android:layout_width="0dp"
+              android:layout_height="0dp"
+              android:layout_centerInParent="true"/>
+		
+		<FrameLayout
+		    android:id="@+id/fragmentCartList"
+		    android:layout_width="match_parent"
+		    android:layout_height="fill_parent"
+		   	android:layout_alignBottom="@id/dummyView"		    
+		    android:layout_weight="0"
+		    android:orientation="vertical" >
+		     
+	    </FrameLayout>
+	    
+		<FrameLayout
+		    android:id="@+id/fragmentCart"
+		    android:layout_width="match_parent"
+		    android:layout_height="fill_parent"
+		    android:layout_weight="1"
+           android:layout_alignTop="@id/dummyView"
+		   
+		    android:orientation="vertical" >
+		     
+	    </FrameLayout>
+</RelativeLayout><!-- From: file:/Users/kimsanghwan/workspace/Android/BrownTime/res/layout/activity_cart.xml -->

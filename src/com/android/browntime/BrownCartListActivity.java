@@ -52,4 +52,9 @@ public class BrownCartListActivity extends ActionBarActivity {
 			BrownCartFragment fragment = (BrownCartFragment)(getSupportFragmentManager().findFragmentById(R.id.fragmentCart));
 			fragment.setTextTime(view, hourOfDay, minute);
 		}
+		
+		 public void refreshSum() {			 
+			BrownCartFragment fragment = (BrownCartFragment)(getSupportFragmentManager().findFragmentById(R.id.fragmentCart));
+			fragment.refreshSum();	
+		}
 }
