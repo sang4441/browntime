@@ -22,9 +22,9 @@ public class BrownOrderActivity extends ActionBarActivity {
 
 	        int orderType = OrderLab.get(this).getLastOrder().getType();
 	        if (orderType == 1) {
-		        mOrderType.setText("For here");	
+		        mOrderType.setText("For here");
 	        } else {
-		        mOrderType.setText("To go");	
+		        mOrderType.setText("To go");
 	        }
 	       
 //			Intent intent = getIntent();

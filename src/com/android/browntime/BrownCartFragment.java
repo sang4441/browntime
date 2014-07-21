@@ -15,8 +15,15 @@ import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 import android.widget.TimePicker;
+
+import org.springframework.http.MediaType;
+import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
+
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BrownCartFragment extends Fragment {
 	
@@ -134,8 +141,8 @@ public class BrownCartFragment extends Fragment {
 //		 CartLab.get(getActivity()).clearCart();
 		 //delete cart
 		 
+        new HttpRequestTask().execute();
 
-		 
  		 startActivity(i);
 	 }
 	 
@@ -147,14 +154,44 @@ public class BrownCartFragment extends Fragment {
 		 mCartSum.setText(String.valueOf(CartLab.get(getActivity()).getPriceTotal()));
 	 }
 
-    private class HttpRequestTask extends AsyncTask<Void, Void, BrownOrder> {
+    public void givenConsumingJson_whenReadingTheFoo_thenCorrect() {
+
+    }
+    private List<HttpMessageConverter<?>> getMessageConverters() {
+        List<HttpMessageConverter<?>> converters = new ArrayList<HttpMessageConverter<?>>();
+        List<MediaType> supportedMediaTypes = new ArrayList<MediaType>();
+        MediaType mediaType = new MediaType("application", "json", Charset.forName("UTF-8"));
+        supportedMediaTypes.add(mediaType);
+
+        MappingJackson2HttpMessageConverter jacksonConverter = new MappingJackson2HttpMessageConverter();
+        jacksonConverter.setSupportedMediaTypes(supportedMediaTypes);
+        converters.add(jacksonConverter);
+
+//        converters.add(new MappingJackson2HttpMessageConverter().setSupportedMediaTypes(supportedMediaTypes));
+
+        return converters;
+    }
+
+    private class HttpRequestTask extends AsyncTask<Void, Void, BrownTest> {
         @Override
-        protected BrownOrder doInBackground(Void... params) {
+        protected BrownTest doInBackground(Void... params) {
             try {
-                final String url = "http://localhost:8080/BrownTime/json/addOrder";
+                    final String url = "http://10.0.2.2:8080/BrownTime/json/order";
                 RestTemplate restTemplate = new RestTemplate();
-                restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-                BrownOrder greeting = restTemplate.getForObject(url, BrownOrder.class);
+//                restTemplate.postForObject()
+                restTemplate.setMessageConverters(getMessageConverters());
+//
+//                HttpHeaders headers = new HttpHeaders();
+//                headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+//                HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
+//
+//                ResponseEntity<BrownOrder> response = restTemplate.exchange(url, HttpMethod.GET, entity, BrownOrder.class);
+//                BrownOrder responseBody = response.getBody();
+
+
+                BrownTest greeting = restTemplate.getForObject(url, BrownTest.class);
+
+                int i = 5;
                 return greeting;
             } catch (Exception e) {
                 Log.e("MainActivity", e.getMessage(), e);
@@ -163,7 +200,7 @@ public class BrownCartFragment extends Fragment {
             return null;
         }
 
-        @Override
+//        @Override
         protected void onPostExecute(BrownOrder greeting) {
 //            TextView greetingIdText = (TextView) v.findViewById(R.id.id_value);
 //            TextView greetingContentText = (TextView) v.findViewById(R.id.content_value);
