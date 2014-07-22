@@ -40,7 +40,7 @@ public class BrownCart extends BrownMenu {
 		super();
 	}
 
-	public BrownCart(int name, int price, int type) {
-		super(name, price, type);
+	public BrownCart(int name, int price, int type, String description) {
+		super(name, price, type, description);
 	}
 }

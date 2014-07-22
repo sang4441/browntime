@@ -138,9 +138,12 @@ public class BrownMenuFragment extends Fragment {
 	}
 	
 	public void saveMenuToCart() {
-		BrownCart newItem = new BrownCart(mMenu.getmName(), mMenu.getmPrice(), mMenu.getmCategory());
-//		newItem.setQuantity(Integer.parseInt(mMenuQuantity.getText().toString()));
-		CartLab.get(getActivity()).addMenu(newItem);
+		BrownCart newCart = new BrownCart(mMenu.getmName(), mMenu.getmPrice(), mMenu.getmCategory(), mMenu.getmDescription());
+        int cartItemQuantity = Integer.parseInt(mMenuQuantity.getText().toString());
+        newCart.setmQuantity(cartItemQuantity);
+        newCart.setmInstruction("sample instruction");
+        newCart.setmPriceTotal(cartItemQuantity*newCart.getmPrice());
+		CartLab.get(getActivity()).addCart(newCart);
 	}
 	public static BrownMenuFragment newInstance(UUID menuId) {
 		Bundle args = new Bundle();

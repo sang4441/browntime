@@ -8,6 +8,36 @@ public class BrownMenu {
 
     @JsonProperty("id")
 	private UUID mId;
+    @JsonProperty("name")
+    private int mName;
+    @JsonProperty("price")
+    private int mPrice;
+    @JsonProperty("category")
+    private int mCategory;
+    @JsonProperty("description")
+    private String mDescription;
+
+
+
+    public BrownMenu() {
+        mId = UUID.randomUUID();
+    }
+
+    public BrownMenu(int name, int price, int type) {
+        mId = UUID.randomUUID();
+        mName = name;
+        mPrice = price;
+        mCategory = type;
+    }
+
+    public BrownMenu(int name, int price, int category, String description) {
+        mId = UUID.randomUUID();
+        mName = name;
+        mPrice = price;
+        mCategory = category;
+        mDescription = description;
+    }
+
 
     public UUID getmId() {
         return mId;
@@ -48,33 +78,5 @@ public class BrownMenu {
     public void setmDescription(String mDescription) {
         this.mDescription = mDescription;
     }
-
-    @JsonProperty("name")
-	private int mName;
-    @JsonProperty("price")
-	private int mPrice;
-    @JsonProperty("category")
-	private int mCategory;
-    @JsonProperty("description")
-	private String mDescription;
-
-	public BrownMenu() {
-		mId = UUID.randomUUID();
-	}
-	
-	public BrownMenu(int name, int price, int type) {
-		mId = UUID.randomUUID();
-		mName = name;
-		mPrice = price;
-        mCategory = type;
-	}
-	
-	public BrownMenu(int name, int price, int type, String description) {
-		mId = UUID.randomUUID();
-		mName = name;
-		mPrice = price;
-        mCategory = type;
-		mDescription = description;
-	}
 
 }
