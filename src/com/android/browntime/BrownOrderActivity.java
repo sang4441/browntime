@@ -1,6 +1,5 @@
 package com.android.browntime;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
@@ -20,7 +19,7 @@ public class BrownOrderActivity extends ActionBarActivity {
 	        
 	        mOrderType = (TextView)findViewById(R.id.order_menu_type);
 
-	        int orderType = OrderLab.get(this).getLastOrder().getType();
+	        int orderType = OrderLab.get(this).getLastOrder().getmType();
 	        if (orderType == 1) {
 		        mOrderType.setText("For here");
 	        } else {

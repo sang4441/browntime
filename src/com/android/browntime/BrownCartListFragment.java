@@ -49,23 +49,23 @@ public class BrownCartListFragment extends ListFragment {
 			cart = getItem(position);
 			
 			TextView nameTextView = (TextView)convertView.findViewById(R.id.cart_menu_name);
-			nameTextView.setText(cart.getName());
+			nameTextView.setText(cart.getmName());
 			
 			TextView priceTextView = (TextView)convertView.findViewById(R.id.cart_menu_price);
-			priceTextView.setText(String.valueOf(cart.getPrice()));
+			priceTextView.setText(String.valueOf(cart.getmPrice()));
 			
 //			TextView quantityTextView = (TextView)convertView.findViewById(R.id.cart_menu_quantity);
 //			quantityTextView.setText(String.valueOf(cart.getQuantity()));
 			
 			final TextView priceTotalTextView = (TextView)convertView.findViewById(R.id.cart_menu_price_total);
-			priceTotalTextView.setText(String.valueOf(cart.getTotalPrice()));
+			priceTotalTextView.setText(String.valueOf(cart.getmQuantity()*cart.getmPrice()));
 			
 			final TextView mMenuQuantity = (TextView)convertView.findViewById(R.id.cart_menu_quantity);
 //			mMenuQuantity = (TextView)convertView.findViewById(R.id.cart_menu_quantity);
 			mMenuQuantity.addTextChangedListener(new TextWatcher() {
 				public void onTextChanged(CharSequence c, int start, int before, int count) {
-					cart.setQuantity(Integer.parseInt(c.toString()));
-					priceTotalTextView.setText(String.valueOf(cart.getPrice()*cart.getQuantity()));
+					cart.setmQuantity(Integer.parseInt(c.toString()));
+					priceTotalTextView.setText(String.valueOf(cart.getmPrice()*cart.getmQuantity()));
 					((BrownCartListActivity)getActivity()).refreshSum();
 				}
 				
@@ -122,7 +122,7 @@ public class BrownCartListFragment extends ListFragment {
 				@Override
 				public void onClick(View v) {
 					
-					CartLab.get(getActivity()).deleteCart(cart.getId());
+					CartLab.get(getActivity()).deleteCart(cart.getmId());
 					getActivity().finish();
 					startActivity(getActivity().getIntent());
 //					BrownCartListFragment.refresh();

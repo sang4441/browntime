@@ -1,7 +1,5 @@
 package com.android.browntime;
 
-import java.util.ArrayList;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,6 +14,8 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class BrownMenuListFragment extends Fragment {
 
@@ -44,7 +44,7 @@ public class BrownMenuListFragment extends Fragment {
 	        public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 	    		BrownMenu c = (BrownMenu)parent.getAdapter().getItem(position);	
 	    		Intent i = new Intent(getActivity(), BrownPagerActivity.class);
-	    		i.putExtra(BrownMenuFragment.EXTRA_MENU_ID, c.getId());
+	    		i.putExtra(BrownMenuFragment.EXTRA_MENU_ID, c.getmId());
 	    		startActivity(i);
 	    		Log.d(TAG,  "was clicked");
 	        }
@@ -71,9 +71,9 @@ public class BrownMenuListFragment extends Fragment {
 			ImageView imageView = (ImageView) convertView.findViewById(R.id.menu_list_item_imageView);
 			imageView.setImageResource(R.drawable.americano);
 			TextView nameTextView = (TextView)convertView.findViewById(R.id.menu_list_item_nameTextView);
-			nameTextView.setText(c.getName());
+			nameTextView.setText(c.getmName());
 			TextView priceTextView = (TextView)convertView.findViewById(R.id.menu_list_item_priceTextView);
-			priceTextView.setText(String.valueOf(c.getPrice()));
+			priceTextView.setText(String.valueOf(c.getmPrice()));
 			
 			return convertView;
 		}

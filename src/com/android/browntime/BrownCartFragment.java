@@ -131,9 +131,9 @@ public class BrownCartFragment extends Fragment {
     }
 	 public void orderComplete(int type) {
 		 
-		 mCurrentOrder.setCarts(CartLab.get(getActivity()).getMenus());
-		 mCurrentOrder.setPrice(CartLab.get(getActivity()).getPriceTotal());
-		 mCurrentOrder.setType(type);
+		 mCurrentOrder.setmCarts(CartLab.get(getActivity()).getMenus());
+		 mCurrentOrder.setmPrice(CartLab.get(getActivity()).getPriceTotal());
+		 mCurrentOrder.setmType(type);
 		 
 		 Intent i = new Intent(getActivity(), BrownOrderActivity.class);
 		 OrderLab.get(getActivity()).addOrder(mCurrentOrder);
@@ -172,15 +172,16 @@ public class BrownCartFragment extends Fragment {
         return converters;
     }
 
-    private class HttpRequestTask extends AsyncTask<Void, Void, BrownTest> {
+    private class HttpRequestTask extends AsyncTask<Void, Void, BrownOrder> {
         @Override
-        protected BrownTest doInBackground(Void... params) {
+        protected BrownOrder doInBackground(Void... params) {
             try {
-                    final String url = "http://10.0.2.2:8080/BrownTime/json/order";
+                    final String url = "http://10.0.2.2:8080/BrownTime/json/addOrder";
                 RestTemplate restTemplate = new RestTemplate();
-//                restTemplate.postForObject()
                 restTemplate.setMessageConverters(getMessageConverters());
 //
+
+
 //                HttpHeaders headers = new HttpHeaders();
 //                headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
 //                HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
@@ -189,10 +190,25 @@ public class BrownCartFragment extends Fragment {
 //                BrownOrder responseBody = response.getBody();
 
 
-                BrownTest greeting = restTemplate.getForObject(url, BrownTest.class);
+//                BrownTest greeting = restTemplate.getForObject(url, BrownTest.class);
+//                Map<String, String> vars = new HashMap<String, String>();
+//                vars.put("id", "JS01");
+                BrownOrder test = new BrownOrder();
+                test.setmSellerId(1);
+                ArrayList<BrownCart> carts = new ArrayList<BrownCart>();
+                carts.add(new BrownCart());
+                test.setmCarts(carts);
+
+                BrownTest browntest = new BrownTest();
+                browntest.setmSellerId(1);
+                ArrayList<BrownTestCart> testCarts = new ArrayList<BrownTestCart>();
+                testCarts.add(new BrownTestCart());
+                browntest.setmCarts(testCarts);
+
+                BrownOrder greeting = restTemplate.postForObject(url, mCurrentOrder, BrownOrder.class);
 
                 int i = 5;
-                return greeting;
+                return mCurrentOrder;
             } catch (Exception e) {
                 Log.e("MainActivity", e.getMessage(), e);
             }

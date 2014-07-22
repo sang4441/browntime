@@ -1,80 +1,80 @@
 package com.android.browntime;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.UUID;
 
 public class BrownMenu {
 
+    @JsonProperty("id")
 	private UUID mId;
+
+    public UUID getmId() {
+        return mId;
+    }
+
+    public void setmId(UUID mId) {
+        this.mId = mId;
+    }
+
+    public int getmName() {
+        return mName;
+    }
+
+    public void setmName(int mName) {
+        this.mName = mName;
+    }
+
+    public int getmPrice() {
+        return mPrice;
+    }
+
+    public void setmPrice(int mPrice) {
+        this.mPrice = mPrice;
+    }
+
+    public int getmCategory() {
+        return mCategory;
+    }
+
+    public void setmCategory(int mCategory) {
+        this.mCategory = mCategory;
+    }
+
+    public String getmDescription() {
+        return mDescription;
+    }
+
+    public void setmDescription(String mDescription) {
+        this.mDescription = mDescription;
+    }
+
+    @JsonProperty("name")
 	private int mName;
+    @JsonProperty("price")
 	private int mPrice;
-	private int mQuantity;
-	private int mType;
+    @JsonProperty("category")
+	private int mCategory;
+    @JsonProperty("description")
 	private String mDescription;
 
 	public BrownMenu() {
 		mId = UUID.randomUUID();
-		mQuantity = 1;
 	}
 	
 	public BrownMenu(int name, int price, int type) {
 		mId = UUID.randomUUID();
 		mName = name;
 		mPrice = price;
-		mQuantity = 1;
-		mType = type;
+        mCategory = type;
 	}
 	
 	public BrownMenu(int name, int price, int type, String description) {
 		mId = UUID.randomUUID();
 		mName = name;
 		mPrice = price;
-		mQuantity = 1;
-		mType = type;
-		mDescription = description;
-	}
-	
-	public UUID getId() {
-		return mId;
-	}
-	public void setId(UUID id) {
-		mId = id;
-	}
-	public int getName() {
-		return mName;
-	}
-	public void setName(int name) {
-		mName = name;
-	}
-	public int getPrice() {
-		return mPrice;
-	}
-	public void setPrice(int price) {
-		mPrice = price;
-	}
-	
-	public int getQuantity() {
-		return mQuantity;
-	}
-
-	public void setQuantity(int quantity) {
-		mQuantity = quantity;
-	}	
-	
-	public int getType() {
-		return mType;
-	}
-
-	public String getDescription() {
-		return mDescription;
-	}
-
-	public void setDescription(String description) {
+        mCategory = type;
 		mDescription = description;
 	}
 
-
-//	@Override
-//	public String toString() {
-//		return mName;
-//	}
 }

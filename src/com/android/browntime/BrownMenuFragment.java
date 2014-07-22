@@ -1,8 +1,5 @@
 package com.android.browntime;
 
-import java.util.ArrayList;
-import java.util.UUID;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,6 +11,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.UUID;
 
 public class BrownMenuFragment extends Fragment {
 
@@ -42,25 +42,25 @@ public class BrownMenuFragment extends Fragment {
 		View v = inflater.inflate(R.layout.fragment_menu,  parent, false);
 	
 		mMenuPriceTotal = (TextView)v.findViewById(R.id.menu_price_total);
-		mMenuPriceTotal.setText(String.valueOf(mMenu.getPrice()));
+		mMenuPriceTotal.setText(String.valueOf(mMenu.getmPrice()));
 		
 		mMenuName = (TextView)v.findViewById(R.id.menu_name);
-		mMenuName.setText(mMenu.getName());
+		mMenuName.setText(mMenu.getmName());
 		
 		mMenuPrice = (TextView)v.findViewById(R.id.menu_price);
-		mMenuPrice.setText(String.valueOf(mMenu.getPrice()));	
+		mMenuPrice.setText(String.valueOf(mMenu.getmPrice()));
 		
 		mMenuImage = (ImageView)v.findViewById(R.id.menu_image);
 		mMenuImage.setImageResource(R.drawable.americano);
 		
 		mMenuDescription = (TextView)v.findViewById(R.id.menu_description);
-		mMenuDescription.setText(mMenu.getDescription());
+		mMenuDescription.setText(mMenu.getmDescription());
 		
 		mMenuQuantity = (TextView)v.findViewById(R.id.menu_quantity);
 		mMenuQuantity.addTextChangedListener(new TextWatcher() {
 			public void onTextChanged(CharSequence c, int start, int before, int count) {
-				mMenu.setQuantity(Integer.parseInt(c.toString()));
-				mMenuPriceTotal.setText(String.valueOf(mMenu.getPrice()*mMenu.getQuantity()));
+//				mMenu.setQuantity(Integer.parseInt(c.toString()));
+				mMenuPriceTotal.setText(String.valueOf(mMenu.getmPrice()*Integer.parseInt(c.toString())));
 			}
 			
 			public void beforeTextChanged(CharSequence c, int start, int count, int after) {
@@ -138,8 +138,8 @@ public class BrownMenuFragment extends Fragment {
 	}
 	
 	public void saveMenuToCart() {
-		BrownCart newItem = new BrownCart(mMenu.getName(), mMenu.getPrice(), mMenu.getType());
-		newItem.setQuantity(Integer.parseInt(mMenuQuantity.getText().toString()));
+		BrownCart newItem = new BrownCart(mMenu.getmName(), mMenu.getmPrice(), mMenu.getmCategory());
+//		newItem.setQuantity(Integer.parseInt(mMenuQuantity.getText().toString()));
 		CartLab.get(getActivity()).addMenu(newItem);
 	}
 	public static BrownMenuFragment newInstance(UUID menuId) {

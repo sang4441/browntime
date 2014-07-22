@@ -1,9 +1,9 @@
 package com.android.browntime;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 import java.util.UUID;
-
-import android.content.Context;
 
 public class MenuLab {
 	
@@ -71,7 +71,7 @@ public class MenuLab {
 	public ArrayList<BrownMenu> getMenus(int type) {
 		ArrayList<BrownMenu> menuByType = new ArrayList<BrownMenu>();
 		for (BrownMenu menus : mMenus) {
-			if (menus.getType() == type) {
+			if (menus.getmCategory() == type) {
 				menuByType.add(menus);
 			}
 		}
@@ -80,7 +80,7 @@ public class MenuLab {
 	
 	public BrownMenu getMenu(UUID id) {
 		for (BrownMenu c: mMenus) {
-			if (c.getId().equals(id))
+			if (c.getmId().equals(id))
 				return c;
 		}
 		return null;

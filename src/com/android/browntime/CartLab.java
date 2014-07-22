@@ -1,9 +1,9 @@
 package com.android.browntime;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 import java.util.UUID;
-
-import android.content.Context;
 
 public class CartLab {
 	private ArrayList<BrownCart> mMenus;
@@ -33,7 +33,7 @@ public class CartLab {
 	public int getPriceTotal() {
 		int total = 0;
 		for (BrownCart menu : mMenus) {
-			total = total + menu.getTotalPrice();
+			total = total + (menu.getmPrice() * menu.getmQuantity());
 		}
 		return total;
 	}
@@ -48,7 +48,7 @@ public class CartLab {
 	
 	public void deleteCart(UUID id) {		
 		for (int i = 0; i < mMenus.size(); i++) {
-			if (mMenus.get(i).getId().equals(id)) {
+			if (mMenus.get(i).getmId().equals(id)) {
 				mMenus.remove(i);
 			}
 		}

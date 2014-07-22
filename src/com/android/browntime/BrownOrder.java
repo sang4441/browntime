@@ -1,98 +1,124 @@
 package com.android.browntime;
 
-import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
 
-public class BrownOrder implements Serializable {
+public class BrownOrder {
+    @JsonProperty("id")
+    private UUID mId;
+    @JsonProperty("sellerId")
+    private int mSellerId;
+    @JsonProperty("typeId")
+    private int mType;
+    @JsonProperty("price")
+    private int mPrice;
+    @JsonProperty("timeRequested")
+    private Date mTime;
+    @JsonProperty("carts")
+    private ArrayList<BrownCart> mCarts;
 
-	private UUID mId;
-	private ArrayList<BrownCart> mCarts;
-
-    public int getSeller_id() {
-        return seller_id;
+    public UUID getmId() {
+        return mId;
     }
 
-    public void setSeller_id(int seller_id) {
-        this.seller_id = seller_id;
+    public void setmId(UUID mId) {
+        this.mId = mId;
     }
 
-
-    public void setId(int id) {
-        this.id = id;
+    public int getmSellerId() {
+        return mSellerId;
     }
 
-    private int id;
-    private int seller_id;
-	private int mPrice;
-	private int mType;
-	private Date mTime;
+    public void setmSellerId(int mSellerId) {
+        this.mSellerId = mSellerId;
+    }
 
-	public BrownOrder() {
-		mId = UUID.randomUUID();
-	}
+    public int getmType() {
+        return mType;
+    }
 
-	public UUID getId() {
-		return mId;
-	}
-	public void setId(UUID id) {
-		mId = id;
-	}
-	public ArrayList<BrownCart> getCarts() {
-		return mCarts;
-	}
-	public void setCarts(ArrayList<BrownCart> carts) {
-		mCarts = carts;
-	}
-	public int getPrice() {
-		return mPrice;
-	}
-	public void setPrice(int price) {
-		mPrice = price;
-	}
-	public int getType() {
-		return mType;
-	}
-	public void setType(int type) {
-		mType = type;
-	}
-	public Date getTime() {
-		return mTime;
-	}
-	public void setTime(Date time) {
-		mTime = time;
-	}
+    public void setmType(int mType) {
+        this.mType = mType;
+    }
 
-//	BrownOrder(Parcel in) {
-//        this.mCarts = new ArrayList<BrownCart>();
-//        this.mPrice = in.readInt();
-//        this.mType = in.readInt();
-//        in.readTypedList(mCarts, BrownCart);
-//        
-//        this.favoriteFloat = in.readFloat();
-//    }
-// 
-//    void writeToParcel(Parcel dest, int flags) {
-//        dest.writeString(name);
-//        dest.writeInt(yearsOfExperience);
-//        dest.writeTypedList(skillSet);
-//        dest.writeFloat(favoriteFloat);
-//    }
-// 
-//    int describeContents() {
-//        return 0;
-//    }
-//    
-//    static final Parcelable.Creator<BrownOrder> CREATOR
-//	    = new Parcelable.Creator<BrownOrder>() {
-//	
-//	BrownOrder createFromParcel(Parcel in) {
-//	    return new BrownOrder(in);
+    public int getmPrice() {
+        return mPrice;
+    }
+
+    public void setmPrice(int mPrice) {
+        this.mPrice = mPrice;
+    }
+
+    public Date getmTime() {
+        return mTime;
+    }
+
+    public void setmTime(Date mTime) {
+        this.mTime = mTime;
+    }
+
+    public ArrayList<BrownCart> getmCarts() {
+        return mCarts;
+    }
+    public void setmCarts(ArrayList<BrownCart> mCarts) {
+        this.mCarts = mCarts;
+    }
+//    @JsonProperty("id")
+//    private UUID mId;
+//    @JsonProperty("sellerId")
+//    private int mSellerId;
+//    @JsonProperty("typeId")
+//    private int mType;
+//    @JsonProperty("price")
+//    private int mPrice;
+//    @JsonProperty("timeRequested")
+//	private Date mTime;
+//    @JsonProperty("carts")
+//    private ArrayList<BrownCart> mCarts;
+//
+//    public BrownOrder() {
+//		mId = UUID.randomUUID();
 //	}
-//	
-//	BrownOrder[] newArray(int size) {
-//	    return new BrownOrder[size];
+//
+//	public UUID getId() {
+//		return mId;
 //	}
-//	};
+//	public void setId(UUID id) {
+//		mId = id;
+//	}
+//	public ArrayList<BrownCart> getCarts() {
+//		return mCarts;
+//	}
+//	public void setCarts(ArrayList<BrownCart> carts) {
+//		mCarts = carts;
+//	}
+//	public int getPrice() {
+//		return mPrice;
+//	}
+//	public void setPrice(int price) {
+//		mPrice = price;
+//	}
+//	public int getType() {
+//		return mType;
+//	}
+//	public void setType(int type) {
+//		mType = type;
+//	}
+//	public Date getTime() {
+//		return mTime;
+//	}
+//	public void setTime(Date time) {
+//		mTime = time;
+//	}
+//
+//    public int getSellerId() {
+//        return mSellerId;
+//    }
+//
+//    public void setSellerId(int mSellerId) {
+//        this.mSellerId = mSellerId;
+//    }
 }

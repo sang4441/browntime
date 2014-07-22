@@ -1,8 +1,5 @@
 package com.android.browntime;
 
-import java.util.ArrayList;
-import java.util.UUID;
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,6 +7,9 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+
+import java.util.ArrayList;
+import java.util.UUID;
 
 public class BrownPagerActivity extends ActionBarActivity {
 
@@ -40,7 +40,7 @@ public class BrownPagerActivity extends ActionBarActivity {
 			@Override
 			public Fragment getItem(int pos) {
 				BrownMenu menu = mMenus.get(pos);
-				return BrownMenuFragment.newInstance(menu.getId());
+				return BrownMenuFragment.newInstance(menu.getmId());
 			}
 		});	
 		
@@ -69,7 +69,7 @@ public class BrownPagerActivity extends ActionBarActivity {
 		
 		UUID menuId = (UUID)getIntent().getSerializableExtra(BrownMenuFragment.EXTRA_MENU_ID);
 		for (int i = 0; i < mMenus.size(); i++) {
-			if (mMenus.get(i).getId().equals(menuId)) {
+			if (mMenus.get(i).getmId().equals(menuId)) {
 				mViewPager.setCurrentItem(i);
 				break;
 			}

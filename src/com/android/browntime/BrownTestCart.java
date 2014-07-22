@@ -1,10 +1,11 @@
 package com.android.browntime;
 
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class BrownCart extends BrownMenu {
-
+/**
+ * Created by kimsanghwan on 7/22/2014.
+ */
+public class BrownTestCart extends BrownMenu {
     @JsonProperty("priceTotal")
     private int mPriceTotal;
     @JsonProperty("quantity")
@@ -36,11 +37,15 @@ public class BrownCart extends BrownMenu {
         this.mInstruction = mInstruction;
     }
 
-	public BrownCart() {
-		super();
-	}
+    public BrownTestCart() {
+        super();
+    }
 
-	public BrownCart(int name, int price, int type) {
-		super(name, price, type);
-	}
+    public BrownTestCart(int name, int price, int type) {
+        super(name, price, type);
+    }
+
+//    public int getTotalPrice() {
+//        return mQuantity * this.getmPrice();
+//    }
 }
