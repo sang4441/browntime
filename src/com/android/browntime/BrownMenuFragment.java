@@ -12,6 +12,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.browntime.model.BrownCart;
+import com.android.browntime.model.BrownMenu;
+
 import java.util.ArrayList;
 
 public class BrownMenuFragment extends Fragment {
@@ -137,7 +140,7 @@ public class BrownMenuFragment extends Fragment {
 	}
 	
 	public void saveMenuToCart() {
-		BrownCart newCart = new BrownCart(mMenu.getmName(), mMenu.getmPrice(), mMenu.getmCategory(), mMenu.getmDescription());
+		BrownCart newCart = new BrownCart(mMenu.getmId(), mMenu.getmName(), mMenu.getmPrice(), mMenu.getmCategory(), mMenu.getmDescription());
         int cartItemQuantity = Integer.parseInt(mMenuQuantity.getText().toString());
         newCart.setmQuantity(cartItemQuantity);
         newCart.setmInstruction("sample instruction");

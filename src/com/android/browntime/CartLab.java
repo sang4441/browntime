@@ -2,6 +2,8 @@ package com.android.browntime;
 
 import android.content.Context;
 
+import com.android.browntime.model.BrownCart;
+
 import java.util.ArrayList;
 
 public class CartLab {

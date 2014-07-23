@@ -1,4 +1,4 @@
-package com.android.browntime;
+package com.android.browntime.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

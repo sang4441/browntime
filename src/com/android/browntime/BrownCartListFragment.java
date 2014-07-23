@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.android.browntime.model.BrownCart;
+
 import java.util.ArrayList;
 
 public class BrownCartListFragment extends ListFragment {

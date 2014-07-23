@@ -4,6 +4,8 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.android.browntime.model.BrownMenu;
+
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;

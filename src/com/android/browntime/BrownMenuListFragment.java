@@ -15,6 +15,8 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.browntime.model.BrownMenu;
+
 import java.util.ArrayList;
 
 public class BrownMenuListFragment extends Fragment {

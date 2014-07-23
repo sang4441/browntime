@@ -1,4 +1,4 @@
-package com.android.browntime;
+package com.android.browntime.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -28,7 +28,8 @@ public class BrownMenu {
 //        mCategory = type;
 //    }
 
-    public BrownMenu(String name, int price, int category, String description) {
+    public BrownMenu(int id, String name, int price, int category, String description) {
+        mId = id;
         mName = name;
         mPrice = price;
         mCategory = category;

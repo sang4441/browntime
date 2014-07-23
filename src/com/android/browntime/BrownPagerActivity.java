@@ -8,6 +8,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 
+import com.android.browntime.model.BrownMenu;
+
 import java.util.ArrayList;
 
 public class BrownPagerActivity extends ActionBarActivity {

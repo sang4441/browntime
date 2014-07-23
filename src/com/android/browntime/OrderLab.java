@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import android.content.Context;
 
+import com.android.browntime.model.BrownOrder;
+
 public class OrderLab {
 	private ArrayList<BrownOrder> mOrders;
 	private static OrderLab sBrownLab;

@@ -3,13 +3,21 @@ package com.android.browntime;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.android.browntime.model.BrownCategory;
+
+import org.springframework.web.client.RestTemplate;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class CollectionDemoActivity extends FragmentActivity {
     // When requested, this adapter returns a DemoObjectFragment,
@@ -20,10 +28,12 @@ public class CollectionDemoActivity extends FragmentActivity {
     boolean isCartEmpty;
 
     public void onCreate(Bundle savedInstanceState) {
-    	final ActionBar actionBar = getActionBar();
+
     	
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collection_demo);
+
+        new HttpRequestTask().execute();
 
         isCartEmpty = CartLab.get(this).getMenus().isEmpty();
         mGoToCartNum = (TextView)findViewById(R.id.menu_cart_num);
@@ -73,58 +83,90 @@ public class CollectionDemoActivity extends FragmentActivity {
                         getActionBar().setSelectedNavigationItem(position);
                     }
                 });
-     // Specify that tabs should be displayed in the action bar.
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
-        // Create a tab listener that is called when the user changes tabs.
-        ActionBar.TabListener tabListener = new ActionBar.TabListener() {
 
-			@Override
-			public void onTabReselected(Tab tab,
-					android.app.FragmentTransaction ft) {
-			}
-
-			@Override
-			public void onTabSelected(Tab tab,
-					android.app.FragmentTransaction ft) {
-            	mViewPager.setCurrentItem(tab.getPosition());				
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void onTabUnselected(Tab tab,
-					android.app.FragmentTransaction ft) {
-				// TODO Auto-generated method stub
-				
-			}
-        };
-
-        actionBar.addTab(actionBar.newTab()
-                        .setText("coffee (hot)")
-                        .setTabListener(tabListener));
-        actionBar.addTab(actionBar.newTab()
-                .setText("coffee (ice)")
-                .setTabListener(tabListener));
-        actionBar.addTab(actionBar.newTab()
-                .setText("non-coffee")
-                .setTabListener(tabListener));
-        actionBar.addTab(actionBar.newTab()
-        		.setText("beverage")
-        		.setTabListener(tabListener));
-        actionBar.addTab(actionBar.newTab()
-                .setText("tea")
-                .setTabListener(tabListener));
-        actionBar.addTab(actionBar.newTab()
-                .setText("dessert")
-                .setTabListener(tabListener));
-        actionBar.addTab(actionBar.newTab()
-                .setText("brunch")
-                .setTabListener(tabListener));
-        actionBar.addTab(actionBar.newTab()
-                .setText("snack")
-            	.setTabListener(tabListener));
+//        actionBar.addTab(actionBar.newTab()
+//                        .setText("coffee (hot)")
+//                        .setTabListener(tabListener));
+//        actionBar.addTab(actionBar.newTab()
+//                .setText("coffee (ice)")
+//                .setTabListener(tabListener));
+//        actionBar.addTab(actionBar.newTab()
+//                .setText("non-coffee")
+//                .setTabListener(tabListener));
+//        actionBar.addTab(actionBar.newTab()
+//        		.setText("beverage")
+//        		.setTabListener(tabListener));
+//        actionBar.addTab(actionBar.newTab()
+//                .setText("tea")
+//                .setTabListener(tabListener));
+//        actionBar.addTab(actionBar.newTab()
+//                .setText("dessert")
+//                .setTabListener(tabListener));
+//        actionBar.addTab(actionBar.newTab()
+//                .setText("brunch")
+//                .setTabListener(tabListener));
+//        actionBar.addTab(actionBar.newTab()
+//                .setText("snack")
+//            	.setTabListener(tabListener));
        
+    }
+
+    private class HttpRequestTask extends AsyncTask<Void, Void, List<BrownCategory>> {
+        @Override
+        protected List<BrownCategory> doInBackground(Void... params) {
+            try {
+
+                final String url = "http://10.0.2.2:8080/BrownTime/json/getCategories/1";
+                RestTemplate restTemplate = new RestTemplate();
+                restTemplate.setMessageConverters(new JSONRequest().getMessageConverters());
+
+                BrownCategory[] categories = restTemplate.getForObject(url, BrownCategory[].class);
+                return Arrays.asList(categories);
+            } catch (Exception e) {
+                Log.e("MainActivity", e.getMessage(), e);
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(List<BrownCategory> categories) {
+            final ActionBar actionBar = getActionBar();
+
+            // Specify that tabs should be displayed in the action bar.
+            actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+
+            // Create a tab listener that is called when the user changes tabs.
+            ActionBar.TabListener tabListener = new ActionBar.TabListener() {
+
+                @Override
+                public void onTabReselected(Tab tab,
+                                            android.app.FragmentTransaction ft) {
+                }
+
+                @Override
+                public void onTabSelected(Tab tab,
+                                          android.app.FragmentTransaction ft) {
+                    mViewPager.setCurrentItem(tab.getPosition());
+                    // TODO Auto-generated method stub
+
+                }
+
+                @Override
+                public void onTabUnselected(Tab tab,
+                                            android.app.FragmentTransaction ft) {
+                    // TODO Auto-generated method stub
+
+                }
+            };
+
+            for (BrownCategory category : categories) {
+                actionBar.addTab(actionBar.newTab()
+                        .setText(category.getmName())
+                        .setTabListener(tabListener));
+            }
+        }
     }
 }
 

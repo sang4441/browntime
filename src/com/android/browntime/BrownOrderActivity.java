@@ -5,6 +5,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.widget.TextView;
 
+import com.android.browntime.model.BrownOrder;
+
 public class BrownOrderActivity extends ActionBarActivity {
 
 	private TextView mOrderType;
