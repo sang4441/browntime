@@ -16,14 +16,7 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
-import org.springframework.http.MediaType;
-import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
-
-import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.List;
 
 public class BrownCartFragment extends Fragment {
 	
@@ -155,24 +148,6 @@ public class BrownCartFragment extends Fragment {
 		 mCartSum.setText(String.valueOf(CartLab.get(getActivity()).getPriceTotal()));
 	 }
 
-    public void givenConsumingJson_whenReadingTheFoo_thenCorrect() {
-
-    }
-    private List<HttpMessageConverter<?>> getMessageConverters() {
-        List<HttpMessageConverter<?>> converters = new ArrayList<HttpMessageConverter<?>>();
-        List<MediaType> supportedMediaTypes = new ArrayList<MediaType>();
-        MediaType mediaType = new MediaType("application", "json", Charset.forName("UTF-8"));
-        supportedMediaTypes.add(mediaType);
-
-        MappingJackson2HttpMessageConverter jacksonConverter = new MappingJackson2HttpMessageConverter();
-        jacksonConverter.setSupportedMediaTypes(supportedMediaTypes);
-        converters.add(jacksonConverter);
-
-//        converters.add(new MappingJackson2HttpMessageConverter().setSupportedMediaTypes(supportedMediaTypes));
-
-        return converters;
-    }
-
     private class HttpRequestTask extends AsyncTask<Void, Void, BrownOrder> {
         @Override
         protected BrownOrder doInBackground(Void... params) {
@@ -180,7 +155,7 @@ public class BrownCartFragment extends Fragment {
 
                 final String url = "http://10.0.2.2:8080/BrownTime/json/addOrder";
                 RestTemplate restTemplate = new RestTemplate();
-                restTemplate.setMessageConverters(getMessageConverters());
+                restTemplate.setMessageConverters(new JSONRequest().getMessageConverters());
 
                 BrownOrder greeting = restTemplate.postForObject(url, mCurrentOrder, BrownOrder.class);
 

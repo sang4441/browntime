@@ -3,7 +3,6 @@ package com.android.browntime;
 import android.content.Context;
 
 import java.util.ArrayList;
-import java.util.UUID;
 
 public class CartLab {
 	private ArrayList<BrownCart> mCarts;
@@ -50,9 +49,9 @@ public class CartLab {
         mCarts.clear();
 	}
 	
-	public void deleteCart(UUID id) {		
+	public void deleteCart(int id) {
 		for (int i = 0; i < mCarts.size(); i++) {
-			if (mCarts.get(i).getmId().equals(id)) {
+			if (mCarts.get(i).getmId()==id) {
                 mCarts.remove(i);
 			}
 		}

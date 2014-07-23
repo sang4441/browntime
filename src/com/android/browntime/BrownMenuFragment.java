@@ -13,7 +13,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.UUID;
 
 public class BrownMenuFragment extends Fragment {
 
@@ -32,7 +31,7 @@ public class BrownMenuFragment extends Fragment {
 		super.onCreate(savedInstanceState);
 		
 		mMenu = new BrownMenu();
-		UUID menuId = (UUID)getArguments().getSerializable(EXTRA_MENU_ID);
+		int menuId = (int)getArguments().getInt(EXTRA_MENU_ID);
 		mMenu = MenuLab.get(getActivity()).getMenu(menuId);	
 
 	}
@@ -145,7 +144,7 @@ public class BrownMenuFragment extends Fragment {
         newCart.setmPriceTotal(cartItemQuantity*newCart.getmPrice());
 		CartLab.get(getActivity()).addCart(newCart);
 	}
-	public static BrownMenuFragment newInstance(UUID menuId) {
+	public static BrownMenuFragment newInstance(int menuId) {
 		Bundle args = new Bundle();
 		args.putSerializable(EXTRA_MENU_ID, menuId);
 		

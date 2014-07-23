@@ -2,14 +2,12 @@ package com.android.browntime;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.UUID;
-
 public class BrownMenu {
 
     @JsonProperty("id")
-	private UUID mId;
+	private int mId;
     @JsonProperty("name")
-    private int mName;
+    private String mName;
     @JsonProperty("price")
     private int mPrice;
     @JsonProperty("category")
@@ -20,18 +18,17 @@ public class BrownMenu {
 
 
     public BrownMenu() {
-        mId = UUID.randomUUID();
+
     }
 
-    public BrownMenu(int name, int price, int type) {
-        mId = UUID.randomUUID();
-        mName = name;
-        mPrice = price;
-        mCategory = type;
-    }
+//    public BrownMenu(int name, int price, int type) {
+//        mId = UUID.randomUUID();
+//        mName = name;
+//        mPrice = price;
+//        mCategory = type;
+//    }
 
-    public BrownMenu(int name, int price, int category, String description) {
-        mId = UUID.randomUUID();
+    public BrownMenu(String name, int price, int category, String description) {
         mName = name;
         mPrice = price;
         mCategory = category;
@@ -39,19 +36,19 @@ public class BrownMenu {
     }
 
 
-    public UUID getmId() {
+    public int getmId() {
         return mId;
     }
 
-    public void setmId(UUID mId) {
+    public void setmId(int mId) {
         this.mId = mId;
     }
 
-    public int getmName() {
+    public String getmName() {
         return mName;
     }
 
-    public void setmName(int mName) {
+    public void setmName(String mName) {
         this.mName = mName;
     }
 

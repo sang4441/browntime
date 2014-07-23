@@ -41,9 +41,9 @@ public class BrownTestCart extends BrownMenu {
         super();
     }
 
-    public BrownTestCart(int name, int price, int type) {
-        super(name, price, type);
-    }
+//    public BrownTestCart(int name, int price, int type) {
+//        super(name, price, type);
+//    }
 
 //    public int getTotalPrice() {
 //        return mQuantity * this.getmPrice();

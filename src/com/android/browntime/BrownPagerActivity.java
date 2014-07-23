@@ -9,7 +9,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 
 import java.util.ArrayList;
-import java.util.UUID;
 
 public class BrownPagerActivity extends ActionBarActivity {
 
@@ -67,9 +66,9 @@ public class BrownPagerActivity extends ActionBarActivity {
 			}
 		});
 		
-		UUID menuId = (UUID)getIntent().getSerializableExtra(BrownMenuFragment.EXTRA_MENU_ID);
+		int menuId = (int)getIntent().getIntExtra(BrownMenuFragment.EXTRA_MENU_ID, 1);
 		for (int i = 0; i < mMenus.size(); i++) {
-			if (mMenus.get(i).getmId().equals(menuId)) {
+			if (mMenus.get(i).getmId()==menuId) {
 				mViewPager.setCurrentItem(i);
 				break;
 			}

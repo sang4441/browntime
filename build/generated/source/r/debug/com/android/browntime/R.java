@@ -852,20 +852,19 @@ containing a value of this type.
         public static final int abc_textfield_searchview_right_holo_dark=0x7f020055;
         public static final int abc_textfield_searchview_right_holo_light=0x7f020056;
         public static final int americano=0x7f020057;
-        public static final int divider=0x7f020058;
-        public static final int ic_action_next_item=0x7f020059;
-        public static final int ic_action_previous_item=0x7f02005a;
-        public static final int ic_launcher=0x7f02005b;
-        public static final int ic_minus=0x7f02005c;
-        public static final int ic_plus=0x7f02005d;
-        public static final int sample_0=0x7f02005e;
-        public static final int sample_1=0x7f02005f;
-        public static final int sample_2=0x7f020060;
-        public static final int sample_3=0x7f020061;
-        public static final int sample_4=0x7f020062;
-        public static final int sample_5=0x7f020063;
-        public static final int sample_6=0x7f020064;
-        public static final int sample_7=0x7f020065;
+        public static final int ic_action_next_item=0x7f020058;
+        public static final int ic_action_previous_item=0x7f020059;
+        public static final int ic_launcher=0x7f02005a;
+        public static final int ic_minus=0x7f02005b;
+        public static final int ic_plus=0x7f02005c;
+        public static final int sample_0=0x7f02005d;
+        public static final int sample_1=0x7f02005e;
+        public static final int sample_2=0x7f02005f;
+        public static final int sample_3=0x7f020060;
+        public static final int sample_4=0x7f020061;
+        public static final int sample_5=0x7f020062;
+        public static final int sample_6=0x7f020063;
+        public static final int sample_7=0x7f020064;
     }
     public static final class id {
         public static final int action_bar=0x7f07001d;
