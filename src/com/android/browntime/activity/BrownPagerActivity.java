@@ -1,4 +1,4 @@
-package com.android.browntime;
+package com.android.browntime.activity;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,6 +8,9 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 
+import com.android.browntime.BrownMenuFragment;
+import com.android.browntime.MenuLab;
+import com.android.browntime.R;
 import com.android.browntime.model.BrownMenu;
 
 import java.util.ArrayList;
