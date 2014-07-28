@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.GridView;
@@ -27,12 +26,12 @@ public class BrownMenuListFragment extends Fragment {
 	private ArrayList<BrownMenu> mMenus;
 	
 	private EditText mMenuQuantity;
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		Bundle args = getArguments();
-		mMenus = MenuLab.get(getActivity()).getMenus(args.getInt(MENU_TYPE));
+        Bundle args = getArguments();
+        mMenus = MenuLab.get(getActivity()).getMenus(args.getInt(MENU_TYPE));
 	}
 	
 	
@@ -42,17 +41,17 @@ public class BrownMenuListFragment extends Fragment {
 		GridView gridview = (GridView)v.findViewById(R.id.gridview);
 		BrownMenuAdapter adapter = new BrownMenuAdapter(mMenus);
 	    gridview.setAdapter(adapter);
-	    
-	    gridview.setOnItemClickListener(new OnItemClickListener() {
+
+	    gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 	        public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-	    		BrownMenu c = (BrownMenu)parent.getAdapter().getItem(position);	
+	    		BrownMenu c = (BrownMenu)parent.getAdapter().getItem(position);
 	    		Intent i = new Intent(getActivity(), BrownPagerActivity.class);
 	    		i.putExtra(BrownMenuFragment.EXTRA_MENU_ID, c.getmId());
 	    		startActivity(i);
-	    		Log.d(TAG,  "was clicked");
+	    		Log.d(TAG, "was clicked");
 	        }
 	    });
-	    
+
 		return v;
 	}
 	
@@ -74,7 +73,7 @@ public class BrownMenuListFragment extends Fragment {
 			ImageView imageView = (ImageView) convertView.findViewById(R.id.menu_list_item_imageView);
 			imageView.setImageResource(R.drawable.americano);
 			TextView nameTextView = (TextView)convertView.findViewById(R.id.menu_list_item_nameTextView);
-			nameTextView.setText(c.getmName());
+			nameTextView.setText(R.string.ice_tea_peach);
 			TextView priceTextView = (TextView)convertView.findViewById(R.id.menu_list_item_priceTextView);
 			priceTextView.setText(String.valueOf(c.getmPrice()));
 			
@@ -82,5 +81,4 @@ public class BrownMenuListFragment extends Fragment {
 		}
 		
 	}
-	
 }

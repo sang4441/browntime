@@ -1,15 +1,10 @@
 package com.android.browntime;
 
 import android.content.Context;
-import android.os.AsyncTask;
-import android.util.Log;
 
 import com.android.browntime.model.BrownMenu;
 
-import org.springframework.web.client.RestTemplate;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class MenuLab {
@@ -23,7 +18,7 @@ public class MenuLab {
 		mMenus = new ArrayList<BrownMenu>();
 
 
-        new HttpRequestTask().execute();
+
 
 
 //		mMenus.add(new BrownMenu(R.string.espresso, 3000, 1, "this is a description for coffee this is a description for coffee this is a description for coffee"));
@@ -75,6 +70,10 @@ public class MenuLab {
 	public ArrayList<BrownMenu> getMenus() {
 		return mMenus;
 	}
+
+    public boolean isEmpty() {
+        return mMenus.isEmpty();
+    }
 	
 	public ArrayList<BrownMenu> getMenus(int type) {
 		ArrayList<BrownMenu> menuByType = new ArrayList<BrownMenu>();
@@ -85,6 +84,10 @@ public class MenuLab {
 		}
 		return menuByType;
 	}
+
+    public void addMenuAll(List<BrownMenu> menus) {
+        mMenus.addAll(menus);
+    }
 	
 	public BrownMenu getMenu(int id) {
 		for (BrownMenu c: mMenus) {
@@ -94,27 +97,4 @@ public class MenuLab {
 		return null;
 	}
 
-    private class HttpRequestTask extends AsyncTask<Void, Void, List<BrownMenu>> {
-        @Override
-        protected List<BrownMenu> doInBackground(Void... params) {
-            try {
-
-                final String url = "http://10.0.2.2:8080/BrownTime/json/getMenus/1";
-                RestTemplate restTemplate = new RestTemplate();
-                restTemplate.setMessageConverters(new JSONRequest().getMessageConverters());
-
-                BrownMenu[] menus = restTemplate.getForObject(url, BrownMenu[].class);
-                return Arrays.asList(menus);
-            } catch (Exception e) {
-                Log.e("MainActivity", e.getMessage(), e);
-            }
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(List<BrownMenu> menus) {
-            mMenus.addAll(menus);
-        }
-    }
 }

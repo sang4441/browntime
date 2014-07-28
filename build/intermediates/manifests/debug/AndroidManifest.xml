@@ -23,21 +23,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.android.browntime.BrownPagerActivity"
+            android:name="com.android.browntime.activity.BrownPagerActivity"
             android:label="@string/app_name"
             android:parentActivityName="com.android.browntime.CollectionDemoActivity" >
         </activity>
         <activity
-            android:name="com.android.browntime.BrownMenuActivity"
+            android:name="com.android.browntime.activity.BrownMenuActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.android.browntime.BrownCartListActivity"
+            android:name="com.android.browntime.activity.BrownCartListActivity"
             android:label="@string/app_name"
             android:parentActivityName="com.android.browntime.CollectionDemoActivity" >
         </activity>
         <activity
-            android:name="com.android.browntime.BrownOrderActivity"
+            android:name="com.android.browntime.activity.BrownOrderActivity"
             android:label="@string/app_name" >
         </activity>
     </application>

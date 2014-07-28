@@ -75,7 +75,7 @@
 		    android:id="@+id/menu_quantity_minus"
 		    android:layout_width="40dp"
 		    android:layout_height="40dp"		
-		    android:src="@drawable/ic_action_previous_item" />
+		    android:src="@drawable/btn_plus_default" />
 		    
 		    <TextView android:id="@+id/menu_quantity"
 	        android:layout_width="wrap_content"
@@ -87,7 +87,7 @@
 		    android:id="@+id/menu_quantity_plus"
 		    android:layout_width="40dp"
 		    android:layout_height="40dp"		
-		    android:src="@drawable/ic_action_next_item" />
+		    android:src="@drawable/btn_minus_default" />
 		    
         </LinearLayout>
 	     

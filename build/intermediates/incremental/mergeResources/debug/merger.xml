@@ -1817,10 +1817,6 @@ normal
                     name="TextAppearance.AppCompat.Widget.PopupMenu.Large"
                     parent="TextAppearance.AppCompat.Base.Widget.PopupMenu.Large" />
 
-                <attr
-                    name="listPreferredItemHeightSmall"
-                    format="dimension" />
-
                 <declare-styleable name="MenuItem" >
 
                     <!-- The ID of the item. -->
@@ -1958,6 +1954,10 @@ normal
                         name="actionProviderClass"
                         format="string" />
                 </declare-styleable>
+
+                <attr
+                    name="listPreferredItemHeightSmall"
+                    format="dimension" />
 
                 <style
                     name="TextAppearance.AppCompat.Widget.ActionBar.Subtitle.Inverse"

@@ -12,6 +12,7 @@ public class DemoCollectionPagerAdapter extends FragmentStatePagerAdapter {
      super(fm);
  }
 
+
  @Override
  public Fragment getItem(int i) {
      Fragment fragment = new BrownMenuListFragment();

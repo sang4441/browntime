@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.android.browntime.activity.BrownCartListActivity;
 import com.android.browntime.model.BrownCategory;
+import com.android.browntime.model.BrownMenu;
 
 import org.springframework.web.client.RestTemplate;
 
@@ -29,51 +30,26 @@ public class CollectionDemoActivity extends FragmentActivity {
     boolean isCartEmpty;
 
     public void onCreate(Bundle savedInstanceState) {
-
-    	
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collection_demo);
 
+        if (MenuLab.get(CollectionDemoActivity.this).isEmpty()) {
+            new HttpRequestTaskMenu().execute();
+        } else {
+            createPager();
+        }
         new HttpRequestTask().execute();
+    }
 
-        isCartEmpty = CartLab.get(this).getMenus().isEmpty();
-        mGoToCartNum = (TextView)findViewById(R.id.menu_cart_num);
-        mGoToCartNum.setText(R.string.zero);
-        
-        if (!isCartEmpty) {
-        	mGoToCartNum.setText(String.valueOf(CartLab.get(this).getMenus().size()));
-        } 
-		
-        
-        mGoToCart = (TextView)findViewById(R.id.menu_cart);
-        mGoToCart.setText(R.string.cart_label);
-		mGoToCart.setOnClickListener(new View.OnClickListener() {
-		
-			
-			
-			@Override
-			public void onClick(View v) {
-				if (isCartEmpty) {
-					Toast.makeText(CollectionDemoActivity.this, R.string.cart_empty_toast, Toast.LENGTH_SHORT).show();
-				} else {
-					Intent intent = new Intent(CollectionDemoActivity.this, BrownCartListActivity.class);
-				    startActivity(intent);
-				}
-			}
-			
-			
-		});
 
-      
-        // ViewPager and its adapters use support library
-        // fragments, so use getSupportFragmentManager.
+    private void createPager() {
         mDemoCollectionPagerAdapter =
                 new DemoCollectionPagerAdapter(
                         getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mDemoCollectionPagerAdapter);
-        
-        
+
+
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setOnPageChangeListener(
                 new ViewPager.SimpleOnPageChangeListener() {
@@ -84,33 +60,34 @@ public class CollectionDemoActivity extends FragmentActivity {
                         getActionBar().setSelectedNavigationItem(position);
                     }
                 });
+    }
 
+    private class HttpRequestTaskMenu extends AsyncTask<Void, Void, List<BrownMenu>> {
+        @Override
+        protected List<BrownMenu> doInBackground(Void... params) {
+            try {
 
-//        actionBar.addTab(actionBar.newTab()
-//                        .setText("coffee (hot)")
-//                        .setTabListener(tabListener));
-//        actionBar.addTab(actionBar.newTab()
-//                .setText("coffee (ice)")
-//                .setTabListener(tabListener));
-//        actionBar.addTab(actionBar.newTab()
-//                .setText("non-coffee")
-//                .setTabListener(tabListener));
-//        actionBar.addTab(actionBar.newTab()
-//        		.setText("beverage")
-//        		.setTabListener(tabListener));
-//        actionBar.addTab(actionBar.newTab()
-//                .setText("tea")
-//                .setTabListener(tabListener));
-//        actionBar.addTab(actionBar.newTab()
-//                .setText("dessert")
-//                .setTabListener(tabListener));
-//        actionBar.addTab(actionBar.newTab()
-//                .setText("brunch")
-//                .setTabListener(tabListener));
-//        actionBar.addTab(actionBar.newTab()
-//                .setText("snack")
-//            	.setTabListener(tabListener));
-       
+                final String url = "http://10.0.2.2:8080/BrownTime/json/getMenus/1";
+                RestTemplate restTemplate = new RestTemplate();
+                restTemplate.setMessageConverters(new JSONRequest().getMessageConverters());
+
+                BrownMenu[] menus = restTemplate.getForObject(url, BrownMenu[].class);
+                return Arrays.asList(menus);
+            } catch (Exception e) {
+                Log.e("MainActivity", e.getMessage(), e);
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(List<BrownMenu> menus) {
+            MenuLab.get(CollectionDemoActivity.this).addMenuAll(menus);
+            createPager();
+            // ViewPager and its adapters use support library
+            // fragments, so use getSupportFragmentManager.
+
+        }
     }
 
     private class HttpRequestTask extends AsyncTask<Void, Void, List<BrownCategory>> {
@@ -133,6 +110,38 @@ public class CollectionDemoActivity extends FragmentActivity {
 
         @Override
         protected void onPostExecute(List<BrownCategory> categories) {
+
+            isCartEmpty = CartLab.get(CollectionDemoActivity.this).getMenus().isEmpty();
+            mGoToCartNum = (TextView)findViewById(R.id.menu_cart_num);
+            mGoToCartNum.setText(R.string.zero);
+
+            if (!isCartEmpty) {
+                mGoToCartNum.setText(String.valueOf(CartLab.get(CollectionDemoActivity.this).getMenus().size()));
+            }
+
+
+            mGoToCart = (TextView)findViewById(R.id.menu_cart);
+            mGoToCart.setText(R.string.cart_label);
+            mGoToCart.setOnClickListener(new View.OnClickListener() {
+
+
+
+                @Override
+                public void onClick(View v) {
+                    if (isCartEmpty) {
+                        Toast.makeText(CollectionDemoActivity.this, R.string.cart_empty_toast, Toast.LENGTH_SHORT).show();
+                    } else {
+                        Intent intent = new Intent(CollectionDemoActivity.this, BrownCartListActivity.class);
+                        startActivity(intent);
+                    }
+                }
+
+
+            });
+
+
+
+
             final ActionBar actionBar = getActionBar();
 
             // Specify that tabs should be displayed in the action bar.
