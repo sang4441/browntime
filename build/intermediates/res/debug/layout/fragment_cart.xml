@@ -7,10 +7,12 @@
     <LinearLayout
 		    android:layout_width="fill_parent"
 		    android:layout_height="wrap_content"
+        style="?android:listSeparatorTextViewStyle"
 		    android:orientation="horizontal" >
 			<TextView 
 		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"	        
+		        android:layout_height="wrap_content"
+                android:textSize="20dp"
 		        android:text="@string/menu_price_total_label"
 		        />
    		    
@@ -23,7 +25,8 @@
    		      <TextView android:id="@+id/cart_sum"
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
-		        style="?android:listSeparatorTextViewStyle"/>
+                  android:textSize="20dp"
+		        />
 		</LinearLayout>
 		<RadioGroup
 	        android:id="@+id/checkoutOrderRadio"
@@ -34,11 +37,13 @@
 		        android:checked="true"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
+                android:textSize="20dp"
 		        android:text="@string/checkout_order_now"
 		        />
 		    <RadioButton android:id="@+id/checkoutOrderInAdvance"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
+                android:textSize="20dp"
 		        android:text="@string/checkout_order_in_advance"
 		        />
 		</RadioGroup>

@@ -9,32 +9,39 @@
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:text="@string/menu_title_label"
-	        style="?android:listSeparatorTextViewStyle"
+             android:textSize="20dp"
+             android:padding="10dp"
+             style="?android:listSeparatorTextViewStyle"
 	        />
 	    
 	    <LinearLayout android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:orientation="horizontal"
-	    style="?android:listSeparatorTextViewStyle">
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            style="?android:listSeparatorTextViewStyle">
 		        <ImageView
 		        android:id="@+id/menu_image"
-		        android:layout_width="150dp"
-		        android:layout_height="100dp" />
+		        android:layout_width="190dp"
+		        android:layout_height="120dp"
+                   />
 		        
-		         <TextView android:id="@+id/menu_description"
+		        <TextView android:id="@+id/menu_description"
 		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
+		        android:layout_height="match_parent"
 		        />
 	    </LinearLayout>
 	    
 	   <LinearLayout android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
 	    android:orientation="horizontal"
+           android:padding="10dp"
 	    style="?android:listSeparatorTextViewStyle">
 	        <TextView 
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"		        
 		        android:text="@string/menu_price_label"
+                android:textSize="20dp"
 		        android:gravity="left"
 		        />
 	         <View
@@ -46,6 +53,7 @@
         	<TextView android:id="@+id/menu_price"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
+            android:textSize="20dp"
 	        android:layout_gravity="right"
 	        />
         </LinearLayout>
@@ -56,11 +64,13 @@
 	    <LinearLayout android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
 	    android:orientation="horizontal"
+            android:padding="10dp"
 	    style="?android:listSeparatorTextViewStyle">
 			<TextView 
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"		        
 		        android:text="@string/menu_quantity_label"
+                android:textSize="20dp"
 		        android:gravity="left"
 		        />
 	        
@@ -73,20 +83,21 @@
 	         
 		     <ImageButton
 		    android:id="@+id/menu_quantity_minus"
-		    android:layout_width="40dp"
-		    android:layout_height="40dp"		
+		    android:layout_width="30dp"
+		    android:layout_height="30dp"
 		    android:src="@drawable/ic_action_previous_item" />
 		    
 		    <TextView android:id="@+id/menu_quantity"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
+            android:textSize="20dp"
 	        android:text="1"
 	        />
 		    
 		    <ImageButton
 		    android:id="@+id/menu_quantity_plus"
-		    android:layout_width="40dp"
-		    android:layout_height="40dp"		
+		    android:layout_width="30dp"
+		    android:layout_height="30dp"
 		    android:src="@drawable/ic_action_next_item" />
 		    
         </LinearLayout>
@@ -95,12 +106,14 @@
 	     <LinearLayout android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
 	    android:orientation="horizontal"
+             android:padding="10dp"
 	    style="?android:listSeparatorTextViewStyle">
 	      
    		    <TextView 
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"	        
 		        android:text="@string/menu_price_total_label"
+                android:textSize="20dp"
 		        />
    		    
    		      <View
@@ -112,29 +125,32 @@
 		    <TextView android:id="@+id/menu_price_total"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
+                android:textSize="20dp"
 		        />
 	    </LinearLayout>
 	    
 	     
 	    <LinearLayout android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
-	    android:orientation="horizontal"
-	    style="?android:listSeparatorTextViewStyle">
+	    android:orientation="horizontal">
 	    	
 		    <Button android:id="@+id/menu_add_to_cart"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:layout_marginLeft="16dp"
-		        android:layout_marginRight="16dp"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="5dp"
+                android:textSize="20dp"
 		        android:text="@string/menu_button_add_to_cart"
 	        />
 	    
 		        
 		     <Button android:id="@+id/menu_checkout"
+                android:padding="10dp"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
-		        android:layout_marginLeft="16dp"
-		        android:layout_marginRight="16dp"
+		        android:layout_marginRight="5dp"
+                android:textSize="20dp"
 		        android:text="@string/menu_button_checkout"
 	        />
 	    </LinearLayout> 

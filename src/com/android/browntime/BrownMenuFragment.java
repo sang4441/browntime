@@ -1,6 +1,7 @@
 package com.android.browntime;
 
 import android.content.Intent;
+import android.graphics.LightingColorFilter;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -46,7 +47,7 @@ public class BrownMenuFragment extends Fragment {
 	
 		mMenuPriceTotal = (TextView)v.findViewById(R.id.menu_price_total);
 		mMenuPriceTotal.setText(String.valueOf(mMenu.getmPrice()));
-		
+
 		mMenuName = (TextView)v.findViewById(R.id.menu_name);
 		mMenuName.setText(mMenu.getmName());
 		
@@ -135,7 +136,8 @@ public class BrownMenuFragment extends Fragment {
 				Intent i = new Intent(getActivity(), BrownCartListActivity.class);
 	    		startActivity(i);
 			}	
-		});		
+		});
+        mMenuCheckout.getBackground().setColorFilter(new LightingColorFilter(0xFFFFFFFF, 0xFFAA0000));
 
 		return v;
 	}

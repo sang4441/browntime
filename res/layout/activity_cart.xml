@@ -4,26 +4,60 @@
 		<View android:id="@+id/dummyView"
               android:layout_width="0dp"
               android:layout_height="0dp"
-              android:layout_centerInParent="true"/>
-		
-		<FrameLayout
-		    android:id="@+id/fragmentCartList"
-		    android:layout_width="match_parent"
-		    android:layout_height="fill_parent"
-		   	android:layout_alignBottom="@id/dummyView"		    
-		    android:layout_weight="0"
-		    android:orientation="vertical" >
+              android:layout_alignParentBottom="true"/>
+
+        <View android:id="@+id/dummyView2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignTop="@+id/fragmentCart"/>
+
+        <FrameLayout
+                android:id="@+id/fragmentCartList"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignBottom="@id/dummyView2"
+                android:layout_weight="0"
+                android:orientation="vertical" >
 		     
 	    </FrameLayout>
-	    
+
 		<FrameLayout
 		    android:id="@+id/fragmentCart"
 		    android:layout_width="match_parent"
-		    android:layout_height="fill_parent"
+		    android:layout_height="150dp"
 		    android:layout_weight="1"
-           android:layout_alignTop="@id/dummyView"
-		   
+           android:layout_alignBottom="@id/dummyView"
+
 		    android:orientation="vertical" >
 		     
 	    </FrameLayout>
 </RelativeLayout>
+
+
+
+
+<!--<View android:id="@+id/dummyView"-->
+<!--android:layout_width="0dp"-->
+<!--android:layout_height="0dp"-->
+<!--android:layout_centerInParent="true"/>-->
+
+<!--<FrameLayout-->
+<!--android:id="@+id/fragmentCartList"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="fill_parent"-->
+<!--android:layout_alignBottom="@id/dummyView"-->
+<!--android:layout_weight="0"-->
+<!--android:orientation="vertical" >-->
+
+<!--</FrameLayout>-->
+
+<!--<FrameLayout-->
+<!--android:id="@+id/fragmentCart"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="fill_parent"-->
+<!--android:layout_weight="1"-->
+<!--android:layout_alignTop="@id/dummyView"-->
+
+<!--android:orientation="vertical" >-->
+
+<!--</FrameLayout>-->

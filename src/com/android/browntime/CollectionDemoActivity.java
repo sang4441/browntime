@@ -67,7 +67,7 @@ public class CollectionDemoActivity extends FragmentActivity {
         protected List<BrownMenu> doInBackground(Void... params) {
             try {
 
-                final String url = "http://10.0.2.2:8080/BrownTime/json/getMenus/1";
+                final String url = "http://browntime123.cafe24.com/json/getMenus/1";
                 RestTemplate restTemplate = new RestTemplate();
                 restTemplate.setMessageConverters(new JSONRequest().getMessageConverters());
 
@@ -95,7 +95,7 @@ public class CollectionDemoActivity extends FragmentActivity {
         protected List<BrownCategory> doInBackground(Void... params) {
             try {
 
-                final String url = "http://10.0.2.2:8080/BrownTime/json/getCategories/1";
+                final String url = "http://browntime123.cafe24.com/json/getCategories/1";
                 RestTemplate restTemplate = new RestTemplate();
                 restTemplate.setMessageConverters(new JSONRequest().getMessageConverters());
 
