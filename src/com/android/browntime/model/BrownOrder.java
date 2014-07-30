@@ -6,13 +6,15 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
 
-public class BrownOrder {
+public class BrownOrder extends BrownBuyer {
     @JsonProperty("id")
     private UUID mId;
     @JsonProperty("sellerId")
     private int mSellerId;
     @JsonProperty("typeId")
     private int mType;
+    @JsonProperty("address")
+    private String mAddress;
     @JsonProperty("price")
     private int mPrice;
     @JsonProperty("timeRequested")
@@ -65,6 +67,15 @@ public class BrownOrder {
     }
     public void setmCarts(ArrayList<BrownCart> mCarts) {
         this.mCarts = mCarts;
+    }
+
+
+    public String getmAddress() {
+        return mAddress;
+    }
+
+    public void setmAddress(String mAddress) {
+        this.mAddress = mAddress;
     }
 //    @JsonProperty("id")
 //    private UUID mId;

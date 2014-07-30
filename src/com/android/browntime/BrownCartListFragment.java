@@ -64,11 +64,13 @@ public class BrownCartListFragment extends ListFragment {
 			priceTotalTextView.setText(String.valueOf(cart.getmQuantity()*cart.getmPrice()));
 			
 			final TextView mMenuQuantity = (TextView)convertView.findViewById(R.id.cart_menu_quantity);
+            mMenuQuantity.setText(String.valueOf(cart.getmQuantity()));
 //			mMenuQuantity = (TextView)convertView.findViewById(R.id.cart_menu_quantity);
 			mMenuQuantity.addTextChangedListener(new TextWatcher() {
 				public void onTextChanged(CharSequence c, int start, int before, int count) {
 					cart.setmQuantity(Integer.parseInt(c.toString()));
 					priceTotalTextView.setText(String.valueOf(cart.getmPrice()*cart.getmQuantity()));
+//                    CartLab.get(getActivity()).
 					((BrownCartListActivity)getActivity()).refreshSum();
 				}
 				

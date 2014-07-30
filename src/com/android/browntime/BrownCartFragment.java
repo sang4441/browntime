@@ -1,11 +1,10 @@
 package com.android.browntime;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
-import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,10 +15,11 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
-import com.android.browntime.activity.BrownOrderActivity;
+import com.android.browntime.activity.BrownBuyerActivity;
+import com.android.browntime.model.BrownCart;
 import com.android.browntime.model.BrownOrder;
 
-import org.springframework.web.client.RestTemplate;
+import java.util.List;
 
 public class BrownCartFragment extends Fragment {
 	
@@ -126,57 +126,26 @@ public class BrownCartFragment extends Fragment {
         }
     }
 	 public void orderComplete(int type) {
-		 
-		 mCurrentOrder.setmCarts(CartLab.get(getActivity()).getMenus());
-		 mCurrentOrder.setmPrice(CartLab.get(getActivity()).getPriceTotal());
-		 mCurrentOrder.setmType(type);
+         mCurrentOrder.setmCarts(CartLab.get(getActivity()).getMenus());
+         mCurrentOrder.setmPrice(CartLab.get(getActivity()).getPriceTotal());
+         mCurrentOrder.setmType(type);
          mCurrentOrder.setmSellerId(1);
-
-		 Intent i = new Intent(getActivity(), BrownOrderActivity.class);
-		 OrderLab.get(getActivity()).addOrder(mCurrentOrder);
-//		 i.putExtra("orderObject", ((Serializable)mCurrentOrder));
-//		 CartLab.get(getActivity()).clearCart();
-		 //delete cart
-		 
-        new HttpRequestTask().execute();
-
- 		 startActivity(i);
+         Intent i = new Intent(getActivity(), BrownBuyerActivity.class);
+         i.putExtra("orderType", type);
+         OrderLab.get(getActivity()).addOrder(mCurrentOrder);
+         startActivity(i);
 	 }
 	 
 	 public void setTextTime(TimePicker view, int hourOfDay, int minute) {
-		 	mCheckoutOrderTime.setText("today time" + hourOfDay + ":" + minute);
+            mCheckoutOrderTime.setText(hourOfDay + R.string.order_hour + minute + R.string.order_minute + R.string.order_time_label);
+            mCheckoutOrderTime.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
 	  }
 	 
 	 public void refreshSum() {
-		 mCartSum.setText(String.valueOf(CartLab.get(getActivity()).getPriceTotal()));
+
+         List<BrownCart> carts = CartLab.get(getActivity()).getCarts();
+         mCartSum.setText(String.valueOf(CartLab.get(getActivity()).getPriceTotal()));
 	 }
 
-    private class HttpRequestTask extends AsyncTask<Void, Void, BrownOrder> {
-        @Override
-        protected BrownOrder doInBackground(Void... params) {
-            try {
 
-                final String url = "http://browntime123.cafe24.com/json/addOrder";
-                RestTemplate restTemplate = new RestTemplate();
-                restTemplate.setMessageConverters(new JSONRequest().getMessageConverters());
-
-                BrownOrder greeting = restTemplate.postForObject(url, mCurrentOrder, BrownOrder.class);
-
-                return greeting;
-            } catch (Exception e) {
-                Log.e("MainActivity", e.getMessage(), e);
-            }
-
-            return null;
-        }
-
-//        @Override
-        protected void onPostExecute(BrownOrder greeting) {
-//            TextView greetingIdText = (TextView) v.findViewById(R.id.id_value);
-//            TextView greetingContentText = (TextView) v.findViewById(R.id.content_value);
-//            greetingIdText.setText(greeting.getId());
-//            greetingContentText.setText(greeting.getContent());
-        }
-
-    }
 }

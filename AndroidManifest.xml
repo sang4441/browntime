@@ -40,5 +40,9 @@
             android:name=".activity.BrownOrderActivity"
             android:label="@string/app_name"> 
         </activity>
+        <activity
+            android:name=".activity.BrownBuyerActivity"
+            android:label="@string/app_name">
+        </activity>
     </application>
 </manifest>

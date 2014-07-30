@@ -26,7 +26,7 @@ public class BrownMenuFragment extends Fragment {
 	private ArrayList<BrownMenu> mMenus;
 	
 	private BrownMenu mMenu;
-	private TextView mMenuName, mMenuPrice, mMenuQuantity, mMenuPriceTotal, mMenuDescription;
+	private TextView mMenuName, mMenuPrice, mMenuQuantity, mMenuPriceTotal, mMenuDescription, mInstruction;
 	private ImageView mMenuImage, mmMenuQuantityPlus, mmMenuQuantityMinus;
 	private Button mMenuAddToCart, mMenuCheckout;
 	
@@ -139,6 +139,7 @@ public class BrownMenuFragment extends Fragment {
 		});
         mMenuCheckout.getBackground().setColorFilter(new LightingColorFilter(0xFFFFFFFF, 0xFFAA0000));
 
+        mInstruction = (TextView)v.findViewById(R.id.menu_special_instruction);
 		return v;
 	}
 	
@@ -146,7 +147,7 @@ public class BrownMenuFragment extends Fragment {
 		BrownCart newCart = new BrownCart(mMenu.getmId(), mMenu.getmName(), mMenu.getmPrice(), mMenu.getmCategory(), mMenu.getmDescription());
         int cartItemQuantity = Integer.parseInt(mMenuQuantity.getText().toString());
         newCart.setmQuantity(cartItemQuantity);
-        newCart.setmInstruction("sample instruction");
+        newCart.setmInstruction(mInstruction.getText().toString());
         newCart.setmPriceTotal(cartItemQuantity*newCart.getmPrice());
 		CartLab.get(getActivity()).addCart(newCart);
 	}

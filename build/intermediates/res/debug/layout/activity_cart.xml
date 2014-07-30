@@ -24,10 +24,9 @@
 		<FrameLayout
 		    android:id="@+id/fragmentCart"
 		    android:layout_width="match_parent"
-		    android:layout_height="150dp"
+		    android:layout_height="170dp"
 		    android:layout_weight="1"
            android:layout_alignBottom="@id/dummyView"
-
 		    android:orientation="vertical" >
 		     
 	    </FrameLayout>

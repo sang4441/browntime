@@ -26,10 +26,12 @@ public class BrownOrderActivity extends ActionBarActivity {
 
 	        int orderType = OrderLab.get(this).getLastOrder().getmType();
 	        if (orderType == 1) {
-		        mOrderType.setText("For here");
+		        mOrderType.setText(R.string.checkout_take_out);
+	        } else if (orderType == 2) {
+		        mOrderType.setText(R.string.checkout_for_here);
 	        } else {
-		        mOrderType.setText("To go");
-	        }
+                mOrderType.setText(R.string.checkout_delivery);
+            }
 	       
 //			Intent intent = getIntent();
 //			currentOrder = intent.getParcelableExtra("orderObject");

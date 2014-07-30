@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="espresso">에스프레소 (hot)</string>
     <string name="americano">아메리카노 (hot)</string>
     <string name="latte_cafe">카페라떼 (hot)</string>
@@ -92,9 +93,21 @@
     <string name="order_menu_price_label">가격</string>
     <string name="order_menu_name_label">품명</string>
     <string name="order_menu_quantity_label">수량</string>
-    <string name="order_menu_price_total_label">총 가격</string>
+    <string name="order_menu_price_total_label">총 주문 금액</string>
+    <string name="order_type_label">주문 타입</string>
     <string name="order_complete_label">주문이 성공적으로 완료 되었습니다</string>
-    
+    <string name="default_address">경기도 수원시 팔달구 인계동</string>
+    <string name="order_general_information_label">주문을 위해 정확한 정보를 입력해 주세요.</string>
+    <string name="order_name_label">이름</string>
+    <string name="order_phone_label">번호</string>
+    <string name="order_address_information_label">현재 배달 가능 지역은 인계동 입니다. 나머지 주소를 입력해 주세요.</string>
+    <string name="order_address_label">나머지 주소</string>
+    <string name="order_complete_button_label">주문 완료</string>
+    <string name="order_hour">시</string>
+    <string name="order_minute">분</string>
+    <string name="order_time_label">까지 부탁해요</string>
+
+    <string name="menu_special_instruction_hint">요청사항을 적어주세요</string>
     <string name="menu_price_label">가격</string>
     <string name="menu_quantity_label">수량</string>
     <string name="menu_price_total_label">총 가격</string>
