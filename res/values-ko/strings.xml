@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string-array name="planets_array">
+        <item>주문상태</item>
+        <item>주문하기</item>
+    </string-array>
+
+    <string name="drawer_open">열기</string>
+    <string name="drawer_close">닫기</string>
+
     <string name="espresso">에스프레소 (hot)</string>
     <string name="americano">아메리카노 (hot)</string>
     <string name="latte_cafe">카페라떼 (hot)</string>

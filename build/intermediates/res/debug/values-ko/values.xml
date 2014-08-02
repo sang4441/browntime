@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- From: file:/Users/kimsanghwan/workspace/Android/BrownTime/res/values-ko/strings.xml -->
+    <eat-comment />
+
+    <string-array name="planets_array">
+        <item>주문상태</item>
+        <item>주문하기</item>
+    </string-array>
     <!-- From: file:/Users/kimsanghwan/workspace/Android/BrownTime/build/intermediates/exploded-aar/Android/appcompat_v7_4/unspecified/res/values-ko/values.xml -->
     <eat-comment />
 
@@ -39,6 +46,8 @@
     <string name="checkout_timer_button_label">시간설정</string>
     <string name="con_panna">꼰파냐 (hot)</string>
     <string name="default_address">경기도 수원시 팔달구 인계동</string>
+    <string name="drawer_close">닫기</string>
+    <string name="drawer_open">열기</string>
     <string name="dutch_coffe">더치커피</string>
     <string name="dutch_latte">더치라떼</string>
     <string name="espresso">에스프레소 (hot)</string>

@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.browntime.activity.BrownCartListActivity;
+import com.android.browntime.activity.CollectionDemoActivity;
 import com.android.browntime.model.BrownCart;
 import com.android.browntime.model.BrownMenu;
 

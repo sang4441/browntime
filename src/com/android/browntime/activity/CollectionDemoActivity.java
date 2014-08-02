@@ -1,18 +1,22 @@
-package com.android.browntime;
+package com.android.browntime.activity;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.browntime.activity.BrownCartListActivity;
+import com.android.browntime.CartLab;
+import com.android.browntime.DemoCollectionPagerAdapter;
+import com.android.browntime.JSONRequest;
+import com.android.browntime.MenuLab;
+import com.android.browntime.R;
 import com.android.browntime.model.BrownCategory;
 import com.android.browntime.model.BrownMenu;
 
@@ -21,7 +25,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Arrays;
 import java.util.List;
 
-public class CollectionDemoActivity extends FragmentActivity {
+public class CollectionDemoActivity extends ActionBarActivity {
     // When requested, this adapter returns a DemoObjectFragment,
     // representing an object in the collection.
     DemoCollectionPagerAdapter mDemoCollectionPagerAdapter;
