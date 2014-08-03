@@ -9,6 +9,7 @@
         android:targetSdkVersion="19" />
     
 	<uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SEND_SMS"/>
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -47,6 +48,10 @@
         </activity>
         <activity
             android:name=".activity.BrownBuyerActivity"
+            android:label="@string/app_name">
+        </activity>
+        <activity
+            android:name=".BrownUserOrderPagerActivity"
             android:label="@string/app_name">
         </activity>
     </application>

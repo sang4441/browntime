@@ -2,8 +2,11 @@
 <resources>
 
     <string-array name="planets_array">
-        <item>주문상태</item>
-        <item>주문하기</item>
+        <item>About BrownTime</item>
+        <item>Staff</item>
+        <item>Menu and Order</item>
+        <item>Order status and history</item>
+        <item>Contact</item>
     </string-array>
 
     <string name="drawer_open">열기</string>
@@ -86,8 +89,10 @@
     <string name="pizza_2">pizza two</string>
     
     <string name="cart_label">장바구니</string>
-    <string name="cart_added_toast">가 장바구니에 들어갔습니</string>
-    <string name="cart_empty_toast">장바구니가 비어 있어</string>
+    <string name="cart_label_empty"> 가 비어있습니다.</string>
+    <string name="cart_label_not_empty"> 보러가기</string>
+    <string name="cart_added_toast">가 장바구니에 들어갔습니다</string>
+    <string name="cart_empty_toast">장바구니가 비어 있습니다</string>
     <string name="zero">0</string>
     
     <string name="checkout_for_here">먹고가요</string>
@@ -121,5 +126,13 @@
     <string name="menu_price_total_label">총 가격</string>
     <string name="menu_button_add_to_cart">장바구니</string>
     <string name="menu_button_checkout">바로주문</string>
-    
+
+    <string name="requested">주문대기중</string>
+    <string name="confirmed">주문확인됨</string>
+    <string name="complete">주문완료</string>
+
+    <string name="takeout">테이크아웃</string>
+    <string name="forhere">먹고가기</string>
+    <string name="delivery">배달</string>
+
 </resources>

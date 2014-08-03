@@ -7,8 +7,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class BrownBuyer {
 
-    //    @JsonProperty("buyerId")
-//    private int mBuyerId;
+    public int getmBuyerId() {
+        return mBuyerId;
+    }
+
+    public void setmBuyerId(int mBuyerId) {
+        this.mBuyerId = mBuyerId;
+    }
+
+    @JsonProperty("buyerId")
+    private int mBuyerId;
     @JsonProperty("buyerName")
     private String mBuyerName;
     @JsonProperty("buyerCellNumber")

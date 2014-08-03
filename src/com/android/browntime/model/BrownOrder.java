@@ -4,32 +4,40 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.UUID;
 
 public class BrownOrder extends BrownBuyer {
+
     @JsonProperty("id")
-    private UUID mId;
+    private int mId;
     @JsonProperty("sellerId")
     private int mSellerId;
     @JsonProperty("typeId")
     private int mType;
+    @JsonProperty("typeName")
+    private String mTypeName;
     @JsonProperty("address")
     private String mAddress;
     @JsonProperty("price")
     private int mPrice;
+    @JsonProperty("duration")
+    private int mDuration;
     @JsonProperty("timeRequested")
     private Date mTime;
+    @JsonProperty("statusId")
+    private int mStatusId;
+    @JsonProperty("statusName")
+    private String mStatusName;
     @JsonProperty("carts")
     private ArrayList<BrownCart> mCarts;
 
-    public UUID getmId() {
+
+    public int getmId() {
         return mId;
     }
 
-    public void setmId(UUID mId) {
+    public void setmId(int mId) {
         this.mId = mId;
     }
-
     public int getmSellerId() {
         return mSellerId;
     }
@@ -77,6 +85,40 @@ public class BrownOrder extends BrownBuyer {
     public void setmAddress(String mAddress) {
         this.mAddress = mAddress;
     }
+
+
+    public int getmStatusId() {
+        return mStatusId;
+    }
+
+    public void setmStatusId(int mStatusId) {
+        this.mStatusId = mStatusId;
+    }
+
+    public int getmDuration() {
+        return mDuration;
+    }
+
+    public void setmDuration(int mDuration) {
+        this.mDuration = mDuration;
+    }
+
+    public String getmTypeName() {
+        return mTypeName;
+    }
+
+    public void setmTypeName(String mTypeName) {
+        this.mTypeName = mTypeName;
+    }
+
+    public String getmStatusName() {
+        return mStatusName;
+    }
+
+    public void setmStatusName(String mStatusName) {
+        this.mStatusName = mStatusName;
+    }
+
 //    @JsonProperty("id")
 //    private UUID mId;
 //    @JsonProperty("sellerId")

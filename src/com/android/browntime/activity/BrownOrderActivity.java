@@ -6,7 +6,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.widget.TextView;
 
 import com.android.browntime.BrownOrderItemListFragment;
-import com.android.browntime.OrderLab;
+import com.android.browntime.dataLab.OrderLab;
 import com.android.browntime.R;
 import com.android.browntime.model.BrownOrder;
 

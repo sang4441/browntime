@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.android.browntime.activity.BrownCartListActivity;
+import com.android.browntime.dataLab.CartLab;
 import com.android.browntime.model.BrownCart;
 
 import java.util.ArrayList;

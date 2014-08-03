@@ -1,13 +1,14 @@
-package com.android.browntime;
-
-import java.util.ArrayList;
+package com.android.browntime.dataLab;
 
 import android.content.Context;
 
 import com.android.browntime.model.BrownOrder;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class OrderLab {
-	private ArrayList<BrownOrder> mOrders;
+	private List<BrownOrder> mOrders;
 	private static OrderLab sBrownLab;
 	private Context mAppContext;
 	
@@ -26,8 +27,20 @@ public class OrderLab {
 	public void addOrder(BrownOrder order) {
 		mOrders.add(order);
 	}
-	
-	public BrownOrder getLastOrder() {
+    public List<BrownOrder> getOrders() { return mOrders; }
+
+    public BrownOrder getOrder(int orderId) {
+        for (BrownOrder c: mOrders) {
+            if (c.getmId()==orderId)
+                return c;
+        }
+        return null;
+    }
+    public void setOrders(List<BrownOrder> orders) {
+        mOrders = orders;
+    }
+
+    public BrownOrder getLastOrder() {
 		return mOrders.get(mOrders.size()-1);
 	}
 	

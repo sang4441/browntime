@@ -5,8 +5,11 @@
     <eat-comment />
 
     <string-array name="planets_array">
-        <item>주문상태</item>
-        <item>주문하기</item>
+        <item>About BrownTime</item>
+        <item>Staff</item>
+        <item>Menu and Order</item>
+        <item>Order status and history</item>
+        <item>Contact</item>
     </string-array>
     <!-- From: file:/Users/kimsanghwan/workspace/Android/BrownTime/build/intermediates/exploded-aar/Android/appcompat_v7_4/unspecified/res/values-ko/values.xml -->
     <eat-comment />
@@ -35,22 +38,28 @@
     <string name="americano">아메리카노 (hot)</string>
     <string name="caffe_moka">카페모카 (hot)</string>
     <string name="capucino">카푸치노 (hot)</string>
-    <string name="cart_added_toast">가 장바구니에 들어갔습니</string>
-    <string name="cart_empty_toast">장바구니가 비어 있어</string>
+    <string name="cart_added_toast">가 장바구니에 들어갔습니다</string>
+    <string name="cart_empty_toast">장바구니가 비어 있습니다</string>
     <string name="cart_label">장바구니</string>
+    <string name="cart_label_empty"> 가 비어있습니다.</string>
+    <string name="cart_label_not_empty"> 보러가기</string>
     <string name="checkout_delivery">배달주문이요</string>
     <string name="checkout_for_here">먹고가요</string>
     <string name="checkout_order_in_advance">미리주문</string>
     <string name="checkout_order_now">지금주문(다음순번)</string>
     <string name="checkout_take_out">테이크아웃이요</string>
     <string name="checkout_timer_button_label">시간설정</string>
+    <string name="complete">주문완료</string>
     <string name="con_panna">꼰파냐 (hot)</string>
+    <string name="confirmed">주문확인됨</string>
     <string name="default_address">경기도 수원시 팔달구 인계동</string>
+    <string name="delivery">배달</string>
     <string name="drawer_close">닫기</string>
     <string name="drawer_open">열기</string>
     <string name="dutch_coffe">더치커피</string>
     <string name="dutch_latte">더치라떼</string>
     <string name="espresso">에스프레소 (hot)</string>
+    <string name="forhere">먹고가기</string>
     <string name="ice_tea_lemon">레몬 아이스티</string>
     <string name="ice_tea_peach">복숭아 아이스티</string>
     <string name="iced_americano">아메리카노 (ice)</string>
@@ -103,6 +112,7 @@
     <string name="order_type_label">주문 타입</string>
     <string name="pizza_1">pizza one</string>
     <string name="pizza_2">pizza two</string>
+    <string name="requested">주문대기중</string>
     <string name="sandwich_1">BLT</string>
     <string name="sandwich_2">Club sandwich</string>
     <string name="shakerato">사케라또</string>
@@ -113,6 +123,7 @@
     <string name="smoothie_strawberry">딸기 스무디</string>
     <string name="smoothie_vanilla">바닐라 스무디</string>
     <string name="smoothie_yogurt">요거트 스무디</string>
+    <string name="takeout">테이크아웃</string>
     <string name="tea_assam">아쌈</string>
     <string name="tea_camomile">카모마일</string>
     <string name="tea_chrysanthemum">국화차</string>

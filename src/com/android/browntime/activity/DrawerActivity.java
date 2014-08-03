@@ -22,12 +22,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.browntime.CartLab;
+import com.android.browntime.BrownTestFragment;
+import com.android.browntime.dataLab.CartLab;
 import com.android.browntime.DemoCollectionPagerAdapter;
 import com.android.browntime.JSONRequest;
-import com.android.browntime.MenuLab;
+import com.android.browntime.dataLab.MenuLab;
 import com.android.browntime.R;
-import com.android.browntime.fragment.OrderHistoryFragment;
 import com.android.browntime.model.BrownCategory;
 import com.android.browntime.model.BrownMenu;
 
@@ -122,33 +122,27 @@ public class DrawerActivity extends ActionBarActivity {
 
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
+
+        selectItem(2);
+
     }
 
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView parent, View view, int position, long id) {
+            ActionBar actionBar = getActionBar();
+            actionBar.removeAllTabs();
             selectItem(position);
         }
     }
 
     private class menuFragment extends Fragment {
-
-        public View getvMenu() {
-            return vMenu;
-        }
-
         private View vMenu;
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
             vMenu = inflater.inflate(R.layout.activity_collection_demo, parent, false);
 
-            if (MenuLab.get(DrawerActivity.this).isEmpty()) {
-                new HttpRequestTaskMenu().execute();
-            } else {
-                createPager();
-            }
-            new HttpRequestTask().execute();
             return vMenu;
         }
     }
@@ -157,18 +151,21 @@ public class DrawerActivity extends ActionBarActivity {
     private void selectItem(int position) {
         // Create a new fragment and specify the planet to show based on position
 
-
-        if (position == 1) {
+        if (position == 2) {
             fragmentDrawer = new menuFragment();
-        } else if (position == 0) {
-            Bundle args = new Bundle();
+
+//            if (MenuLab.get(DrawerActivity.this).isEmpty()) {
+                new HttpRequestTaskMenu().execute();
+//            } else {
+//                createPager();
+//            }
+            new HttpRequestTask().execute();
+        } else if (position == 3) {
+//            Bundle args = new Bundle();
 //            args.putInt(OrderHistoryFragment.ARG_DRAWER_NUMBER, position);
 //            fragmentDrawer.setArguments(args);
-            fragmentDrawer = new OrderHistoryFragment();
+            fragmentDrawer = new BrownTestFragment();
         }
-
-
-
 
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction()
@@ -254,11 +251,9 @@ public class DrawerActivity extends ActionBarActivity {
         mDemoCollectionPagerAdapter =
                 new DemoCollectionPagerAdapter(
                         getSupportFragmentManager());
+
         mViewPager = (ViewPager) fragmentDrawer.getView().findViewById(R.id.pager);
         mViewPager.setAdapter(mDemoCollectionPagerAdapter);
-
-
-        mViewPager = (ViewPager) fragmentDrawer.getView().findViewById(R.id.pager);
         mViewPager.setOnPageChangeListener(
                 new ViewPager.SimpleOnPageChangeListener() {
                     @Override
@@ -294,16 +289,10 @@ public class DrawerActivity extends ActionBarActivity {
 
             isCartEmpty = CartLab.get(DrawerActivity.this).getMenus().isEmpty();
             mGoToCartNum = (TextView) fragmentDrawer.getView().findViewById(R.id.menu_cart_num);
-            mGoToCartNum.setText(R.string.zero);
+            mGoToCartNum.setText(R.string.cart_label_empty);
 
-            if (!isCartEmpty) {
-                mGoToCartNum.setText(String.valueOf(CartLab.get(DrawerActivity.this).getMenus().size()));
-            }
-
-
-            mGoToCart = (TextView) fragmentDrawer.getView().findViewById(R.id.menu_cart);
-            mGoToCart.setText(R.string.cart_label);
-            mGoToCart.setOnClickListener(new View.OnClickListener() {
+            View cartView = fragmentDrawer.getView().findViewById(R.id.menu_cart_view);
+            cartView.setOnClickListener(new View.OnClickListener() {
 
 
 
@@ -319,6 +308,16 @@ public class DrawerActivity extends ActionBarActivity {
 
 
             });
+
+            if (!isCartEmpty) {
+//                mGoToCartNum.setText(R.string.cart_label_not_empty + "(" + String.valueOf(CartLab.get(DrawerActivity.this).getMenus().size()) + ")");
+                mGoToCartNum.setText(R.string.cart_label_not_empty);
+
+            }
+
+
+            mGoToCart = (TextView) fragmentDrawer.getView().findViewById(R.id.menu_cart);
+            mGoToCart.setText(R.string.cart_label);
 
 
 

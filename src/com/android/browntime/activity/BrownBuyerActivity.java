@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -11,8 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.browntime.JSONRequest;
-import com.android.browntime.OrderLab;
 import com.android.browntime.R;
+import com.android.browntime.dataLab.OrderLab;
 import com.android.browntime.model.BrownOrder;
 
 import org.springframework.web.client.RestTemplate;
@@ -25,12 +26,13 @@ public class BrownBuyerActivity extends ActionBarActivity {
 
     private BrownOrder mCurrentOrder;
     private View deliveryView;
+    int orderType;
 
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
 //        mCurrentOrder = new BrownOrder();
-        int orderType = getIntent().getIntExtra("orderType", 1);
+        orderType = getIntent().getIntExtra("orderType", 1);
 
         mCurrentOrder = OrderLab.get(this).getLastOrder();
         setContentView(R.layout.activity_buyer_form);
@@ -49,12 +51,19 @@ public class BrownBuyerActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
 
-                TextView userAddressInfo = (TextView)findViewById(R.id.order_info_address);
+                if (orderType == 3) {
+                    TextView userAddressInfo = (TextView) findViewById(R.id.order_info_address);
+                    mCurrentOrder.setmAddress(userAddressInfo.getText().toString());
+                }
                 TextView userName = (TextView)findViewById(R.id.order_info_user_name);
                 TextView userCellNumber = (TextView)findViewById(R.id.order_info_user_phone);
-                mCurrentOrder.setmAddress(userAddressInfo.getText().toString());
                 mCurrentOrder.setmBuyerName(userName.getText().toString());
                 mCurrentOrder.setmBuyerCellNumber(Integer.valueOf(userCellNumber.getText().toString()));
+
+
+                SmsManager sms = SmsManager.getDefault();
+                sms.sendTextMessage("01099155894", null, "hello", null, null);
+
                 new HttpRequestTask().execute();
             }
         });

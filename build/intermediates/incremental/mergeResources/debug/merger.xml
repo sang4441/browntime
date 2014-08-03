@@ -7744,10 +7744,19 @@ wrap_content
 
                 <string-array name="planets_array" >
                     <item>
-주문상태
+About BrownTime
                     </item>
                     <item>
-주문하기
+Staff
+                    </item>
+                    <item>
+Menu and Order
+                    </item>
+                    <item>
+Order status and history
+                    </item>
+                    <item>
+Contact
                     </item>
                 </string-array>
 
@@ -7755,13 +7764,19 @@ wrap_content
                 </string>
                 <string name="sandwich_2" >Club sandwich
                 </string>
+                <string name="confirmed" >주문확인됨
+                </string>
                 <string name="dutch_latte" >더치라떼
+                </string>
+                <string name="forhere" >먹고가기
                 </string>
                 <string name="aid_yellow" >엘로우 에이드
                 </string>
                 <string name="latte_cube" >큐브라떼 (hot)
                 </string>
                 <string name="latte_vanilla" >바닐라라떼 (hot)
+                </string>
+                <string name="takeout" >테이크아웃
                 </string>
                 <string name="aid_red" >레드 에이드
                 </string>
@@ -7801,7 +7816,7 @@ wrap_content
                 </string>
                 <string name="smoothie_mint_chocolate" >민트초콜렛 스무디
                 </string>
-                <string name="cart_empty_toast" >장바구니가 비어 있어
+                <string name="cart_empty_toast" >장바구니가 비어 있습니다
                 </string>
                 <string name="order_type_label" >주문 타입
                 </string>
@@ -7815,6 +7830,8 @@ wrap_content
                 </string>
                 <string name="checkout_delivery" >배달주문이요
                 </string>
+                <string name="requested" >주문대기중
+                </string>
                 <string name="americano" >아메리카노 (hot)
                 </string>
                 <string name="iced_latte_vanilla" >바닐라라떼 (ice)
@@ -7823,15 +7840,15 @@ wrap_content
                 </string>
                 <string name="order_menu_name_label" >품명
                 </string>
-                <string name="aid_brown" >브라운 에이드
-                </string>
                 <string name="order_address_information_label" >현재 배달 가능 지역은 인계동 입니다. 나머지 주소를 입력해 주세요.
+                </string>
+                <string name="aid_brown" >브라운 에이드
                 </string>
                 <string name="tea_tea_lemon" >레몬차
                 </string>
-                <string name="smoothie_mango" >망고 스무디
-                </string>
                 <string name="tea_assam" >아쌈
+                </string>
+                <string name="smoothie_mango" >망고 스무디
                 </string>
                 <string name="checkout_order_in_advance" >미리주문
                 </string>
@@ -7863,7 +7880,7 @@ wrap_content
                 </string>
                 <string name="order_address_label" >나머지 주소
                 </string>
-                <string name="cart_added_toast" >가 장바구니에 들어갔습니
+                <string name="cart_added_toast" >가 장바구니에 들어갔습니다
                 </string>
                 <string name="order_detail" >주문내역
                 </string>
@@ -7893,6 +7910,8 @@ wrap_content
                 </string>
                 <string name="latte_caramel" >카라멜라떼 (hot)
                 </string>
+                <string name="cart_label_empty" > 가 비어있습니다.
+                </string>
                 <string name="checkout_timer_button_label" >시간설정
                 </string>
                 <string name="iced_cappucino" >카푸치노 (ice)
@@ -7906,6 +7925,8 @@ wrap_content
                 <string name="menu_quantity_label" >수량
                 </string>
                 <string name="pizza_1" >pizza one
+                </string>
+                <string name="complete" >주문완료
                 </string>
                 <string name="iced_americano" >아메리카노 (ice)
                 </string>
@@ -7925,6 +7946,8 @@ wrap_content
                 </string>
                 <string name="dutch_coffe" >더치커피
                 </string>
+                <string name="delivery" >배달
+                </string>
                 <string name="default_address" >경기도 수원시 팔달구 인계동
                 </string>
                 <string name="latte_greentea" >그린티라떼 (hot)
@@ -7932,6 +7955,8 @@ wrap_content
                 <string name="iced_latte_chai" >짜이라떼 (ice)
                 </string>
                 <string name="menu_button_checkout" >바로주문
+                </string>
+                <string name="cart_label_not_empty" > 보러가기
                 </string>
             </file>
             <file
@@ -7990,6 +8015,31 @@ wrap_content
             <file
                 name="drawer_layout"
                 path="/Users/kimsanghwan/workspace/Android/BrownTime/res/layout/drawer_layout.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="list_item_user_cart"
+                path="/Users/kimsanghwan/workspace/Android/BrownTime/res/layout/list_item_user_cart.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="list_item_user_order"
+                path="/Users/kimsanghwan/workspace/Android/BrownTime/res/layout/list_item_user_order.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="activity_brown_time_admin_order"
+                path="/Users/kimsanghwan/workspace/Android/BrownTime/res/layout/activity_brown_time_admin_order.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="fragment_order"
+                path="/Users/kimsanghwan/workspace/Android/BrownTime/res/layout/fragment_order.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="fragment_user_history"
+                path="/Users/kimsanghwan/workspace/Android/BrownTime/res/layout/fragment_user_history.xml"
                 qualifiers=""
                 type="layout" />
         </source>

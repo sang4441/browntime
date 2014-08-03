@@ -14,7 +14,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.browntime.activity.BrownCartListActivity;
-import com.android.browntime.activity.CollectionDemoActivity;
+import com.android.browntime.activity.DrawerActivity;
+import com.android.browntime.dataLab.CartLab;
+import com.android.browntime.dataLab.MenuLab;
 import com.android.browntime.model.BrownCart;
 import com.android.browntime.model.BrownMenu;
 
@@ -38,7 +40,7 @@ public class BrownMenuFragment extends Fragment {
 		
 		mMenu = new BrownMenu();
 		int menuId = (int)getArguments().getInt(EXTRA_MENU_ID);
-		mMenu = MenuLab.get(getActivity()).getMenu(menuId);	
+		mMenu = MenuLab.get(getActivity()).getMenu(menuId);
 
 	}
 	
@@ -123,7 +125,7 @@ public class BrownMenuFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				saveMenuToCart();
-				Intent i = new Intent(getActivity(), CollectionDemoActivity.class);
+				Intent i = new Intent(getActivity(), DrawerActivity.class);
 	    		startActivity(i);
 			}	
 		});		

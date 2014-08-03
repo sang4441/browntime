@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.browntime.activity.BrownPagerActivity;
+import com.android.browntime.dataLab.MenuLab;
 import com.android.browntime.model.BrownMenu;
 
 import java.util.ArrayList;
@@ -69,12 +70,17 @@ public class BrownMenuListFragment extends Fragment {
 			}			
 			
 			BrownMenu c = getItem(position);
-			
-			ImageView imageView = (ImageView) convertView.findViewById(R.id.menu_list_item_imageView);
+            String packageName = getActivity().getPackageName();
+
+            ImageView imageView = (ImageView) convertView.findViewById(R.id.menu_list_item_imageView);
 			imageView.setImageResource(R.drawable.americano);
+
 			TextView nameTextView = (TextView)convertView.findViewById(R.id.menu_list_item_nameTextView);
-			nameTextView.setText(R.string.ice_tea_peach);
-			TextView priceTextView = (TextView)convertView.findViewById(R.id.menu_list_item_priceTextView);
+            String menuName = getResources().getString(getResources().getIdentifier(c.getmName(),"string", packageName));
+            nameTextView.setText(menuName);
+
+
+            TextView priceTextView = (TextView)convertView.findViewById(R.id.menu_list_item_priceTextView);
 			priceTextView.setText(String.valueOf(c.getmPrice()));
 			
 			return convertView;

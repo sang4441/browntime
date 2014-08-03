@@ -12,10 +12,10 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.browntime.CartLab;
+import com.android.browntime.dataLab.CartLab;
 import com.android.browntime.DemoCollectionPagerAdapter;
 import com.android.browntime.JSONRequest;
-import com.android.browntime.MenuLab;
+import com.android.browntime.dataLab.MenuLab;
 import com.android.browntime.R;
 import com.android.browntime.model.BrownCategory;
 import com.android.browntime.model.BrownMenu;
@@ -121,6 +121,8 @@ public class CollectionDemoActivity extends ActionBarActivity {
 
             if (!isCartEmpty) {
                 mGoToCartNum.setText(String.valueOf(CartLab.get(CollectionDemoActivity.this).getMenus().size()));
+            } else {
+                mGoToCartNum.setText(String.valueOf(R.string.cart_label_empty));
             }
 
 
