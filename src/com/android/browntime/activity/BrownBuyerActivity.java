@@ -16,6 +16,7 @@ import com.android.browntime.BrownOrderItemListFragment;
 import com.android.browntime.JSONRequest;
 import com.android.browntime.R;
 import com.android.browntime.dataLab.OrderLab;
+import com.android.browntime.model.BrownBuyer;
 import com.android.browntime.model.BrownOrder;
 
 import org.springframework.web.client.RestTemplate;
@@ -108,17 +109,22 @@ public class BrownBuyerActivity extends ActionBarActivity {
 //        new HttpRequestTask().execute();
 //    }
 
-    private class HttpRequestSendSMS extends AsyncTask<Integer, Void, BrownOrder> {
+    private class HttpRequestSendSMS extends AsyncTask<Integer, Void, Void> {
         @Override
-        protected BrownOrder doInBackground(Integer... phoneNums) {
+        protected Void doInBackground(Integer... phoneNums) {
             try {
                 int phoneNum = phoneNums[0];
-                final String url = "http://10.0.2.2:8080/BrownTime/json/requestSMS/" + phoneNum;
+                final String url = "http://10.0.2.2:8080/BrownTime/json/requestSMS";
                 RestTemplate restTemplate = new RestTemplate();
                 restTemplate.setMessageConverters(new JSONRequest().getMessageConverters());
-                restTemplate.put(url,String.class);
+//                restTemplate.postForObject(url, String.class);
 
-                return new BrownOrder();
+                BrownBuyer buyer = new BrownBuyer();
+                buyer.setmBuyerName(mCurrentOrder.getmBuyerName());
+                buyer.setmBuyerCellNumber(mCurrentOrder.getmBuyerCellNumber());
+                buyer.setmSMSNumber(1111);
+                BrownBuyer buyerReturned = restTemplate.postForObject(url, buyer, BrownBuyer.class);
+//                return new BrownOrder();
             } catch (Exception e) {
                 Log.e("MainActivity", e.getMessage(), e);
             }
@@ -126,9 +132,9 @@ public class BrownBuyerActivity extends ActionBarActivity {
             return null;
         }
 
-        @Override
-        protected void onPostExecute(BrownOrder greeting) {
-        }
+//        @Override
+//        protected void onPostExecute(BrownOrder greeting) {
+//        }
 
     }
 
