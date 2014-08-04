@@ -8,6 +8,7 @@ import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -22,12 +23,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.browntime.BrownMenuListFragment;
 import com.android.browntime.BrownTestFragment;
-import com.android.browntime.dataLab.CartLab;
 import com.android.browntime.DemoCollectionPagerAdapter;
 import com.android.browntime.JSONRequest;
-import com.android.browntime.dataLab.MenuLab;
 import com.android.browntime.R;
+import com.android.browntime.dataLab.CartLab;
+import com.android.browntime.dataLab.MenuLab;
 import com.android.browntime.model.BrownCategory;
 import com.android.browntime.model.BrownMenu;
 
@@ -56,9 +58,11 @@ public class DrawerActivity extends ActionBarActivity {
     View menuView;
     boolean isCartEmpty;
 
+    public static int TAB_NUM;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+            super.onCreate(savedInstanceState);
         setContentView(R.layout.drawer_layout);
 
         mPlanetTitles = getResources().getStringArray(R.array.planets_array);
@@ -240,26 +244,43 @@ public class DrawerActivity extends ActionBarActivity {
         @Override
         protected void onPostExecute(List<BrownMenu> menus) {
             MenuLab.get(DrawerActivity.this).addMenuAll(menus);
-            createPager();
             // ViewPager and its adapters use support library
             // fragments, so use getSupportFragmentManager.
 
         }
     }
 
-    private void createPager() {
-        mDemoCollectionPagerAdapter =
-                new DemoCollectionPagerAdapter(
-                        getSupportFragmentManager());
-
+    private void createTabPager() {
         mViewPager = (ViewPager) fragmentDrawer.getView().findViewById(R.id.pager);
-        mViewPager.setAdapter(mDemoCollectionPagerAdapter);
+        android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
+        mViewPager.setAdapter(new FragmentStatePagerAdapter(fm) {
+            @Override
+            public int getCount() {
+                return TAB_NUM;
+            }
+
+            @Override
+            public android.support.v4.app.Fragment getItem(int i) {
+                android.support.v4.app.Fragment fragment = new BrownMenuListFragment();
+                Bundle args = new Bundle();
+                // Our object is just an integer :-P
+                args.putInt(BrownMenuListFragment.MENU_TYPE, i + 1);
+                fragment.setArguments(args);
+                return fragment;
+            }
+        });
+
+
+
         mViewPager.setOnPageChangeListener(
                 new ViewPager.SimpleOnPageChangeListener() {
                     @Override
                     public void onPageSelected(int position) {
                         // When swiping between pages, select the
                         // corresponding tab.
+//                        if (getActionBar().getTabCount() <= position) {
+//                            position = position - 1;
+//                        }
                         getActionBar().setSelectedNavigationItem(position);
                     }
                 });
@@ -286,6 +307,9 @@ public class DrawerActivity extends ActionBarActivity {
 
         @Override
         protected void onPostExecute(List<BrownCategory> categories) {
+
+            TAB_NUM = categories.size();
+            createTabPager();
 
             isCartEmpty = CartLab.get(DrawerActivity.this).getMenus().isEmpty();
             mGoToCartNum = (TextView) fragmentDrawer.getView().findViewById(R.id.menu_cart_num);
@@ -356,6 +380,8 @@ public class DrawerActivity extends ActionBarActivity {
                         .setText(category.getmName())
                         .setTabListener(tabListener));
             }
+
+
         }
     }
 }

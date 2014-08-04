@@ -32,15 +32,8 @@ public class BrownOrderActivity extends ActionBarActivity {
 	        } else {
                 mOrderType.setText(R.string.checkout_delivery);
             }
-	       
-//			Intent intent = getIntent();
-//			currentOrder = intent.getParcelableExtra("orderObject");
 
 			mBrownOrderItemListFragment = new BrownOrderItemListFragment();
-//			Bundle args = new Bundle();
-//            args.putSerializable("orderObject", (Serializable)currentOrder);
-//            mBrownOrderItemListFragment.setArguments(args);
-//			
 			FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 	        transaction.add(R.id.fragmentCartList, mBrownOrderItemListFragment);
 	        transaction.commit();

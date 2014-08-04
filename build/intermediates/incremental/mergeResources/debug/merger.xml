@@ -7766,6 +7766,8 @@ Contact
                 </string>
                 <string name="confirmed" >주문확인됨
                 </string>
+                <string name="order_confirmation_request_button" >인증번호요청
+                </string>
                 <string name="dutch_latte" >더치라떼
                 </string>
                 <string name="forhere" >먹고가기
@@ -7852,6 +7854,8 @@ Contact
                 </string>
                 <string name="checkout_order_in_advance" >미리주문
                 </string>
+                <string name="order_confirmation_info_label" >휴대폰 인증은 첫 주문시에만 이루어집니다.
+                </string>
                 <string name="order_name_label" >이름
                 </string>
                 <string name="latte_cafe" >카페라떼 (hot)
@@ -7877,6 +7881,8 @@ Contact
                 <string name="iced_latte_grain" >오곡라떼 (ice)
                 </string>
                 <string name="smoothie_yogurt" >요거트 스무디
+                </string>
+                <string name="order_confirmation_button" >인증확인
                 </string>
                 <string name="order_address_label" >나머지 주소
                 </string>
@@ -7937,6 +7943,8 @@ Contact
                 <string name="capucino" >카푸치노 (hot)
                 </string>
                 <string name="smoothie_kiwi" >키위 스무디
+                </string>
+                <string name="order_confirmation_edit_text_info" >인증번호 4자리를 적어주세요.
                 </string>
                 <string name="aid_green" >드린 에이드
                 </string>
@@ -8040,6 +8048,16 @@ Contact
             <file
                 name="fragment_user_history"
                 path="/Users/kimsanghwan/workspace/Android/BrownTime/res/layout/fragment_user_history.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="form_phone_confirmation"
+                path="/Users/kimsanghwan/workspace/Android/BrownTime/res/layout/form_phone_confirmation.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="form_order_details"
+                path="/Users/kimsanghwan/workspace/Android/BrownTime/res/layout/form_order_details.xml"
                 qualifiers=""
                 type="layout" />
         </source>

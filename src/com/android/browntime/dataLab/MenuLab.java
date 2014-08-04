@@ -12,6 +12,7 @@ public class MenuLab {
 	private ArrayList<BrownMenu> mMenus;
 	private static MenuLab sBrownLab;
 	private Context mAppContext;
+    private int categoryNum;
 	
 	private MenuLab(Context appContext) {
 		mAppContext = appContext;
@@ -96,5 +97,13 @@ public class MenuLab {
 		}
 		return null;
 	}
+
+    public void setCategoryNum(int num) {
+        categoryNum = num;
+    }
+
+    public int getCategoryNum() {
+        return categoryNum;
+    }
 
 }

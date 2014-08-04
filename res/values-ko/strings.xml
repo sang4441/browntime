@@ -135,4 +135,8 @@
     <string name="forhere">먹고가기</string>
     <string name="delivery">배달</string>
 
+    <string name="order_confirmation_info_label">휴대폰 인증은 첫 주문시에만 이루어집니다.</string>
+    <string name="order_confirmation_request_button">인증번호요청</string>
+    <string name="order_confirmation_edit_text_info">인증번호 4자리를 적어주세요.</string>
+    <string name="order_confirmation_button">인증확인</string>
 </resources>
