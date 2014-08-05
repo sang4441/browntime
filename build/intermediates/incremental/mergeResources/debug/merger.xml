@@ -1359,6 +1359,10 @@
                 <string name="abc_searchview_description_query" >Search query
                 </string>
 
+                <item
+                    name="home"
+                    type="id"/>
+
                 <declare-styleable name="MenuView" >
 
                     <!-- Default appearance of menu item text. -->
@@ -1379,24 +1383,20 @@
                     <attr name="android:preserveIconSpacing" />
                 </declare-styleable>
 
-                <item
-                    name="home"
-                    type="id"/>
+                <string name="abc_action_bar_up_description" >Navigate up
+                </string>
 
                 <attr
                     name="actionModeStyle"
                     format="reference" />
 
-                <string name="abc_action_bar_up_description" >Navigate up
-                </string>
+                <item
+                    name="action_bar_activity_content"
+                    type="id"/>
 
                 <attr
                     name="actionBarSplitStyle"
                     format="reference" />
-
-                <item
-                    name="action_bar_activity_content"
-                    type="id"/>
 
                 <style
                     name="Widget.AppCompat.ActionBar"
@@ -1563,19 +1563,18 @@ true
                     </item>
                 </style>
 
-                <attr
-                    name="actionModeCloseDrawable"
-                    format="reference" />
-
                 <dimen name="abc_action_bar_stacked_max_height" >48dp
                 </dimen>
 
-                <color name="abc_search_url_text_selected" >@android:color/black
-                </color>
-
+                <attr
+                    name="actionModeCloseDrawable"
+                    format="reference" />
                 <attr
                     name="searchViewTextField"
                     format="reference" />
+
+                <color name="abc_search_url_text_selected" >@android:color/black
+                </color>
 
                 <declare-styleable name="Spinner" >
 
@@ -1661,26 +1660,32 @@ middle
                 </style>
 
                 <style
-                    name="Widget.AppCompat.Light.ActionBar.TabText"
-                    parent="Widget.AppCompat.Light.Base.ActionBar.TabText" />
-
-                <style
                     name="Widget.AppCompat.ActionBar.TabBar"
                     parent="Widget.AppCompat.Base.ActionBar.TabBar" />
+
+                <style
+                    name="Widget.AppCompat.Light.ActionBar.TabText"
+                    parent="Widget.AppCompat.Light.Base.ActionBar.TabText" />
 
                 <attr
                     name="isLightTheme"
                     format="boolean" />
                 <attr
-                    name="textAppearanceSearchResultSubtitle"
+                    name="actionOverflowButtonStyle"
                     format="reference" />
                 <attr
-                    name="actionOverflowButtonStyle"
+                    name="textAppearanceSearchResultSubtitle"
                     format="reference" />
 
                 <style
                     name="Widget.AppCompat.ActivityChooserView"
                     parent="Widget.AppCompat.Base.ActivityChooserView" />
+
+                <string name="abc_action_menu_overflow_description" >More options
+                </string>
+
+                <dimen name="abc_action_bar_default_height" >48dip
+                </dimen>
 
                 <style
                     name="Widget.AppCompat.Light.Base.ActionBar.TabText.Inverse"
@@ -1689,12 +1694,6 @@ middle
 ?android:attr/textColorPrimaryInverseDisableOnly
                     </item>
                 </style>
-
-                <dimen name="abc_action_bar_default_height" >48dip
-                </dimen>
-
-                <string name="abc_action_menu_overflow_description" >More options
-                </string>
 
                 <style
                     name="Widget.AppCompat.Light.Base.ActionBar.TabText"
@@ -1710,6 +1709,10 @@ middle
                 <style
                     name="Widget.AppCompat.ActionBar.TabView"
                     parent="Widget.AppCompat.Base.ActionBar.TabView" />
+
+                <style
+                    name="TextAppearance.AppCompat.Widget.ActionMode.Subtitle.Inverse"
+                    parent="TextAppearance.AppCompat.Widget.Base.ActionMode.Subtitle.Inverse" />
 
                 <style
                     name="Widget.AppCompat.Light.Base.ActionBar"
@@ -1737,10 +1740,6 @@ middle
                     </item>
                 </style>
 
-                <style
-                    name="TextAppearance.AppCompat.Widget.ActionMode.Subtitle.Inverse"
-                    parent="TextAppearance.AppCompat.Widget.Base.ActionMode.Subtitle.Inverse" />
-
                 <attr
                     name="actionModeShareDrawable"
                     format="reference" />
@@ -1766,12 +1765,12 @@ normal
                     </item>
                 </style>
 
+                <string name="abc_shareactionprovider_share_with_application" >Share with %s
+                </string>
+
                 <attr
                     name="actionBarTabStyle"
                     format="reference" />
-
-                <string name="abc_shareactionprovider_share_with_application" >Share with %s
-                </string>
 
                 <style
                     name="Widget.AppCompat.Light.Base.PopupMenu"
@@ -1785,13 +1784,13 @@ normal
                     </item>
                 </style>
 
-                <attr
-                    name="actionBarItemBackground"
-                    format="reference" />
-
                 <integer name="abc_max_action_buttons" >
 2
                 </integer>
+
+                <attr
+                    name="actionBarItemBackground"
+                    format="reference" />
 
                 <style
                     name="Widget.AppCompat.Light.Base.ActionBar.TabBar.Inverse"
@@ -1802,12 +1801,12 @@ normal
                     format="reference" />
 
                 <style
-                    name="Widget.AppCompat.Light.ActionButton"
-                    parent="Widget.AppCompat.Light.Base.ActionButton" />
-
-                <style
                     name="Widget.AppCompat.ActionMode"
                     parent="Widget.AppCompat.Base.ActionMode" />
+
+                <style
+                    name="Widget.AppCompat.Light.ActionButton"
+                    parent="Widget.AppCompat.Light.Base.ActionButton" />
 
                 <style
                     name="Widget.AppCompat.ListView.DropDown"
@@ -2611,6 +2610,9 @@ false
                     name="Widget.AppCompat.Light.Spinner.DropDown.ActionBar"
                     parent="Widget.AppCompat.Light.Base.Spinner" />
 
+                <string name="abc_activitychooserview_choose_application" >Choose an app
+                </string>
+
                 <style
                     name="Theme.AppCompat.Light.DarkActionBar"
                     parent="Theme.Base.AppCompat.Light.DarkActionBar" >
@@ -2696,9 +2698,6 @@ true
                     </item>
                 </style>
 
-                <string name="abc_activitychooserview_choose_application" >Choose an app
-                </string>
-
                 <dimen name="abc_action_bar_title_text_size" >18dp
                 </dimen>
 
@@ -2732,14 +2731,15 @@ true
                     <!-- Whether the items are enabled. -->
                     <attr name="android:enabled" />
                 </declare-styleable>
-                <declare-styleable name="ActionMenuView" >
-
-                    <!-- Size of padding on either end of a divider. -->
-                </declare-styleable>
 
                 <attr
                     name="textColorSearchUrl"
                     format="reference|color" />
+
+                <declare-styleable name="ActionMenuView" >
+
+                    <!-- Size of padding on either end of a divider. -->
+                </declare-styleable>
 
                 <style
                     name="TextAppearance.AppCompat.Base.Widget.PopupMenu.Small"
@@ -2756,12 +2756,12 @@ true
 false
                 </bool>
 
+                <dimen name="abc_dropdownitem_icon_width" >32dip
+                </dimen>
+
                 <style
                     name="Widget.AppCompat.Light.Base.DropDownItem.Spinner"
                     parent="Widget.AppCompat.Base.DropDownItem.Spinner" />
-
-                <dimen name="abc_dropdownitem_icon_width" >32dip
-                </dimen>
 
                 <attr
                     name="listPreferredItemPaddingLeft"
@@ -2934,12 +2934,12 @@ true
                     format="reference" />
 
                 <style
-                    name="Widget.AppCompat.ListView.Menu"
-                    parent="Widget.AppCompat.Base.ListView.Menu" />
-
-                <style
                     name="Theme.AppCompat.CompactMenu"
                     parent="Theme.AppCompat.Base.CompactMenu" />
+
+                <style
+                    name="Widget.AppCompat.ListView.Menu"
+                    parent="Widget.AppCompat.Base.ListView.Menu" />
 
                 <style
                     name="Theme.Base.AppCompat.Light"
@@ -3088,9 +3088,11 @@ true
                     </item>
                 </style>
 
-                <style
-                    name="Widget.AppCompat.Base.PopupMenu"
-                    parent="@style/Widget.AppCompat.Base.ListPopupWindow" />
+                <string name="abc_activity_chooser_view_see_all" >See all
+                </string>
+
+                <dimen name="abc_search_view_text_min_width" >160dip
+                </dimen>
 
                 <style
                     name="Theme.AppCompat.Base.CompactMenu"
@@ -3103,11 +3105,9 @@ true
                     </item>
                 </style>
 
-                <dimen name="abc_search_view_text_min_width" >160dip
-                </dimen>
-
-                <string name="abc_activity_chooser_view_see_all" >See all
-                </string>
+                <style
+                    name="Widget.AppCompat.Base.PopupMenu"
+                    parent="@style/Widget.AppCompat.Base.ListPopupWindow" />
 
                 <style
                     name="TextAppearance.AppCompat.SearchResult.Subtitle"
@@ -3148,12 +3148,12 @@ true
                 </string>
 
                 <style
-                    name="TextAppearance.Widget.AppCompat.ExpandedMenu.Item"
-                    parent="TextAppearance.Widget.AppCompat.Base.ExpandedMenu.Item" />
-
-                <style
                     name="TextAppearance.AppCompat.Widget.Base.ActionMode.Title.Inverse"
                     parent="android:TextAppearance.Medium.Inverse" />
+
+                <style
+                    name="TextAppearance.Widget.AppCompat.ExpandedMenu.Item"
+                    parent="TextAppearance.Widget.AppCompat.Base.ExpandedMenu.Item" />
 
                 <style
                     name="Theme.AppCompat"
@@ -3240,6 +3240,9 @@ false
                     </item>
                 </style>
 
+                <dimen name="abc_config_prefDialogWidth" >320dp
+                </dimen>
+
                 <style
                     name="Widget.AppCompat.Light.Base.Spinner"
                     parent="Widget.AppCompat.Base.Spinner" >
@@ -3254,9 +3257,6 @@ false
                     </item>
                 </style>
 
-                <dimen name="abc_config_prefDialogWidth" >320dp
-                </dimen>
-
                 <declare-styleable name="ActionBarWindow" >
                     <attr
                         name="windowActionBar"
@@ -3269,13 +3269,14 @@ false
                         format="boolean" />
                 </declare-styleable>
 
+                <attr
+                    name="actionButtonStyle"
+                    format="reference" />
+
                 <style
                     name="Widget.AppCompat.Light.PopupMenu"
                     parent="Widget.AppCompat.Light.Base.PopupMenu" />
 
-                <attr
-                    name="actionButtonStyle"
-                    format="reference" />
                 <attr
                     name="searchViewAutoCompleteTextView"
                     format="reference" />
@@ -3288,27 +3289,27 @@ false
                     name="Widget.AppCompat.Light.ActionBar.TabView"
                     parent="Widget.AppCompat.Light.Base.ActionBar.TabView" />
 
-                <style
-                    name="Widget.AppCompat.Light.ActionBar.TabBar"
-                    parent="Widget.AppCompat.Light.Base.ActionBar.TabBar" />
-
                 <style name="TextAppearance.AppCompat.Base.SearchResult.Title" >
                     <item name="android:textSize">
 18sp
                     </item>
                 </style>
 
+                <style
+                    name="Widget.AppCompat.Light.ActionBar.TabBar"
+                    parent="Widget.AppCompat.Light.Base.ActionBar.TabBar" />
+
                 <attr
                     name="actionBarTabTextStyle"
                     format="reference" />
+                <attr
+                    name="searchResultListItemHeight"
+                    format="dimension" />
 
                 <style
                     name="Widget.AppCompat.ActionButton.Overflow"
                     parent="Widget.AppCompat.Base.ActionButton.Overflow" />
 
-                <attr
-                    name="searchResultListItemHeight"
-                    format="dimension" />
                 <attr
                     name="listPreferredItemHeight"
                     format="dimension" />
@@ -3366,6 +3367,9 @@ false
                 <style
                     name="Widget.AppCompat.Light.ActionButton.CloseMode"
                     parent="Widget.AppCompat.Light.Base.ActionButton.CloseMode" />
+
+                <dimen name="abc_action_bar_subtitle_top_margin" >-3dp
+                </dimen>
 
                 <style
                     name="Theme.Base.AppCompat.Light.DarkActionBar"
@@ -3432,19 +3436,16 @@ false
                     </item>
                 </style>
 
-                <dimen name="abc_action_bar_subtitle_top_margin" >-3dp
-                </dimen>
-
                 <style
                     name="TextAppearance.AppCompat.SearchResult.Title"
                     parent="TextAppearance.AppCompat.Base.SearchResult.Title" />
 
-                <dimen name="abc_action_bar_subtitle_bottom_margin" >5dip
-                </dimen>
-
                 <item
                     name="progress_horizontal"
                     type="id"/>
+
+                <dimen name="abc_action_bar_subtitle_bottom_margin" >5dip
+                </dimen>
 
                 <style
                     name="Widget.AppCompat.ActionBar.Solid"
@@ -3487,6 +3488,10 @@ false
                 </declare-styleable>
 
                 <style
+                    name="TextAppearance.AppCompat.Widget.PopupMenu.Small"
+                    parent="TextAppearance.AppCompat.Base.Widget.PopupMenu.Small" />
+
+                <style
                     name="Widget.AppCompat.Light.Base.ListPopupWindow"
                     parent="" >
                     <item name="android:dropDownSelector">
@@ -3507,16 +3512,12 @@ wrap_content
                 </style>
 
                 <style
-                    name="TextAppearance.AppCompat.Widget.PopupMenu.Small"
-                    parent="TextAppearance.AppCompat.Base.Widget.PopupMenu.Small" />
+                    name="TextAppearance.AppCompat.Light.Widget.PopupMenu.Large"
+                    parent="TextAppearance.AppCompat.Light.Base.Widget.PopupMenu.Large" />
 
                 <item
                     name="progress_circular"
                     type="id"/>
-
-                <style
-                    name="TextAppearance.AppCompat.Light.Widget.PopupMenu.Large"
-                    parent="TextAppearance.AppCompat.Light.Base.Widget.PopupMenu.Large" />
 
                 <style
                     name="Widget.AppCompat.Light.Base.ActionBar.TabView.Inverse"
@@ -3534,6 +3535,9 @@ wrap_content
                     name="Widget.AppCompat.ProgressBar.Horizontal"
                     parent="Widget.AppCompat.Base.ProgressBar.Horizontal" />
 
+                <dimen name="abc_panel_menu_list_width" >296dp
+                </dimen>
+
                 <style
                     name="Widget.AppCompat.Light.Base.ActionButton.Overflow"
                     parent="Widget.AppCompat.Light.Base.ActionButton" >
@@ -3542,17 +3546,14 @@ wrap_content
                     </item>
                 </style>
 
-                <dimen name="abc_panel_menu_list_width" >296dp
-                </dimen>
-
-                <color name="abc_search_url_text_pressed" >@android:color/black
-                </color>
-
                 <style name="TextAppearance.AppCompat.Light.Base.SearchResult.Title" >
                     <item name="android:textSize">
 18sp
                     </item>
                 </style>
+
+                <color name="abc_search_url_text_pressed" >@android:color/black
+                </color>
 
                 <style
                     name="Widget.AppCompat.Base.AutoCompleteTextView"
@@ -3596,13 +3597,13 @@ wrap_content
                     name="TextAppearance.AppCompat.Widget.ActionBar.Title"
                     parent="TextAppearance.AppCompat.Widget.Base.ActionBar.Title" />
 
-                <bool name="abc_split_action_bar_is_narrow" >
-true
-                </bool>
-
                 <attr
                     name="spinnerStyle"
                     format="reference" />
+
+                <bool name="abc_split_action_bar_is_narrow" >
+true
+                </bool>
 
                 <style
                     name="Widget.AppCompat.Light.Base.AutoCompleteTextView"
@@ -3711,11 +3712,6 @@ useLogo|showHome|showTitle
                     <!-- The input type to set on the query text field. -->
                     <attr name="android:inputType" />
                 </declare-styleable>
-
-                <style
-                    name="Theme.AppCompat.CompactMenu.Dialog"
-                    parent="Theme.AppCompat.Base.CompactMenu.Dialog" />
-
                 <declare-styleable name="ActionMode" >
 
                     <!-- Specifies a style to use for title text. -->
@@ -3729,6 +3725,10 @@ useLogo|showHome|showTitle
                     <!-- Specifies a fixed height for the action mode bar. -->
                     <attr name="height" />
                 </declare-styleable>
+
+                <style
+                    name="Theme.AppCompat.CompactMenu.Dialog"
+                    parent="Theme.AppCompat.Base.CompactMenu.Dialog" />
 
                 <style
                     name="Widget.AppCompat.Light.Base.ActivityChooserView"
@@ -5365,20 +5365,19 @@ useLogo|showHome|showTitle
             <file
                 path="/Users/kimsanghwan/workspace/Android/BrownTime/build/intermediates/exploded-aar/Android/appcompat_v7_4/unspecified/res/values-land/values.xml"
                 qualifiers="land" >
-                <dimen name="abc_action_bar_title_text_size" >16dp
-                </dimen>
-
                 <bool name="abc_config_allowActionMenuItemTextWithIcon" >
 true
                 </bool>
 
+                <dimen name="abc_action_bar_title_text_size" >16dp
+                </dimen>
                 <dimen name="abc_action_bar_icon_vertical_padding" >4dip
                 </dimen>
                 <dimen name="abc_action_bar_subtitle_top_margin" >-2dp
                 </dimen>
-                <dimen name="abc_action_bar_subtitle_text_size" >12dp
-                </dimen>
                 <dimen name="abc_action_bar_progress_bar_size" >32dp
+                </dimen>
+                <dimen name="abc_action_bar_subtitle_text_size" >12dp
                 </dimen>
                 <dimen name="abc_action_bar_default_height" >40dip
                 </dimen>
@@ -5397,12 +5396,13 @@ false
             <file
                 path="/Users/kimsanghwan/workspace/Android/BrownTime/build/intermediates/exploded-aar/Android/appcompat_v7_4/unspecified/res/values-large-v4/values.xml"
                 qualifiers="large-v4" >
-                <dimen name="abc_search_view_text_min_width" >192dip
-                </dimen>
-
                 <bool name="abc_action_bar_embed_tabs_pre_jb" >
 true
                 </bool>
+
+                <dimen name="abc_search_view_text_min_width" >192dip
+                </dimen>
+
                 <bool name="abc_config_allowActionMenuItemTextWithIcon" >
 true
                 </bool>
@@ -6373,24 +6373,24 @@ false
             <file
                 path="/Users/kimsanghwan/workspace/Android/BrownTime/build/intermediates/exploded-aar/Android/appcompat_v7_4/unspecified/res/values-sw600dp-v13/values.xml"
                 qualifiers="sw600dp-v13" >
+                <dimen name="abc_action_bar_default_height" >56dip
+                </dimen>
                 <dimen name="abc_action_bar_subtitle_top_margin" >-3dp
                 </dimen>
-                <dimen name="abc_action_bar_default_height" >56dip
+                <dimen name="abc_config_prefDialogWidth" >580dp
                 </dimen>
 
                 <integer name="abc_max_action_buttons" >
 5
                 </integer>
 
-                <dimen name="abc_config_prefDialogWidth" >580dp
-                </dimen>
                 <dimen name="abc_action_bar_icon_vertical_padding" >4dip
                 </dimen>
                 <dimen name="abc_action_bar_title_text_size" >18dp
                 </dimen>
-                <dimen name="abc_action_bar_subtitle_text_size" >14dp
-                </dimen>
                 <dimen name="abc_action_bar_subtitle_bottom_margin" >9dip
+                </dimen>
+                <dimen name="abc_action_bar_subtitle_text_size" >14dp
                 </dimen>
             </file>
             <file
@@ -6652,10 +6652,6 @@ false
                     parent="android:Widget.Holo.AutoCompleteTextView" />
 
                 <style
-                    name="Widget.AppCompat.Base.ProgressBar"
-                    parent="android:Widget.Holo.ProgressBar" />
-
-                <style
                     name="Theme.Base"
                     parent="android:Theme.Holo" >
                     <item name="android:windowNoTitle">
@@ -6676,6 +6672,10 @@ false
 ?android:attr/selectableItemBackground
                     </item>
                 </style>
+
+                <style
+                    name="Widget.AppCompat.Base.ProgressBar"
+                    parent="android:Widget.Holo.ProgressBar" />
 
                 <style
                     name="Widget.AppCompat.Base.ProgressBar.Horizontal"
@@ -6837,6 +6837,10 @@ middle
                     parent="android:Widget.Holo.Light.Spinner" />
 
                 <style
+                    name="Widget.AppCompat.Base.DropDownItem.Spinner"
+                    parent="android:Widget.Holo.DropDownItem.Spinner" />
+
+                <style
                     name="Theme.Base.AppCompat.Light"
                     parent="android:Theme.Holo.Light" >
 
@@ -6896,20 +6900,16 @@ middle
                 </style>
 
                 <style
-                    name="Widget.AppCompat.Base.DropDownItem.Spinner"
-                    parent="android:Widget.Holo.DropDownItem.Spinner" />
-
-                <style
                     name="Widget.AppCompat.Light.Base.PopupMenu"
                     parent="android:Widget.Holo.Light.PopupMenu" />
 
                 <style
-                    name="Widget.AppCompat.Base.ActionBar.TabBar"
-                    parent="android:Widget.Holo.ActionBar.TabBar" />
-
-                <style
                     name="Widget.AppCompat.Base.ListPopupWindow"
                     parent="android:Widget.Holo.ListPopupWindow" />
+
+                <style
+                    name="Widget.AppCompat.Base.ActionBar.TabBar"
+                    parent="android:Widget.Holo.ActionBar.TabBar" />
 
                 <style
                     name="TextAppearance.AppCompat.Widget.Base.ActionBar.Title.Inverse"
@@ -7175,9 +7175,9 @@ true
 5
                 </integer>
 
-                <dimen name="abc_action_bar_subtitle_bottom_margin" >9dip
-                </dimen>
                 <dimen name="abc_action_bar_default_height" >56dip
+                </dimen>
+                <dimen name="abc_action_bar_subtitle_bottom_margin" >9dip
                 </dimen>
                 <dimen name="abc_search_view_text_min_width" >192dip
                 </dimen>
@@ -7196,26 +7196,27 @@ false
             <file
                 path="/Users/kimsanghwan/workspace/Android/BrownTime/build/intermediates/exploded-aar/Android/appcompat_v7_4/unspecified/res/values-xlarge-v4/values.xml"
                 qualifiers="xlarge-v4" >
-                <dimen name="abc_action_bar_subtitle_top_margin" >-3dp
-                </dimen>
                 <dimen name="abc_action_bar_subtitle_bottom_margin" >9dip
+                </dimen>
+                <dimen name="abc_action_bar_subtitle_top_margin" >-3dp
                 </dimen>
                 <dimen name="abc_action_bar_icon_vertical_padding" >4dip
                 </dimen>
                 <dimen name="abc_action_bar_title_text_size" >18dp
                 </dimen>
-                <dimen name="abc_action_button_min_width" >64dip
-                </dimen>
                 <dimen name="abc_action_bar_subtitle_text_size" >14dp
                 </dimen>
-                <dimen name="abc_search_view_text_min_width" >192dip
+                <dimen name="abc_action_button_min_width" >64dip
                 </dimen>
-                <dimen name="abc_action_bar_default_height" >56dip
+                <dimen name="abc_search_view_text_min_width" >192dip
                 </dimen>
 
                 <bool name="abc_action_bar_expanded_action_views_exclusive" >
 false
                 </bool>
+
+                <dimen name="abc_action_bar_default_height" >56dip
+                </dimen>
 
                 <integer name="abc_max_action_buttons" >
 5
@@ -7623,9 +7624,9 @@ false
                 </string>
                 <string name="iced_latte" >iced latte
                 </string>
-                <string name="menu_quantity_hint" >0
-                </string>
                 <string name="menu_quantity_label" >Quantity
+                </string>
+                <string name="menu_quantity_hint" >0
                 </string>
                 <string name="capucino" >cappucino
                 </string>
@@ -7667,15 +7668,15 @@ false
                 </string>
                 <string name="latte_1" >green tea latte
                 </string>
-                <string name="menu_price_total_label" >Total price
+                <string name="app_name" >BrownTime
                 </string>
                 <string name="latte_2" >multigrain latte
                 </string>
-                <string name="app_name" >BrownTime
-                </string>
-                <string name="menu_button_checkout" >Checkout
+                <string name="menu_price_total_label" >Total price
                 </string>
                 <string name="latte_5" >latte five
+                </string>
+                <string name="menu_button_checkout" >Checkout
                 </string>
                 <string name="latte_6" >latte six
                 </string>
@@ -7685,6 +7686,17 @@ false
             <file
                 path="/Users/kimsanghwan/workspace/Android/BrownTime/res/values/styles.xml"
                 qualifiers="" >
+
+                <style
+                    name="AppBaseTheme"
+                    parent="Theme.AppCompat.Light" >
+
+                    <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+                    -->
+                </style>
 
                 <style name="BrownButton" >
                     <item name="android:layout_width">
@@ -7706,17 +7718,6 @@ wrap_content
                 </style>
 
                 <style
-                    name="AppBaseTheme"
-                    parent="Theme.AppCompat.Light" >
-
-                    <!--
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-                    -->
-                </style>
-
-                <style
                     name="AppTheme"
                     parent="AppBaseTheme" >
 
@@ -7729,9 +7730,9 @@ wrap_content
                 qualifiers="ko" >
                 <string name="con_panna" >꼰파냐 (hot)
                 </string>
-                <string name="juice_orange" >오렌지 주스
-                </string>
                 <string name="zero" >0
+                </string>
+                <string name="juice_orange" >오렌지 주스
                 </string>
                 <string name="iced_latte_greentea" >그린티라떼 (ice)
                 </string>
@@ -7741,29 +7742,29 @@ wrap_content
                 </string>
                 <string name="sandwich_1" >BLT
                 </string>
+                <string name="sandwich_2" >Club sandwich
+                </string>
+                <string name="espresso" >에스프레소 (hot)
+                </string>
 
                 <string-array name="planets_array" >
                     <item>
-About BrownTime
+브라운타임
                     </item>
                     <item>
-Staff
+직원
                     </item>
                     <item>
-Menu and Order
+메뉴 및 주문
                     </item>
                     <item>
-Order status and history
+주문 상태
                     </item>
                     <item>
-Contact
+연락처
                     </item>
                 </string-array>
 
-                <string name="espresso" >에스프레소 (hot)
-                </string>
-                <string name="sandwich_2" >Club sandwich
-                </string>
                 <string name="confirmed" >주문확인됨
                 </string>
                 <string name="order_confirmation_request_button" >인증번호요청
@@ -7808,17 +7809,17 @@ Contact
                 </string>
                 <string name="latte_grain" >오곡라떼 (hot)
                 </string>
-                <string name="order_time_label" >까지 부탁해요
+                <string name="iced_latte_caramel" >카라멜라떼 (ice)
                 </string>
                 <string name="caffe_moka" >카페모카 (hot)
                 </string>
-                <string name="iced_latte_caramel" >카라멜라떼 (ice)
+                <string name="order_time_label" >까지 부탁해요
                 </string>
                 <string name="tea_rooibos" >루이보스
                 </string>
-                <string name="smoothie_mint_chocolate" >민트초콜렛 스무디
-                </string>
                 <string name="cart_empty_toast" >장바구니가 비어 있습니다
+                </string>
+                <string name="smoothie_mint_chocolate" >민트초콜렛 스무디
                 </string>
                 <string name="order_type_label" >주문 타입
                 </string>
@@ -7834,9 +7835,9 @@ Contact
                 </string>
                 <string name="requested" >주문대기중
                 </string>
-                <string name="americano" >아메리카노 (hot)
-                </string>
                 <string name="iced_latte_vanilla" >바닐라라떼 (ice)
+                </string>
+                <string name="americano" >아메리카노 (hot)
                 </string>
                 <string name="smoothie_strawberry" >딸기 스무디
                 </string>

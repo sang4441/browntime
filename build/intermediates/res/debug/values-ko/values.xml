@@ -5,11 +5,11 @@
     <eat-comment />
 
     <string-array name="planets_array">
-        <item>About BrownTime</item>
-        <item>Staff</item>
-        <item>Menu and Order</item>
-        <item>Order status and history</item>
-        <item>Contact</item>
+        <item>브라운타임</item>
+        <item>직원</item>
+        <item>메뉴 및 주문</item>
+        <item>주문 상태</item>
+        <item>연락처</item>
     </string-array>
     <!-- From: file:/Users/kimsanghwan/workspace/Android/BrownTime/build/intermediates/exploded-aar/Android/appcompat_v7_4/unspecified/res/values-ko/values.xml -->
     <eat-comment />

@@ -1,8 +1,12 @@
 package com.android.browntime.activity;
 
 import android.app.ActionBar;
+import android.app.AlarmManager;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.AsyncTask;
@@ -32,10 +36,12 @@ import com.android.browntime.dataLab.CartLab;
 import com.android.browntime.dataLab.MenuLab;
 import com.android.browntime.model.BrownCategory;
 import com.android.browntime.model.BrownMenu;
+import com.android.browntime.service.BrownOrderStatusService;
 
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -60,10 +66,30 @@ public class DrawerActivity extends ActionBarActivity {
 
     public static int TAB_NUM;
 
+    public static final String SERVICE_KEY = "brown_admin_order_service";
+
+    private BroadcastReceiver receiver = new BroadcastReceiver() {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Bundle bundle = intent.getExtras();
+//            int newOrderNum = bundle.getInt(SERVICE_KEY);
+        }
+    };
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.drawer_layout);
+
+        //set up service for order status update
+        Calendar cal = Calendar.getInstance();
+        Intent intent = new Intent(this, BrownOrderStatusService.class);
+        PendingIntent pintent = PendingIntent.getService(this, 0, intent, 0);
+        AlarmManager alarm = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+        alarm.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), 30*1000, pintent);
+
 
         mPlanetTitles = getResources().getStringArray(R.array.planets_array);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);

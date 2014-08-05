@@ -2,8 +2,9 @@
 
 <TextView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    style="?android:attr/listSeparatorTextViewStyle"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:textSize="25dp"
+    android:textSize="20dp"
     android:padding="10dp"
     android:layout_height="match_parent">
 </TextView><!-- From: file:/Users/kimsanghwan/workspace/Android/BrownTime/res/layout/drawer_list_item.xml -->

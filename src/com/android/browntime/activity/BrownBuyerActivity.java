@@ -16,7 +16,6 @@ import com.android.browntime.BrownOrderItemListFragment;
 import com.android.browntime.JSONRequest;
 import com.android.browntime.R;
 import com.android.browntime.dataLab.OrderLab;
-import com.android.browntime.model.BrownBuyer;
 import com.android.browntime.model.BrownOrder;
 
 import org.springframework.web.client.RestTemplate;
@@ -30,7 +29,8 @@ public class BrownBuyerActivity extends ActionBarActivity {
     private BrownOrder mCurrentOrder;
     private View deliveryView;
     int orderType;
-    LinearLayout detailAndConfirmationView;
+    String requiredSMSNum;
+    LinearLayout detailWrap;
     BrownOrderItemListFragment mBrownOrderItemListFragment;
 
     public void onCreate(Bundle savedInstanceState) {
@@ -42,10 +42,10 @@ public class BrownBuyerActivity extends ActionBarActivity {
         setContentView(R.layout.activity_buyer_form);
 
 
-        detailAndConfirmationView = (LinearLayout)findViewById(R.id.order_confirmation_and_detail_wrap);
+        detailWrap = (LinearLayout)findViewById(R.id.order_detail_wrap);
         LayoutInflater inflater = LayoutInflater.from(BrownBuyerActivity.this);
-        View phoneConfirmationView = inflater.inflate(R.layout.form_order_details, null);
-        detailAndConfirmationView.addView(phoneConfirmationView);
+        View orderDetailView = inflater.inflate(R.layout.form_order_details, null);
+        detailWrap.addView(orderDetailView);
 
 
         TextView totalPriceView = (TextView)findViewById(R.id.order_menu_price_total);
@@ -67,9 +67,6 @@ public class BrownBuyerActivity extends ActionBarActivity {
         orderCompleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-
                 if (orderType == 3) {
                     TextView userAddressInfo = (TextView) findViewById(R.id.order_info_address);
                     mCurrentOrder.setmAddress(userAddressInfo.getText().toString());
@@ -80,19 +77,9 @@ public class BrownBuyerActivity extends ActionBarActivity {
                 mCurrentOrder.setmBuyerCellNumber(Integer.valueOf(userCellNumber.getText().toString()));
 
 
-                //if session - first time
-                detailAndConfirmationView.removeAllViews();
-                LayoutInflater inflater = LayoutInflater.from(BrownBuyerActivity.this);
-                View phoneConfirmationView = inflater.inflate(R.layout.form_phone_confirmation, null);
-                detailAndConfirmationView.addView(phoneConfirmationView);
-                TextView phoneNum = (TextView)findViewById(R.id.order_phone_label);
-                phoneNum.setText(String.valueOf(mCurrentOrder.getmBuyerCellNumber()));
-                findViewById(R.id.confirmation_request).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        new HttpRequestSendSMS().execute(mCurrentOrder.getmBuyerCellNumber());
-                    }
-                });
+               //if session add fragment
+
+               //else complete order
 
 //                SmsManager sms = SmsManager.getDefault();
 //                sms.sendTextMessage("01099155894", null, "hello", null, null);
@@ -109,34 +96,7 @@ public class BrownBuyerActivity extends ActionBarActivity {
 //        new HttpRequestTask().execute();
 //    }
 
-    private class HttpRequestSendSMS extends AsyncTask<Integer, Void, Void> {
-        @Override
-        protected Void doInBackground(Integer... phoneNums) {
-            try {
-                int phoneNum = phoneNums[0];
-                final String url = "http://10.0.2.2:8080/BrownTime/json/requestSMS";
-                RestTemplate restTemplate = new RestTemplate();
-                restTemplate.setMessageConverters(new JSONRequest().getMessageConverters());
-//                restTemplate.postForObject(url, String.class);
 
-                BrownBuyer buyer = new BrownBuyer();
-                buyer.setmBuyerName(mCurrentOrder.getmBuyerName());
-                buyer.setmBuyerCellNumber(mCurrentOrder.getmBuyerCellNumber());
-                buyer.setmSMSNumber(1111);
-                BrownBuyer buyerReturned = restTemplate.postForObject(url, buyer, BrownBuyer.class);
-//                return new BrownOrder();
-            } catch (Exception e) {
-                Log.e("MainActivity", e.getMessage(), e);
-            }
-
-            return null;
-        }
-
-//        @Override
-//        protected void onPostExecute(BrownOrder greeting) {
-//        }
-
-    }
 
     private class HttpRequestOrderComplete extends AsyncTask<Void, Void, BrownOrder> {
         @Override
@@ -164,8 +124,5 @@ public class BrownBuyerActivity extends ActionBarActivity {
             OrderLab.get(BrownBuyerActivity.this).addOrder(mCurrentOrder);
             startActivity(i);
         }
-
     }
-
-
 }
