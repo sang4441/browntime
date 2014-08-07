@@ -4,13 +4,17 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.browntime.BrownOrderItemListFragment;
 import com.android.browntime.JSONRequest;
@@ -47,6 +51,8 @@ public class BrownBuyerActivity extends ActionBarActivity {
         View orderDetailView = inflater.inflate(R.layout.form_order_details, null);
         detailWrap.addView(orderDetailView);
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         TextView totalPriceView = (TextView)findViewById(R.id.order_menu_price_total);
         totalPriceView.setText(String.valueOf(mCurrentOrder.getmPrice()));
@@ -55,6 +61,15 @@ public class BrownBuyerActivity extends ActionBarActivity {
             LinearLayout addressView = (LinearLayout)findViewById(R.id.order_address_view);
             deliveryView = getLayoutInflater().inflate(R.layout.delivery_layout, null);
             addressView.addView(deliveryView);
+
+            Spinner spinner = (Spinner) findViewById(R.id.predefined_address_spinner);
+// Create an ArrayAdapter using the string array and a default spinner layout
+            ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                    R.array.predefined_address_array, android.R.layout.simple_spinner_item);
+// Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+// Apply the adapter to the spinner
+            spinner.setAdapter(adapter);
         }
 
         mBrownOrderItemListFragment = new BrownOrderItemListFragment();
@@ -67,24 +82,35 @@ public class BrownBuyerActivity extends ActionBarActivity {
         orderCompleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+
                 if (orderType == 3) {
                     TextView userAddressInfo = (TextView) findViewById(R.id.order_info_address);
                     mCurrentOrder.setmAddress(userAddressInfo.getText().toString());
                 }
                 TextView userName = (TextView)findViewById(R.id.order_info_user_name);
                 TextView userCellNumber = (TextView)findViewById(R.id.order_info_user_phone);
-                mCurrentOrder.setmBuyerName(userName.getText().toString());
-                mCurrentOrder.setmBuyerCellNumber(Integer.valueOf(userCellNumber.getText().toString()));
+                if (userName.getText().toString().isEmpty() || userCellNumber.getText().toString().isEmpty()) {
+                    Toast.makeText(BrownBuyerActivity.this, "fill all your information", Toast.LENGTH_SHORT).show();
+                } else {
+
+                    mCurrentOrder.setmBuyerName(userName.getText().toString());
+                    mCurrentOrder.setmBuyerCellNumber(userCellNumber.getText().toString());
 
 
-               //if session add fragment
+                    Intent i = new Intent(BrownBuyerActivity.this, BrownOrderActivity.class);
+                    startActivity(i);
+                    //if session add fragment
 
-               //else complete order
+                    //else complete order
 
 //                SmsManager sms = SmsManager.getDefault();
 //                sms.sendTextMessage("01099155894", null, "hello", null, null);
 //
-//                new HttpRequestTask().execute();
+                    new HttpRequestOrderComplete().execute();
+                }
+
             }
         });
 
@@ -103,8 +129,8 @@ public class BrownBuyerActivity extends ActionBarActivity {
         protected BrownOrder doInBackground(Void... params) {
             try {
 
-//                final String url = "http://browntime123.cafe24.com/json/addOrder";
-                final String url = "http://10.0.2.2:8080/BrownTime/json/addOrder";
+                final String url = "http://browntime123.cafe24.com/json/addOrder";
+//                final String url = "http://10.0.2.2:8080/BrownTime/json/addOrder";
                 RestTemplate restTemplate = new RestTemplate();
                 restTemplate.setMessageConverters(new JSONRequest().getMessageConverters());
 
@@ -121,7 +147,7 @@ public class BrownBuyerActivity extends ActionBarActivity {
         @Override
         protected void onPostExecute(BrownOrder greeting) {
             Intent i = new Intent(BrownBuyerActivity.this, BrownOrderActivity.class);
-            OrderLab.get(BrownBuyerActivity.this).addOrder(mCurrentOrder);
+//            OrderLab.get(BrownBuyerActivity.this).addOrder(mCurrentOrder);
             startActivity(i);
         }
     }

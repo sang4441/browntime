@@ -46,10 +46,12 @@ public class BrownOrderItemListFragment extends ListFragment {
 						.inflate(R.layout.list_item_order, parent, false);
 			} 
 			
-			BrownCart c = getItem(position);			
-			
-			TextView nameTextView = (TextView)convertView.findViewById(R.id.order_menu_name);
-			nameTextView.setText(c.getmName());
+			BrownCart c = getItem(position);
+            String packageName = getActivity().getPackageName();
+
+            TextView nameTextView = (TextView)convertView.findViewById(R.id.order_menu_name);
+            String menuName = getResources().getString(getResources().getIdentifier(c.getmName(),"string", packageName));
+            nameTextView.setText(menuName);
 			
 			TextView priceTextView = (TextView)convertView.findViewById(R.id.order_menu_price);
 			priceTextView.setText(String.valueOf(c.getmPrice()));

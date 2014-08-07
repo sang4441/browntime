@@ -13,7 +13,7 @@ public class BrownBuyer {
     @JsonProperty("buyerName")
     private String mBuyerName;
     @JsonProperty("buyerCellNumber")
-    private int mBuyerCellNumber;
+    private String mBuyerCellNumber;
     @JsonProperty("isCertified")
     private int mIsCertified;
     @JsonProperty("smsNumber")
@@ -29,13 +29,6 @@ public class BrownBuyer {
         this.mBuyerName = mBuyerName;
     }
 
-    public int getmBuyerCellNumber() {
-        return mBuyerCellNumber;
-    }
-
-    public void setmBuyerCellNumber(int mBuyerCellNumber) {
-        this.mBuyerCellNumber = mBuyerCellNumber;
-    }
 
     public int getmBuyerId() {
         return mBuyerId;
@@ -45,6 +38,13 @@ public class BrownBuyer {
         this.mBuyerId = mBuyerId;
     }
 
+    public String getmBuyerCellNumber() {
+        return mBuyerCellNumber;
+    }
+
+    public void setmBuyerCellNumber(String mBuyerCellNumber) {
+        this.mBuyerCellNumber = mBuyerCellNumber;
+    }
 
     public int getmIsCertified() {
         return mIsCertified;

@@ -3,10 +3,16 @@
 
     <string-array name="planets_array">
         <item>브라운타임</item>
-        <item>직원</item>
         <item>메뉴 및 주문</item>
         <item>주문 상태</item>
         <item>연락처</item>
+    </string-array>
+
+    <string-array name="predefined_address_array">
+        <item>인계동</item>
+        <item>매탄1동</item>
+        <item>매탄2동</item>
+        <item>매탄3동</item>
     </string-array>
 
     <string name="drawer_open">열기</string>
@@ -109,13 +115,14 @@
     <string name="order_menu_price_total_label">총 주문 금액</string>
     <string name="order_type_label">주문 타입</string>
     <string name="order_complete_label">주문이 성공적으로 완료 되었습니다</string>
-    <string name="default_address">경기도 수원시 팔달구 인계동</string>
+    <string name="default_address">경기도 수원시 팔달구</string>
     <string name="order_general_information_label">주문을 위해 정확한 정보를 입력해 주세요.</string>
     <string name="order_name_label">이름</string>
     <string name="order_phone_label">번호</string>
-    <string name="order_address_information_label">현재 배달 가능 지역은 인계동 입니다. 나머지 주소를 입력해 주세요.</string>
+    <string name="order_address_information_label">현재 배달 가능 지역입니다. 나머지 주소를 입력해 주세요.</string>
     <string name="order_address_label">나머지 주소</string>
     <string name="order_complete_button_label">주문 완료</string>
+    <string name="order_complete_see_status_button_label">주문 상태 보러가기</string>
     <string name="order_hour">시</string>
     <string name="order_minute">분</string>
     <string name="order_time_label">까지 부탁해요</string>
@@ -139,4 +146,12 @@
     <string name="order_confirmation_request_button">인증번호요청</string>
     <string name="order_confirmation_edit_text_info">인증번호 4자리를 적어주세요.</string>
     <string name="order_confirmation_button">인증확인</string>
+    <string name="order_confirmation_back_button_label">정보 바꾸기</string>
+
+    <string name="order_time_with_duration">%1$s 시 %2$s 분 (예상: %3$s 분)</string>
+    <string name="order_time_without_duration">%1$s 시 %2$s 분</string>
+
+    <string name="contact_label">브라운 타임 연락처</string>
+    <string name="contact_phone">전화: 070-4118-1111</string>
+    <string name="contact_address">주소: 경기도 수원시 팔달구 인계동 1121-9</string>
 </resources>

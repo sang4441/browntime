@@ -59,17 +59,19 @@ public class BrownUserOrderFragment extends Fragment {
 
             if (convertView == null) {
                 convertView = getActivity().getLayoutInflater()
-                        .inflate(R.layout.list_item_user_cart, parent, false);
+                        .inflate(R.layout.list_item_order, parent, false);
             }
 
             BrownCart cart = getItem(position);
 
-            TextView cartQuantity = (TextView) convertView.findViewById(R.id.order_cart_quantity);
+            TextView cartQuantity = (TextView) convertView.findViewById(R.id.order_menu_quantity);
             cartQuantity.setText(String.valueOf(cart.getmQuantity()));
-            TextView cartName = (TextView) convertView.findViewById(R.id.order_cart_name);
+            TextView cartName = (TextView) convertView.findViewById(R.id.order_menu_name);
             cartName.setText(cart.getmName());
-            TextView cartPrice = (TextView) convertView.findViewById(R.id.order_cart_price);
+            TextView cartPrice = (TextView) convertView.findViewById(R.id.order_menu_price);
             cartPrice.setText(String.valueOf(cart.getmPrice()));
+            TextView cartTotalPrice = (TextView) convertView.findViewById(R.id.order_menu_price_total);
+            cartTotalPrice.setText(String.valueOf(cart.getmPriceTotal()));
 
             return convertView;
         }

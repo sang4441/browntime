@@ -4,6 +4,14 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/order_detail"
+        style="?android:listSeparatorTextViewStyle"
+        android:textSize="25dp"
+        />
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -11,35 +19,24 @@
         style="?android:listSeparatorTextViewStyle">
 
         <TextView android:text="@string/order_menu_name_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18dp"/>
-        <View
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            />
+            android:textSize="18dp"/>
         <TextView android:text="@string/order_menu_price_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18dp"/>
-        <View
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            />
+            android:textSize="18dp"/>
         <TextView android:text="@string/order_menu_quantity_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18dp"/>
-        <View
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            />
-        <TextView android:text="@string/order_menu_price_total_label"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18dp"/>
+        <TextView android:text="@string/order_menu_price_total_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:textSize="18dp"/>
     </LinearLayout>
 
@@ -55,13 +52,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="?android:listSeparatorTextViewStyle"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="20dp"
             android:text="@string/order_menu_price_total_label"/>
         <TextView
             android:id="@+id/order_menu_price_total"
+            android:textSize="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
@@ -70,6 +70,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:paddingTop="10dp"
         android:text="@string/order_general_information_label"/>
 
     <EditText
@@ -77,6 +79,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
+        android:textSize="20dp"
         android:hint="@string/order_name_label"/>
 
     <EditText
@@ -84,6 +87,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
+        android:textSize="20dp"
         android:hint="@string/order_phone_label"/>
 
 

@@ -34,6 +34,8 @@ import com.android.browntime.JSONRequest;
 import com.android.browntime.R;
 import com.android.browntime.dataLab.CartLab;
 import com.android.browntime.dataLab.MenuLab;
+import com.android.browntime.fragment.BrownAboutFragment;
+import com.android.browntime.fragment.BrownContactFragment;
 import com.android.browntime.model.BrownCategory;
 import com.android.browntime.model.BrownMenu;
 import com.android.browntime.service.BrownOrderStatusService;
@@ -90,6 +92,7 @@ public class DrawerActivity extends ActionBarActivity {
         AlarmManager alarm = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
         alarm.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), 30*1000, pintent);
 
+        int position = getIntent().getIntExtra("drawer_position", 1);
 
         mPlanetTitles = getResources().getStringArray(R.array.planets_array);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -153,7 +156,7 @@ public class DrawerActivity extends ActionBarActivity {
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
 
-        selectItem(2);
+        selectItem(1);
 
     }
 
@@ -181,7 +184,9 @@ public class DrawerActivity extends ActionBarActivity {
     private void selectItem(int position) {
         // Create a new fragment and specify the planet to show based on position
 
-        if (position == 2) {
+        if (position == 0) {
+            fragmentDrawer = new BrownAboutFragment();
+        } else if (position == 1) {
             fragmentDrawer = new menuFragment();
 
 //            if (MenuLab.get(DrawerActivity.this).isEmpty()) {
@@ -190,11 +195,13 @@ public class DrawerActivity extends ActionBarActivity {
 //                createPager();
 //            }
             new HttpRequestTask().execute();
-        } else if (position == 3) {
+        } else if (position == 2) {
 //            Bundle args = new Bundle();
 //            args.putInt(OrderHistoryFragment.ARG_DRAWER_NUMBER, position);
 //            fragmentDrawer.setArguments(args);
             fragmentDrawer = new BrownTestFragment();
+        } else {
+            fragmentDrawer = new BrownContactFragment();
         }
 
         FragmentManager fragmentManager = getFragmentManager();

@@ -7752,9 +7752,6 @@ wrap_content
 브라운타임
                     </item>
                     <item>
-직원
-                    </item>
-                    <item>
 메뉴 및 주문
                     </item>
                     <item>
@@ -7766,6 +7763,8 @@ wrap_content
                 </string-array>
 
                 <string name="confirmed" >주문확인됨
+                </string>
+                <string name="order_confirmation_back_button_label" >정보 바꾸기
                 </string>
                 <string name="order_confirmation_request_button" >인증번호요청
                 </string>
@@ -7786,6 +7785,8 @@ wrap_content
                 <string name="order_general_information_label" >주문을 위해 정확한 정보를 입력해 주세요.
                 </string>
                 <string name="tea_english_breakfast" >잉글리쉬브랙퍼스트
+                </string>
+                <string name="order_time_with_duration" >%1$s 시 %2$s 분 (예상: %3$s 분)
                 </string>
                 <string name="menu_button_add_to_cart" >장바구니
                 </string>
@@ -7829,6 +7830,8 @@ wrap_content
                 </string>
                 <string name="order_menu_quantity_label" >수량
                 </string>
+                <string name="contact_phone" >전화: 070-4118-1111
+                </string>
                 <string name="order_menu_price_label" >가격
                 </string>
                 <string name="checkout_delivery" >배달주문이요
@@ -7843,7 +7846,7 @@ wrap_content
                 </string>
                 <string name="order_menu_name_label" >품명
                 </string>
-                <string name="order_address_information_label" >현재 배달 가능 지역은 인계동 입니다. 나머지 주소를 입력해 주세요.
+                <string name="order_address_information_label" >현재 배달 가능 지역입니다. 나머지 주소를 입력해 주세요.
                 </string>
                 <string name="aid_brown" >브라운 에이드
                 </string>
@@ -7867,6 +7870,8 @@ wrap_content
                 </string>
                 <string name="menu_special_instruction_hint" >요청사항을 적어주세요
                 </string>
+                <string name="contact_address" >주소: 경기도 수원시 팔달구 인계동 1121-9
+                </string>
                 <string name="smoothie_vanilla" >바닐라 스무디
                 </string>
                 <string name="drawer_close" >닫기
@@ -7882,6 +7887,8 @@ wrap_content
                 <string name="iced_latte_grain" >오곡라떼 (ice)
                 </string>
                 <string name="smoothie_yogurt" >요거트 스무디
+                </string>
+                <string name="order_complete_see_status_button_label" >주문 상태 보러가기
                 </string>
                 <string name="order_confirmation_button" >인증확인
                 </string>
@@ -7957,13 +7964,33 @@ wrap_content
                 </string>
                 <string name="delivery" >배달
                 </string>
-                <string name="default_address" >경기도 수원시 팔달구 인계동
+                <string name="default_address" >경기도 수원시 팔달구
                 </string>
                 <string name="latte_greentea" >그린티라떼 (hot)
                 </string>
                 <string name="iced_latte_chai" >짜이라떼 (ice)
                 </string>
+                <string name="contact_label" >브라운 타임 연락처
+                </string>
                 <string name="menu_button_checkout" >바로주문
+                </string>
+
+                <string-array name="predefined_address_array" >
+                    <item>
+인계동
+                    </item>
+                    <item>
+매탄1동
+                    </item>
+                    <item>
+매탄2동
+                    </item>
+                    <item>
+매탄3동
+                    </item>
+                </string-array>
+
+                <string name="order_time_without_duration" >%1$s 시 %2$s 분
                 </string>
                 <string name="cart_label_not_empty" > 보러가기
                 </string>
@@ -8061,6 +8088,31 @@ wrap_content
                 path="/Users/kimsanghwan/workspace/Android/BrownTime/res/layout/form_order_details.xml"
                 qualifiers=""
                 type="layout" />
+            <file
+                name="fragment_buyer_sms_form"
+                path="/Users/kimsanghwan/workspace/Android/BrownTime/res/layout/fragment_buyer_sms_form.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="brown_map"
+                path="/Users/kimsanghwan/workspace/Android/BrownTime/res/drawable-mdpi/brown_map.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="fragment_about"
+                path="/Users/kimsanghwan/workspace/Android/BrownTime/res/layout/fragment_about.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="fragment_contact"
+                path="/Users/kimsanghwan/workspace/Android/BrownTime/res/layout/fragment_contact.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="brown_front"
+                path="/Users/kimsanghwan/workspace/Android/BrownTime/res/drawable-mdpi/brown_front.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
         </source>
         <source path="/Users/kimsanghwan/workspace/Android/BrownTime/build/generated/res/rs/debug" />
         <source path="/Users/kimsanghwan/workspace/Android/BrownTime/build/generated/res/generated/debug" />

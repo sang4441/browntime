@@ -34,7 +34,8 @@ public class BrownOrderStatusService extends IntentService {
         protected List<BrownOrder> doInBackground(Void... params) {
             try {
 
-                final String url = "http://10.0.2.2:8080/BrownTime/json/getOrder";
+//                final String url = "http://10.0.2.2:8080/BrownTime/json/getOrder";
+                final String url = "http://browntime123.cafe24.com/json/getOrder";
                 RestTemplate restTemplate = new RestTemplate();
                 restTemplate.setMessageConverters(new JSONRequest().getMessageConverters());
 

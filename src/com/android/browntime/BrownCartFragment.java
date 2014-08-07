@@ -2,16 +2,13 @@ package com.android.browntime;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -78,55 +75,53 @@ public class BrownCartFragment extends Fragment {
 				}
 			});
 	        
-	        mTimeContainer = (View)v.findViewById(R.id.checkoutOrderTimeContainer);
-	        
-	        mCheckoutOrderTime = (TextView)v.findViewById(R.id.checkoutOrderTime);
-	        
-	        mCheckoutOrderTimeButton = (Button)v.findViewById(R.id.checkoutOrderTimeButton);
-//	        mCheckoutOrderTimeButton.setText(R.string.cart_timer_label);
-	        mCheckoutOrderTimeButton.setOnClickListener(new View.OnClickListener() {
-				
-				@Override
-				public void onClick(View v) {
-					DialogFragment newFragment = new TimePickerFragment();
-				    newFragment.show(getActivity().getSupportFragmentManager(), DIALOG_TIME);
-				}
-			});
-	        
-	        mCheckoutOrderTimeRadio = (RadioGroup)v.findViewById(R.id.checkoutOrderRadio);        
-	        mCheckoutOrderTimeRadio.setOnCheckedChangeListener(new OnCheckedChangeListener() 
-	        {
-	            public void onCheckedChanged(RadioGroup group, int checkedId) {
-	            	onRadioButtonClicked(v.findViewById(checkedId));
-	            }
-	        });
+//	        mTimeContainer = (View)v.findViewById(R.id.checkoutOrderTimeContainer);
+//
+//	        mCheckoutOrderTime = (TextView)v.findViewById(R.id.checkoutOrderTime);
+//
+//	        mCheckoutOrderTimeButton = (Button)v.findViewById(R.id.checkoutOrderTimeButton);
+////	        mCheckoutOrderTimeButton.setText(R.string.cart_timer_label);
+//	        mCheckoutOrderTimeButton.setOnClickListener(new View.OnClickListener() {
+//
+//				@Override
+//				public void onClick(View v) {
+//					DialogFragment newFragment = new TimePickerFragment();
+//				    newFragment.show(getActivity().getSupportFragmentManager(), DIALOG_TIME);
+//				}
+//			});
+//
+//	        mCheckoutOrderTimeRadio = (RadioGroup)v.findViewById(R.id.checkoutOrderRadio);
+//	        mCheckoutOrderTimeRadio.setOnCheckedChangeListener(new OnCheckedChangeListener()
+//	        {
+//	            public void onCheckedChanged(RadioGroup group, int checkedId) {
+//	            	onRadioButtonClicked(v.findViewById(checkedId));
+//	            }
+//	        });
 	        
 	        return v;
 	}
 
-	 
-	 public void onRadioButtonClicked(View view) {
-        // Is the button now checked?
-        boolean checked = ((RadioButton) view).isChecked();
-        
-        // Check which radio button was clicked
-        switch(view.getId()) {
-            case R.id.checkoutOrderInAdvance:
-                if (checked) {
-// 					Toast.makeText(this, R.string.checkout_order_in_advance, Toast.LENGTH_SHORT).show();
- 					mTimeContainer.setVisibility(View.VISIBLE);
-// 					mCurrentOrder.setType(1);
-                }
-                break;
-            case R.id.checkoutOrderNow:
-                if (checked) {
-// 					Toast.makeText(this, R.string.checkout_order_now, Toast.LENGTH_SHORT).show();
- 					mTimeContainer.setVisibility(View.GONE);
-// 					mCurrentOrder.setType(2);
-                }
-                break;
-        }
-    }
+//
+//	 public void onRadioButtonClicked(View view) {
+//        // Is the button now checked?
+//        boolean checked = ((RadioButton) view).isChecked();
+//
+//        // Check which radio button was clicked
+//        switch(view.getId()) {
+//            case R.id.checkoutOrderInAdvance:
+//                if (checked) {
+// 					mTimeContainer.setVisibility(View.VISIBLE);
+//                }
+//                break;
+//            case R.id.checkoutOrderNow:
+//                if (checked) {
+// 					mTimeContainer.setVisibility(View.GONE);
+//                }
+//                break;
+//        }
+//    }
+//
+//
 	 public void orderComplete(int type) {
          mCurrentOrder.setmCarts(CartLab.get(getActivity()).getMenus());
          mCurrentOrder.setmPrice(CartLab.get(getActivity()).getPriceTotal());
@@ -139,7 +134,8 @@ public class BrownCartFragment extends Fragment {
 	 }
 	 
 	 public void setTextTime(TimePicker view, int hourOfDay, int minute) {
-            mCheckoutOrderTime.setText(hourOfDay + R.string.order_hour + minute + R.string.order_minute + R.string.order_time_label);
+//         mCheckoutOrderTime.setText();
+//            mCheckoutOrderTime.setText(hourOfDay + R.string.order_hour + minute + R.string.order_minute + R.string.order_time_label);
             mCheckoutOrderTime.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
 	  }
 	 

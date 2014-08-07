@@ -47,12 +47,14 @@ public class BrownMenuFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.fragment_menu,  parent, false);
-	
-		mMenuPriceTotal = (TextView)v.findViewById(R.id.menu_price_total);
+        String packageName = getActivity().getPackageName();
+
+        mMenuPriceTotal = (TextView)v.findViewById(R.id.menu_price_total);
 		mMenuPriceTotal.setText(String.valueOf(mMenu.getmPrice()));
 
 		mMenuName = (TextView)v.findViewById(R.id.menu_name);
-		mMenuName.setText(mMenu.getmName());
+        String menuName = getResources().getString(getResources().getIdentifier(mMenu.getmName(),"string", packageName));
+		mMenuName.setText(menuName);
 		
 		mMenuPrice = (TextView)v.findViewById(R.id.menu_price);
 		mMenuPrice.setText(String.valueOf(mMenu.getmPrice()));

@@ -1,5 +1,6 @@
 package com.android.browntime;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.text.Editable;
@@ -12,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.android.browntime.activity.BrownCartListActivity;
+import com.android.browntime.activity.DrawerActivity;
 import com.android.browntime.dataLab.CartLab;
 import com.android.browntime.model.BrownCart;
 
@@ -29,6 +31,11 @@ public class BrownCartListFragment extends ListFragment {
 		super.onCreate(savedInstanceState);
 
 		mCartItems = CartLab.get(getActivity()).getMenus();
+
+        if (mCartItems.size() == 0) {
+            Intent i = new Intent(getActivity(), DrawerActivity.class);
+            startActivity(i);
+        }
 		
 		BrownCartAdapter adapter = new BrownCartAdapter(mCartItems);
 		
@@ -51,9 +58,12 @@ public class BrownCartListFragment extends ListFragment {
 			} 
 			
 			cart = getItem(position);
-			
-			TextView nameTextView = (TextView)convertView.findViewById(R.id.cart_menu_name);
-			nameTextView.setText(cart.getmName());
+            String packageName = getActivity().getPackageName();
+
+            TextView nameTextView = (TextView)convertView.findViewById(R.id.cart_menu_name);
+
+            String cartName = getResources().getString(getResources().getIdentifier(cart.getmName(),"string", packageName));
+			nameTextView.setText(cartName);
 			
 			TextView priceTextView = (TextView)convertView.findViewById(R.id.cart_menu_price);
 			priceTextView.setText(String.valueOf(cart.getmPrice()));

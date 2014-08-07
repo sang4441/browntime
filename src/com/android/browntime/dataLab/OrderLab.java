@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OrderLab {
+    private BrownOrder mCurrentOrder;
 	private List<BrownOrder> mOrders;
 	private static OrderLab sBrownLab;
 	private Context mAppContext;
@@ -15,9 +16,10 @@ public class OrderLab {
 	private OrderLab(Context appContext) {
 		mAppContext = appContext;
 		mOrders = new ArrayList<BrownOrder>();
+        mCurrentOrder = new BrownOrder();
 	}
 
-	public static OrderLab get(Context c) {
+	public static OrderLab  get(Context c) {
 		if (sBrownLab == null) {
 			sBrownLab = new OrderLab(c.getApplicationContext());
 		}
@@ -25,7 +27,12 @@ public class OrderLab {
 	}
 	
 	public void addOrder(BrownOrder order) {
-		mOrders.add(order);
+//        for (BrownOrder oldOrder : mOrders) {
+//            mOrders.remove(oldOrder);
+//        }
+        mCurrentOrder = order;
+//        mOrders.removeAll(mOrders);
+//		mOrders.add(order);
 	}
     public List<BrownOrder> getOrders() { return mOrders; }
 
@@ -38,10 +45,12 @@ public class OrderLab {
     }
     public void setOrders(List<BrownOrder> orders) {
         mOrders = orders;
+//        mOrders = new LinkedList(Arrays.asList(orders));
+//        mOrders = new ArrayList<BrownOrder>(Arrays.asList(orders));
     }
 
     public BrownOrder getLastOrder() {
-		return mOrders.get(mOrders.size()-1);
+		return mCurrentOrder;
 	}
 	
 }

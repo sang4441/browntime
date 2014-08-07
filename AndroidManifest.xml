@@ -44,14 +44,20 @@
         </activity>
        <activity
             android:name=".activity.BrownOrderActivity"
-            android:label="@string/app_name"> 
+            android:label="@string/app_name">
         </activity>
         <activity
             android:name=".activity.BrownBuyerActivity"
+            android:parentActivityName=".activity.BrownCartListActivity"
             android:label="@string/app_name">
         </activity>
         <activity
             android:name=".BrownUserOrderPagerActivity"
+            android:parentActivityName=".activity.DrawerActivity"
+            android:label="@string/app_name">
+        </activity>
+        <activity
+            android:name=".activity.BrownSMSActivity"
             android:label="@string/app_name">
         </activity>
         <service

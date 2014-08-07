@@ -13,7 +13,7 @@ public class BrownCart extends BrownMenu {
     private String mInstruction;
 
     public int getmPriceTotal() {
-        return mPriceTotal*mQuantity;
+        return getmPrice() * mQuantity;
     }
 
     public void setmPriceTotal(int mPriceTotal) {

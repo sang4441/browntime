@@ -34,6 +34,7 @@ public class CartLab {
 	public int getPriceTotal() {
 		int total = 0;
 		for (BrownCart cart : mCarts) {
+//            int cartTotal = cart.getmPriceTotal();
 			total = total + cart.getmPriceTotal();
 		}
 		return total;
