@@ -1,4 +1,4 @@
-package com.android.browntime;
+package com.android.browntime.fragment;
 
 import android.content.Intent;
 import android.graphics.LightingColorFilter;
@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.browntime.R;
 import com.android.browntime.activity.BrownCartListActivity;
 import com.android.browntime.activity.DrawerActivity;
 import com.android.browntime.dataLab.CartLab;

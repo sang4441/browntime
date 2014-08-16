@@ -8,7 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 
-import com.android.browntime.BrownMenuFragment;
+import com.android.browntime.fragment.BrownMenuFragment;
 import com.android.browntime.dataLab.MenuLab;
 import com.android.browntime.R;
 import com.android.browntime.model.BrownMenu;

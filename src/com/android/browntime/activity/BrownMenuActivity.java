@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
 
-import com.android.browntime.BrownMenuFragment;
+import com.android.browntime.fragment.BrownMenuFragment;
 import com.android.browntime.R;
 
 public class BrownMenuActivity extends ActionBarActivity {

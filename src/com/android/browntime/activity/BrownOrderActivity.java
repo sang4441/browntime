@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.android.browntime.BrownOrderItemListFragment;
 import com.android.browntime.R;
+import com.android.browntime.dataLab.CartLab;
 import com.android.browntime.model.BrownOrder;
 
 public class BrownOrderActivity extends ActionBarActivity {
@@ -24,6 +25,9 @@ public class BrownOrderActivity extends ActionBarActivity {
 	        setContentView(R.layout.activity_order);
 
             Button goToSeeOrderStatusButton = (Button)findViewById(R.id.order_complete_see_status_button);
+
+
+
             goToSeeOrderStatusButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -32,6 +36,8 @@ public class BrownOrderActivity extends ActionBarActivity {
                     startActivity(i);
                 }
             });
+
+        CartLab.get(BrownOrderActivity.this).clearCart();
 //	        mOrderType = (TextView)findViewById(R.id.order_menu_type);
 //
 //	        int orderType = OrderLab.get(this).getLastOrder().getmType();

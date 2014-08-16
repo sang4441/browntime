@@ -1,4 +1,4 @@
-package com.android.browntime;
+package com.android.browntime.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,8 +14,10 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.browntime.R;
 import com.android.browntime.activity.BrownPagerActivity;
 import com.android.browntime.dataLab.MenuLab;
+import com.android.browntime.fragment.BrownMenuFragment;
 import com.android.browntime.model.BrownMenu;
 
 import java.util.ArrayList;
@@ -31,11 +33,11 @@ public class BrownMenuListFragment extends Fragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
         Bundle args = getArguments();
         mMenus = MenuLab.get(getActivity()).getMenus(args.getInt(MENU_TYPE));
 	}
-	
-	
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.main,  parent, false);

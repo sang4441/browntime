@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:BrownTime="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/user_order_refresh"
+        android:icon="@drawable/ic_action_refresh"
+        BrownTime:showAsAction="always"
+        android:title="@string/refresh"/>
+</menu><!-- From: file:/Users/kimsanghwan/workspace/Android/BrownTime/res/menu/fragment_user_orders.xml -->

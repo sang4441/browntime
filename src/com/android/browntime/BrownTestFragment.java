@@ -7,6 +7,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -34,11 +37,12 @@ public class BrownTestFragment extends Fragment {
     private ArrayList<BrownOrder> orders;
     View v;
     ListView listView;
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//
-//    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
@@ -48,6 +52,26 @@ public class BrownTestFragment extends Fragment {
         new HttpRequestTask().execute();
 
         return v;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+//        MenuItem item = menu.findItem(R.id.user_order_cart);
+//        item.setVisible(false);
+        inflater.inflate(R.menu.fragment_user_orders, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.user_order_refresh:
+                new HttpRequestTask().execute();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private class BrownOrderAdapter extends ArrayAdapter<BrownOrder> {
@@ -86,8 +110,8 @@ public class BrownTestFragment extends Fragment {
             Date orderTime = order.getmTime();
             Calendar calendar = GregorianCalendar.getInstance();
             calendar.setTime(orderTime);
-            String hour = String.valueOf(calendar.get(Calendar.HOUR_OF_DAY));
-            String minute = String.valueOf(calendar.get(Calendar.HOUR));
+            String hour = String.valueOf(calendar.get(Calendar.HOUR));
+            String minute = String.valueOf(calendar.get(Calendar.MINUTE));
 
 
             if (order.getmStatusId() == 1) {

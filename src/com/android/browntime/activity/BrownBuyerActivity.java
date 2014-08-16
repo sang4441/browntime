@@ -33,7 +33,7 @@ public class BrownBuyerActivity extends ActionBarActivity {
     private BrownOrder mCurrentOrder;
     private View deliveryView;
     int orderType;
-    String requiredSMSNum;
+    Spinner spinner;
     LinearLayout detailWrap;
     BrownOrderItemListFragment mBrownOrderItemListFragment;
 
@@ -62,7 +62,8 @@ public class BrownBuyerActivity extends ActionBarActivity {
             deliveryView = getLayoutInflater().inflate(R.layout.delivery_layout, null);
             addressView.addView(deliveryView);
 
-            Spinner spinner = (Spinner) findViewById(R.id.predefined_address_spinner);
+            spinner = (Spinner) findViewById(R.id.predefined_address_spinner);
+
 // Create an ArrayAdapter using the string array and a default spinner layout
             ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                     R.array.predefined_address_array, android.R.layout.simple_spinner_item);
@@ -87,7 +88,8 @@ public class BrownBuyerActivity extends ActionBarActivity {
 
                 if (orderType == 3) {
                     TextView userAddressInfo = (TextView) findViewById(R.id.order_info_address);
-                    mCurrentOrder.setmAddress(userAddressInfo.getText().toString());
+                    String selectedItem = spinner.getSelectedItem().toString();
+                    mCurrentOrder.setmAddress(selectedItem+ "\t" + userAddressInfo.getText().toString());
                 }
                 TextView userName = (TextView)findViewById(R.id.order_info_user_name);
                 TextView userCellNumber = (TextView)findViewById(R.id.order_info_user_phone);
@@ -99,8 +101,8 @@ public class BrownBuyerActivity extends ActionBarActivity {
                     mCurrentOrder.setmBuyerCellNumber(userCellNumber.getText().toString());
 
 
-                    Intent i = new Intent(BrownBuyerActivity.this, BrownOrderActivity.class);
-                    startActivity(i);
+//                    Intent i = new Intent(BrownBuyerActivity.this, BrownOrderActivity.class);
+//                    startActivity(i);
                     //if session add fragment
 
                     //else complete order

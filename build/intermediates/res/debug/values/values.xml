@@ -565,6 +565,8 @@
     </style>
 
     <style name="AppTheme" parent="AppBaseTheme">
+        <!-- <item name="actionBarStyle">@style/Widget.Styled.ActionBar</item> -->
+        <!-- <item name="android:actionBarStyle">@style/Widget.Styled.ActionBar</item> -->
         <!-- <item name="android:listSeparatorTextViewStyle">@style/myLineSeparator</item> -->
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>

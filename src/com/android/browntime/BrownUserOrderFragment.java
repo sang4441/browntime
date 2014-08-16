@@ -64,10 +64,15 @@ public class BrownUserOrderFragment extends Fragment {
 
             BrownCart cart = getItem(position);
 
+            String packageName = getActivity().getPackageName();
+
             TextView cartQuantity = (TextView) convertView.findViewById(R.id.order_menu_quantity);
             cartQuantity.setText(String.valueOf(cart.getmQuantity()));
+
             TextView cartName = (TextView) convertView.findViewById(R.id.order_menu_name);
-            cartName.setText(cart.getmName());
+            String cartNameLabel = getResources().getString(getResources().getIdentifier(cart.getmName(),"string", packageName));
+            cartName.setText(cartNameLabel);
+
             TextView cartPrice = (TextView) convertView.findViewById(R.id.order_menu_price);
             cartPrice.setText(String.valueOf(cart.getmPrice()));
             TextView cartTotalPrice = (TextView) convertView.findViewById(R.id.order_menu_price_total);

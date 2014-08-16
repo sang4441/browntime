@@ -1,10 +1,8 @@
 package com.android.browntime.activity;
 
 import android.app.ActionBar;
-import android.app.AlarmManager;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -18,6 +16,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +27,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.browntime.BrownMenuListFragment;
+import com.android.browntime.fragment.BrownMenuListFragment;
 import com.android.browntime.BrownTestFragment;
 import com.android.browntime.DemoCollectionPagerAdapter;
 import com.android.browntime.JSONRequest;
@@ -35,15 +35,12 @@ import com.android.browntime.R;
 import com.android.browntime.dataLab.CartLab;
 import com.android.browntime.dataLab.MenuLab;
 import com.android.browntime.fragment.BrownAboutFragment;
-import com.android.browntime.fragment.BrownContactFragment;
 import com.android.browntime.model.BrownCategory;
 import com.android.browntime.model.BrownMenu;
-import com.android.browntime.service.BrownOrderStatusService;
 
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
-import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -86,13 +83,13 @@ public class DrawerActivity extends ActionBarActivity {
         setContentView(R.layout.drawer_layout);
 
         //set up service for order status update
-        Calendar cal = Calendar.getInstance();
-        Intent intent = new Intent(this, BrownOrderStatusService.class);
-        PendingIntent pintent = PendingIntent.getService(this, 0, intent, 0);
-        AlarmManager alarm = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-        alarm.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), 30*1000, pintent);
+//        Calendar cal = Calendar.getInstance();
+//        Intent intent = new Intent(this, BrownOrderStatusService.class);
+//        PendingIntent pintent = PendingIntent.getService(this, 0, intent, 0);
+//        AlarmManager alarm = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+//        alarm.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), 30*1000, pintent);
 
-        int position = getIntent().getIntExtra("drawer_position", 1);
+
 
         mPlanetTitles = getResources().getStringArray(R.array.planets_array);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -156,7 +153,11 @@ public class DrawerActivity extends ActionBarActivity {
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
 
-        selectItem(1);
+        int position = getIntent().getIntExtra("drawer_position", 1);
+//        if (position != null) {
+//
+//        }
+        selectItem(position);
 
     }
 
@@ -165,6 +166,7 @@ public class DrawerActivity extends ActionBarActivity {
         public void onItemClick(AdapterView parent, View view, int position, long id) {
             ActionBar actionBar = getActionBar();
             actionBar.removeAllTabs();
+            actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
             selectItem(position);
         }
     }
@@ -173,11 +175,44 @@ public class DrawerActivity extends ActionBarActivity {
         private View vMenu;
 
         @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setHasOptionsMenu(true);
+        }
+
+        @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
             vMenu = inflater.inflate(R.layout.activity_collection_demo, parent, false);
 
             return vMenu;
         }
+
+
+        @Override
+        public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+            super.onCreateOptionsMenu(menu, inflater);
+            inflater.inflate(R.menu.fragment_menu_list, menu);
+        }
+
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+            // Handle item selection
+            switch (item.getItemId()) {
+                case R.id.user_order_cart:
+                    boolean isCartEmpty = CartLab.get(DrawerActivity.this).getMenus().isEmpty();
+
+                    if (isCartEmpty) {
+                        Toast.makeText(DrawerActivity.this, R.string.cart_empty_toast, Toast.LENGTH_SHORT).show();
+                    } else {
+                        Intent intent = new Intent(DrawerActivity.this, BrownCartListActivity.class);
+                        startActivity(intent);
+                    }
+                    return true;
+                default:
+                    return super.onOptionsItemSelected(item);
+            }
+        }
+
     }
 
     /** Swaps fragments in the main content view */
@@ -200,8 +235,13 @@ public class DrawerActivity extends ActionBarActivity {
 //            args.putInt(OrderHistoryFragment.ARG_DRAWER_NUMBER, position);
 //            fragmentDrawer.setArguments(args);
             fragmentDrawer = new BrownTestFragment();
+
+
         } else {
-            fragmentDrawer = new BrownContactFragment();
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
         }
 
         FragmentManager fragmentManager = getFragmentManager();
@@ -276,11 +316,58 @@ public class DrawerActivity extends ActionBarActivity {
 
         @Override
         protected void onPostExecute(List<BrownMenu> menus) {
-            MenuLab.get(DrawerActivity.this).addMenuAll(menus);
-            // ViewPager and its adapters use support library
-            // fragments, so use getSupportFragmentManager.
 
+            if (menus.size() == 0) {
+                Toast.makeText(DrawerActivity.this, "got null", Toast.LENGTH_SHORT).show();
+            } else {
+                MenuLab.get(DrawerActivity.this).addMenuAll(menus);
+            }
         }
+    }
+
+    private void getRefreshActionbar() {
+        final ActionBar actionBar = getActionBar();
+
+        // Specify that tabs should be displayed in the action bar.
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+
+        // Create a tab listener that is called when the user changes tabs.
+        ActionBar.TabListener tabListener = new ActionBar.TabListener() {
+
+            @Override
+            public void onTabReselected(ActionBar.Tab tab,
+                                        android.app.FragmentTransaction ft) {
+            }
+
+            @Override
+            public void onTabSelected(ActionBar.Tab tab,
+                                      android.app.FragmentTransaction ft) {
+                // TODO Auto-generated method stub
+
+            }
+
+            @Override
+            public void onTabUnselected(ActionBar.Tab tab,
+                                        android.app.FragmentTransaction ft) {
+                // TODO Auto-generated method stub
+
+            }
+        };
+
+            actionBar.addTab(actionBar.newTab()
+                    .setText("refresh")
+                    .setTabListener(tabListener));
+//        ActionBar actionBar = getActionBar();
+//
+//        ViewGroup v = (ViewGroup)LayoutInflater.from(this)
+//                .inflate(R.layout.action_bar_refresh, null);
+//        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM,
+//                ActionBar.DISPLAY_SHOW_CUSTOM);
+//        actionBar.setCustomView(v,
+//                new ActionBar.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT,
+//                        ActionBar.LayoutParams.WRAP_CONTENT,
+//                        Gravity.CENTER_VERTICAL | Gravity.RIGHT));
+
     }
 
     private void createTabPager() {
@@ -344,37 +431,37 @@ public class DrawerActivity extends ActionBarActivity {
             TAB_NUM = categories.size();
             createTabPager();
 
-            isCartEmpty = CartLab.get(DrawerActivity.this).getMenus().isEmpty();
-            mGoToCartNum = (TextView) fragmentDrawer.getView().findViewById(R.id.menu_cart_num);
-            mGoToCartNum.setText(R.string.cart_label_empty);
+//            isCartEmpty = CartLab.get(DrawerActivity.this).getMenus().isEmpty();
+//            mGoToCartNum = (TextView) fragmentDrawer.getView().findViewById(R.id.menu_cart_num);
+//            mGoToCartNum.setText(R.string.cart_label_empty);
+//
+//            View cartView = fragmentDrawer.getView().findViewById(R.id.menu_cart_view);
+//            cartView.setOnClickListener(new View.OnClickListener() {
+//
+//
+//
+//                @Override
+//                public void onClick(View v) {
+//                    if (isCartEmpty) {
+//                        Toast.makeText(DrawerActivity.this, R.string.cart_empty_toast, Toast.LENGTH_SHORT).show();
+//                    } else {
+//                        Intent intent = new Intent(DrawerActivity.this, BrownCartListActivity.class);
+//                        startActivity(intent);
+//                    }
+//                }
+//
+//
+//            });
 
-            View cartView = fragmentDrawer.getView().findViewById(R.id.menu_cart_view);
-            cartView.setOnClickListener(new View.OnClickListener() {
+//            if (!isCartEmpty) {
+////                mGoToCartNum.setText(R.string.cart_label_not_empty + "(" + String.valueOf(CartLab.get(DrawerActivity.this).getMenus().size()) + ")");
+//                mGoToCartNum.setText(R.string.cart_label_not_empty);
+//
+//            }
 
 
-
-                @Override
-                public void onClick(View v) {
-                    if (isCartEmpty) {
-                        Toast.makeText(DrawerActivity.this, R.string.cart_empty_toast, Toast.LENGTH_SHORT).show();
-                    } else {
-                        Intent intent = new Intent(DrawerActivity.this, BrownCartListActivity.class);
-                        startActivity(intent);
-                    }
-                }
-
-
-            });
-
-            if (!isCartEmpty) {
-//                mGoToCartNum.setText(R.string.cart_label_not_empty + "(" + String.valueOf(CartLab.get(DrawerActivity.this).getMenus().size()) + ")");
-                mGoToCartNum.setText(R.string.cart_label_not_empty);
-
-            }
-
-
-            mGoToCart = (TextView) fragmentDrawer.getView().findViewById(R.id.menu_cart);
-            mGoToCart.setText(R.string.cart_label);
+//            mGoToCart = (TextView) fragmentDrawer.getView().findViewById(R.id.menu_cart);
+//            mGoToCart.setText(R.string.cart_label);
 
 
 

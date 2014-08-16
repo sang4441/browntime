@@ -5,7 +5,7 @@
         <item>브라운타임</item>
         <item>메뉴 및 주문</item>
         <item>주문 상태</item>
-        <item>연락처</item>
+        <item>종료</item>
     </string-array>
 
     <string-array name="predefined_address_array">
@@ -17,6 +17,8 @@
 
     <string name="drawer_open">열기</string>
     <string name="drawer_close">닫기</string>
+    <string name="refresh">새로고침</string>
+    <string name="cart">장바구니</string>
 
     <string name="espresso">에스프레소 (hot)</string>
     <string name="americano">아메리카노 (hot)</string>
@@ -142,6 +144,7 @@
     <string name="forhere">먹고가기</string>
     <string name="delivery">배달</string>
 
+    <string name="order_number_label">주문 번호 :</string>
     <string name="order_confirmation_info_label">휴대폰 인증은 첫 주문시에만 이루어집니다.</string>
     <string name="order_confirmation_request_button">인증번호요청</string>
     <string name="order_confirmation_edit_text_info">인증번호 4자리를 적어주세요.</string>

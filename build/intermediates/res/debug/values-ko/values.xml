@@ -8,7 +8,7 @@
         <item>브라운타임</item>
         <item>메뉴 및 주문</item>
         <item>주문 상태</item>
-        <item>연락처</item>
+        <item>종료</item>
     </string-array>
     <string-array name="predefined_address_array">
         <item>인계동</item>
@@ -43,6 +43,7 @@
     <string name="americano">아메리카노 (hot)</string>
     <string name="caffe_moka">카페모카 (hot)</string>
     <string name="capucino">카푸치노 (hot)</string>
+    <string name="cart">장바구니</string>
     <string name="cart_added_toast">가 장바구니에 들어갔습니다</string>
     <string name="cart_empty_toast">장바구니가 비어 있습니다</string>
     <string name="cart_label">장바구니</string>
@@ -121,6 +122,7 @@
     <string name="order_menu_quantity_label">수량</string>
     <string name="order_minute">분</string>
     <string name="order_name_label">이름</string>
+    <string name="order_number_label">주문 번호 :</string>
     <string name="order_phone_label">번호</string>
     <string name="order_time_label">까지 부탁해요</string>
     <string name="order_time_with_duration">%1$s 시 %2$s 분 (예상: %3$s 분)</string>
@@ -128,6 +130,7 @@
     <string name="order_type_label">주문 타입</string>
     <string name="pizza_1">pizza one</string>
     <string name="pizza_2">pizza two</string>
+    <string name="refresh">새로고침</string>
     <string name="requested">주문대기중</string>
     <string name="sandwich_1">BLT</string>
     <string name="sandwich_2">Club sandwich</string>

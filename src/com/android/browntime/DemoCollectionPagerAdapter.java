@@ -5,6 +5,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.android.browntime.fragment.BrownMenuListFragment;
+
 //Since this is an object collection, use a FragmentStatePagerAdapter,
 //and NOT a FragmentPagerAdapter.
 public class DemoCollectionPagerAdapter extends FragmentStatePagerAdapter {
